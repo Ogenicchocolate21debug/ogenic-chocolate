@@ -1,0 +1,36 @@
+{
+  "50": {
+    "mass_pct": 35,
+    "butter_pct": 15,
+    "milk_pct": 20,
+    "sugar_pct": 30,
+    "mass_g": 12.25,
+    "butter_g": 5.25,
+    "milk_g": 7.0,
+    "sugar_g": 10.5
+  },
+  "80": {
+    "mass_pct": 75,
+    "butter_pct": 5,
+    "sugar_pct": 20,
+    "mass_g": 26.25,
+    "butter_g": 1.75,
+    "sugar_g": 7.0
+  },
+  "90": {
+    "mass_pct": 85,
+    "butter_pct": 5,
+    "sugar_pct": 10,
+    "mass_g": 29.75,
+    "butter_g": 1.75,
+    "sugar_g": 3.5
+  },
+  "100": {
+    "mass_pct": 100,
+    "butter_pct": 0,
+    "sugar_pct": 0,
+    "mass_g": 35.0,
+    "butter_g": 0.0,
+    "sugar_g": 0.0
+  }
+}

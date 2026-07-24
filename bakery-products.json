@@ -1,0 +1,272 @@
+[
+  {
+    "id": "CBK-SHP-001",
+    "name": "Original Shio Pan",
+    "thai": "ชิโอะปัง",
+    "group": "Shio Pan",
+    "orderType": "Original",
+    "leadTime": "สั่งผ่าน LINE OA",
+    "price": 89,
+    "description": "ชิโอะปังรสออริจินัล เนื้อขนมนุ่ม หอมเนย เหมาะสำหรับทานเดี่ยวหรือทานคู่เครื่องดื่ม",
+    "details": [
+      "ออริจินัล",
+      "หอมเนย",
+      "ราคา 89 บาท"
+    ],
+    "image": "assets/bakery/01-shio-pan.jpg",
+    "featured": true,
+    "soldOut": false
+  },
+  {
+    "id": "CBK-SHP-002",
+    "name": "Oreo Whipped Cream",
+    "thai": "ชิโอะปังวิปครีมโอรีโอ",
+    "group": "Shio Pan",
+    "orderType": "Whipped Cream",
+    "leadTime": "สั่งผ่าน LINE OA",
+    "price": 89,
+    "description": "ชิโอะปังสอดไส้วิปครีมและคุกกี้โอรีโอ ให้สัมผัสครีมมี่และกรุบกรอบ",
+    "details": [
+      "วิปครีม",
+      "โอรีโอ",
+      "ราคา 89 บาท"
+    ],
+    "image": "assets/bakery/02-oreo-whipped-cream.jpg",
+    "featured": true,
+    "soldOut": false
+  },
+  {
+    "id": "CBK-SHP-003",
+    "name": "Strawberry Whipped Cream",
+    "thai": "ชิโอะปังวิปครีมสตรอว์เบอร์รี",
+    "group": "Shio Pan",
+    "orderType": "Fruit & Cream",
+    "leadTime": "สั่งผ่าน LINE OA",
+    "price": 89,
+    "description": "ชิโอะปังวิปครีมพร้อมสตรอว์เบอร์รี ให้รสหวานอมเปรี้ยวและสัมผัสสดชื่น",
+    "details": [
+      "วิปครีม",
+      "สตรอว์เบอร์รี",
+      "ราคา 89 บาท"
+    ],
+    "image": "assets/bakery/03-strawberry-whipped-cream.jpg",
+    "featured": true,
+    "soldOut": false
+  },
+  {
+    "id": "CBK-SHP-004",
+    "name": "Nutella Strawberry Crumble",
+    "thai": "ชิโอะปังนูเทลล่าสตรอว์เบอร์รีครัมเบิล",
+    "group": "Shio Pan",
+    "orderType": "Nutella",
+    "leadTime": "สั่งผ่าน LINE OA",
+    "price": 89,
+    "description": "ชิโอะปังนูเทลล่า สตรอว์เบอร์รี และครัมเบิล รวมความเข้มข้น หวานอมเปรี้ยว และความกรุบในชิ้นเดียว",
+    "details": [
+      "นูเทลล่า",
+      "สตรอว์เบอร์รี",
+      "ครัมเบิล"
+    ],
+    "image": "assets/bakery/04-nutella-strawberry-crumble.jpg",
+    "featured": true,
+    "soldOut": false
+  },
+  {
+    "id": "CBK-SHP-005",
+    "name": "Banoffee",
+    "thai": "ชิโอะปังบานอฟฟี่",
+    "group": "Shio Pan",
+    "orderType": "Banana",
+    "leadTime": "สั่งผ่าน LINE OA",
+    "price": 89,
+    "description": "ชิโอะปังสไตล์บานอฟฟี่ จัดเต็มกล้วย วิปครีม และซอสคาราเมล",
+    "details": [
+      "กล้วย",
+      "วิปครีม",
+      "คาราเมล"
+    ],
+    "image": "assets/bakery/05-banoffee.jpg",
+    "featured": true,
+    "soldOut": false
+  },
+  {
+    "id": "CBK-SHP-006",
+    "name": "Caramel Banana Crumble",
+    "thai": "ชิโอะปังคาราเมลกล้วยครัมเบิล",
+    "group": "Shio Pan",
+    "orderType": "Banana",
+    "leadTime": "สั่งผ่าน LINE OA",
+    "price": 89,
+    "description": "ชิโอะปังกล้วยคาราเมล โรยครัมเบิล เพิ่มกลิ่นหอมหวานและสัมผัสกรุบ",
+    "details": [
+      "กล้วย",
+      "คาราเมล",
+      "ครัมเบิล"
+    ],
+    "image": "assets/bakery/06-caramel-banana-crumble.jpg",
+    "featured": false,
+    "soldOut": false
+  },
+  {
+    "id": "CBK-SHP-007",
+    "name": "Nutella Banana Crumble",
+    "thai": "ชิโอะปังนูเทลล่ากล้วยครัมเบิล",
+    "group": "Shio Pan",
+    "orderType": "Nutella",
+    "leadTime": "สั่งผ่าน LINE OA",
+    "price": 89,
+    "description": "ชิโอะปังนูเทลล่ากับกล้วยและครัมเบิล รสเข้มข้นและมีเนื้อสัมผัสหลายชั้น",
+    "details": [
+      "นูเทลล่า",
+      "กล้วย",
+      "ครัมเบิล"
+    ],
+    "image": "assets/bakery/07-nutella-banana-crumble.jpg",
+    "featured": false,
+    "soldOut": false
+  },
+  {
+    "id": "CBK-SHP-008",
+    "name": "Strawberry Whip Crumble",
+    "thai": "ชิโอะปังวิปสตรอว์เบอร์รีครัมเบิล",
+    "group": "Shio Pan",
+    "orderType": "Fruit & Cream",
+    "leadTime": "สั่งผ่าน LINE OA",
+    "price": 89,
+    "description": "ชิโอะปังวิปครีม สตรอว์เบอร์รี และครัมเบิล หวานอมเปรี้ยวพร้อมความกรุบ",
+    "details": [
+      "วิปครีม",
+      "สตรอว์เบอร์รี",
+      "ครัมเบิล"
+    ],
+    "image": "assets/bakery/08-strawberry-whip-crumble.jpg",
+    "featured": false,
+    "soldOut": false
+  },
+  {
+    "id": "CBK-SHP-009",
+    "name": "Brownie Whipped Cream",
+    "thai": "ชิโอะปังวิปครีมบราวนี่",
+    "group": "Shio Pan",
+    "orderType": "Chocolate",
+    "leadTime": "สั่งผ่าน LINE OA",
+    "price": 89,
+    "description": "ชิโอะปังวิปครีมพร้อมชิ้นบราวนี่ เหมาะสำหรับคนชอบรสช็อกโกแลตและครีมนุ่ม",
+    "details": [
+      "วิปครีม",
+      "บราวนี่",
+      "ราคา 89 บาท"
+    ],
+    "image": "assets/bakery/09-brownie-whipped-cream.jpg",
+    "featured": false,
+    "soldOut": false
+  },
+  {
+    "id": "CBK-SHP-010",
+    "name": "Marshmallow Whipped Cream",
+    "thai": "ชิโอะปังวิปครีมมาร์ชแมลโลว์",
+    "group": "Shio Pan",
+    "orderType": "Whipped Cream",
+    "leadTime": "สั่งผ่าน LINE OA",
+    "price": 89,
+    "description": "ชิโอะปังวิปครีมและมาร์ชแมลโลว์ ให้สัมผัสนุ่มฟูและรสหวานละมุน",
+    "details": [
+      "วิปครีม",
+      "มาร์ชแมลโลว์",
+      "ราคา 89 บาท"
+    ],
+    "image": "assets/bakery/10-marshmallow-whipped-cream.jpg",
+    "featured": false,
+    "soldOut": false
+  },
+  {
+    "id": "CBK-SHP-011",
+    "name": "Foi Thong Whipped Cream",
+    "thai": "ชิโอะปังวิปครีมฝอยทอง",
+    "group": "Shio Pan",
+    "orderType": "Thai Dessert",
+    "leadTime": "สั่งผ่าน LINE OA",
+    "price": 89,
+    "description": "ชิโอะปังวิปครีมฝอยทอง ผสมผสานเบเกอรี่กับขนมไทยในรสหวานหอม",
+    "details": [
+      "วิปครีม",
+      "ฝอยทอง",
+      "ราคา 89 บาท"
+    ],
+    "image": "assets/bakery/11-foi-thong-whipped-cream.jpg",
+    "featured": false,
+    "soldOut": false
+  },
+  {
+    "id": "CBK-SHP-012",
+    "name": "Nutella Banana",
+    "thai": "ชิโอะปังนูเทลล่ากล้วย",
+    "group": "Shio Pan",
+    "orderType": "Nutella",
+    "leadTime": "สั่งผ่าน LINE OA",
+    "price": 89,
+    "description": "ชิโอะปังนูเทลล่าและกล้วย คู่รสคลาสสิกที่ให้ความเข้มข้นและความหวานจากผลไม้",
+    "details": [
+      "นูเทลล่า",
+      "กล้วย",
+      "ราคา 89 บาท"
+    ],
+    "image": "assets/bakery/12-nutella-banana.jpg",
+    "featured": false,
+    "soldOut": false
+  },
+  {
+    "id": "CBK-SHP-013",
+    "name": "Blueberry Whipped Cream",
+    "thai": "ชิโอะปังวิปครีมบลูเบอร์รี",
+    "group": "Shio Pan",
+    "orderType": "Fruit & Cream",
+    "leadTime": "สั่งผ่าน LINE OA",
+    "price": 89,
+    "description": "ชิโอะปังวิปครีมบลูเบอร์รี หอมผลไม้และมีรสหวานอมเปรี้ยว",
+    "details": [
+      "วิปครีม",
+      "บลูเบอร์รี",
+      "ราคา 89 บาท"
+    ],
+    "image": "assets/bakery/13-blueberry-whipped-cream.jpg",
+    "featured": false,
+    "soldOut": false
+  },
+  {
+    "id": "CBK-SHP-014",
+    "name": "Dark Chocolate",
+    "thai": "ชิโอะปังดาร์กช็อกโกแลต",
+    "group": "Shio Pan",
+    "orderType": "Chocolate",
+    "leadTime": "สั่งผ่าน LINE OA",
+    "price": 89,
+    "description": "ชิโอะปังเคลือบดาร์กช็อกโกแลต สำหรับคนชอบรสช็อกโกแลตเข้ม",
+    "details": [
+      "ดาร์กช็อกโกแลต",
+      "รสเข้ม",
+      "ราคา 89 บาท"
+    ],
+    "image": "assets/bakery/14-dark-chocolate.jpg",
+    "featured": false,
+    "soldOut": false
+  },
+  {
+    "id": "CBK-SHP-015",
+    "name": "Dark Chocolate Almond",
+    "thai": "ชิโอะปังดาร์กช็อกโกแลตอัลมอนด์",
+    "group": "Shio Pan",
+    "orderType": "Chocolate",
+    "leadTime": "สั่งผ่าน LINE OA",
+    "price": 89,
+    "description": "ชิโอะปังเคลือบดาร์กช็อกโกแลต โรยอัลมอนด์ เพิ่มความหอมมันและกรุบกรอบ",
+    "details": [
+      "ดาร์กช็อกโกแลต",
+      "อัลมอนด์",
+      "ราคา 89 บาท"
+    ],
+    "image": "assets/bakery/15-dark-chocolate-almond.jpg",
+    "featured": false,
+    "soldOut": false
+  }
+]

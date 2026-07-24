@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Candy Baked × OGENIC Chocolate</title>
+<meta name="description" content="Candy Baked ร้านขนมแมวหน้าดำ และ OGENIC Thai Craft Chocolate">
+<meta property="og:title" content="Candy Baked × OGENIC Chocolate">
+<meta property="og:description" content="เค้ก เบเกอรี่ และคราฟต์ช็อกโกแลตจากแหล่งปลูกไทย">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fff8f2">
+<style>
+:root{
+ --cream:#fff8f2;--paper:#fffdfa;--ink:#211914;--muted:#76665d;--pink:#e49a9a;
+ --pink2:#f6d4d3;--brown:#5b321f;--brown2:#2e1b13;--gold:#c99555;--line:rgba(33,25,20,.12);
+ --shadow:0 18px 60px rgba(65,35,24,.14);--r:26px
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI","Noto Sans Thai",sans-serif;line-height:1.55}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+.hidden{display:none!important}
+header{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px max(16px,env(safe-area-inset-left));background:rgba(255,248,242,.93);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.brand-logo{width:46px;height:46px;border-radius:50%;object-fit:cover;background:white;border:1px solid var(--line)}
+.brand b,.brand small{display:block}
+.brand b{font-size:15px;white-space:nowrap}
+.brand small{font-size:10px;color:var(--muted)}
+.switcher{display:flex;padding:4px;border:1px solid var(--line);border-radius:999px;background:white;flex:none}
+.switcher button{border:0;background:transparent;padding:8px 12px;border-radius:999px;font-weight:800;font-size:12px;color:var(--muted);cursor:pointer}
+.switcher button.active{background:var(--ink);color:white}
+.hero{min-height:76vh;display:grid;grid-template-columns:1.02fr .98fr;gap:46px;align-items:center;padding:72px clamp(20px,7vw,110px);overflow:hidden}
+.hero.bakery{background:radial-gradient(circle at 75% 18%,rgba(228,154,154,.4),transparent 31%),linear-gradient(145deg,#fffaf6,#f8dfdd)}
+.hero.choco{background:radial-gradient(circle at 75% 18%,rgba(118,72,44,.3),transparent 31%),linear-gradient(145deg,#faf4ec,#e9dacb)}
+.eyebrow{margin:0;color:#a45454;font-weight:900;font-size:12px;letter-spacing:.15em}
+.choco .eyebrow{color:#7b4b2e}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(46px,7vw,92px);line-height:.96;letter-spacing:-.052em;margin:12px 0 22px}
+.hero p.copy{max-width:680px;color:var(--muted);font-size:clamp(16px,1.8vw,20px);margin:0}
+.menu-counts{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 0}
+.menu-counts span{display:inline-flex;align-items:center;min-height:38px;padding:7px 13px;border-radius:999px;background:rgba(255,255,255,.74);border:1px solid var(--line);font-weight:900;font-size:13px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:10px 20px;border-radius:999px;border:1px solid var(--line);font-weight:900;cursor:pointer}
+.btn.primary{background:var(--ink);color:white;border-color:var(--ink)}
+.btn.soft{background:rgba(255,255,255,.68)}
+.hero-media{position:relative;min-height:510px;border-radius:38px;overflow:hidden;box-shadow:var(--shadow);background:#2d1b12}
+.hero-media>img{width:100%;height:100%;min-height:510px;object-fit:cover;display:block}
+.hero-brand{position:absolute;right:18px;top:18px;width:112px;height:112px;border-radius:24px;object-fit:cover;background:white;border:1px solid rgba(255,255,255,.55);box-shadow:0 10px 35px rgba(0,0,0,.15)}
+.hero-brand.ogenic{object-position:50% 10%}
+.section{padding:78px clamp(20px,7vw,110px)}
+.heading{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:28px}
+.heading h2{font-family:Georgia,serif;font-size:clamp(36px,5vw,64px);line-height:1.03;letter-spacing:-.04em;margin:7px 0}
+.heading>p{max-width:480px;color:var(--muted)}
+.cheesecake-summary{display:grid;grid-template-columns:minmax(240px,.78fr) 1.22fr;gap:26px;align-items:stretch;margin:0 0 34px;border:1px solid var(--line);border-radius:30px;overflow:hidden;background:var(--paper);box-shadow:0 8px 30px rgba(60,35,22,.06)}
+.cheesecake-summary img{width:100%;height:100%;min-height:310px;object-fit:cover}
+.cheesecake-copy{padding:32px}
+.cheesecake-copy h3{font:clamp(30px,4vw,48px)/1.05 Georgia,serif;margin:7px 0 12px}
+.cheesecake-copy p{color:var(--muted);margin:0}
+.flavor-list{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
+.flavor-list span{padding:7px 11px;border-radius:999px;background:#f6e2e1;font-size:12px;font-weight:800}
+.price-pill{display:inline-flex;padding:9px 14px;border-radius:999px;background:#a7585c;color:#fff;font-weight:900}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.card{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:var(--r);background:var(--paper);box-shadow:0 8px 30px rgba(60,35,22,.06);transition:.2s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.card-image{aspect-ratio:4/3;position:relative;display:grid;place-items:center;overflow:hidden;background:linear-gradient(145deg,#f6cfce,#a65d5e)}
+.choco-card .card-image{aspect-ratio:4/5;background:linear-gradient(145deg,#8a5839,#25160e)}
+.card-image img{width:100%;height:100%;object-fit:cover}
+.fallback{font:700 44px Georgia,serif;color:rgba(255,255,255,.94);text-align:center;padding:20px}
+.badge{position:absolute;top:14px;right:14px;border-radius:999px;padding:5px 10px;background:rgba(255,255,255,.93);font-size:11px;font-weight:900}
+.sold-out-stamp{position:absolute;inset:50% auto auto 50%;transform:translate(-50%,-50%) rotate(-10deg);z-index:4;border:5px solid #c82626;color:#c82626;background:rgba(255,255,255,.9);border-radius:12px;padding:9px 15px;font-weight:1000;font-size:23px;letter-spacing:.05em;white-space:nowrap;box-shadow:0 6px 24px rgba(115,0,0,.18)}
+.card.sold-out .card-image img{filter:grayscale(.65) opacity(.62)}
+.card-body{padding:21px}
+.kicker{color:var(--muted);font-size:12px;margin:0 0 5px}
+.card h3{font:29px/1.08 Georgia,serif;margin:0 0 8px}
+.thai-name{font-weight:800;margin:0 0 8px}
+.bilingual{display:grid;gap:2px;margin:0}
+.bilingual .th{color:var(--muted);font-size:14px;line-height:1.48}
+.bilingual .en{color:#9a8880;font-size:12px;line-height:1.35}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0}
+.tag{font-size:11px;background:#f3e7df;border-radius:999px;padding:5px 9px}
+.meta{border-top:1px solid var(--line);margin-top:15px;padding-top:13px;display:flex;justify-content:space-between;gap:12px;font-size:12px;color:var(--muted)}
+.shipping-note{margin-top:10px;padding:9px 11px;border-radius:13px;background:#fff4e8;color:#7a4a24;font-size:12px;font-weight:800}
+.order-box{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;margin:15px clamp(16px,5vw,75px) 72px;padding:48px clamp(25px,5vw,62px);border-radius:34px;background:linear-gradient(135deg,#a7585c,#5e3033);color:white}
+.order-box h2{font:clamp(34px,5vw,60px)/1 Georgia,serif;margin:8px 0}
+.order-box p{color:#f8dfde}
+.order-box .btn.primary{background:white;color:#3d2224;border-color:white}
+.order-box .btn.soft{color:white;border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.08)}
+.choco-section{background:#26170f;color:#fff8ef}
+.choco-section .heading>p{color:#d6bca9}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.filter{border:1px solid rgba(255,255,255,.22);background:transparent;color:white;border-radius:999px;padding:8px 15px;cursor:pointer}
+.filter.active{background:white;color:#26170f}
+.choco-section .card{color:var(--ink)}
+.formula{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:42px}
+.formula-card{padding:22px;border:1px solid rgba(255,255,255,.15);border-radius:22px;background:rgba(255,255,255,.055)}
+.formula-card.milk{background:linear-gradient(160deg,rgba(246,212,211,.22),rgba(255,255,255,.06));border-color:rgba(246,212,211,.42)}
+.formula-card h3{font:40px Georgia,serif;margin:5px 0 14px}
+.formula-row{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:12px}
+.formula-row:last-child{border:0}
+.business-strip{padding-top:48px;padding-bottom:48px}
+.business-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.business-item{padding:19px;border-radius:19px;border:1px solid var(--line);background:white}
+.business-item b{display:block;margin-bottom:3px}
+.business-item span{color:var(--muted);font-size:13px}
+.channel-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:26px}
+.channel{display:flex;flex-direction:column;gap:5px;padding:18px;border:1px solid var(--line);border-radius:20px;background:white;transition:.2s}
+.channel:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.channel strong{font-size:14px}
+.channel span{font-size:12px;color:var(--muted)}
+.iso-card{background:#2b211c;color:#fff}
+.iso-card span{color:#d8cbc3}
+footer{display:flex;justify-content:space-between;gap:20px;padding:25px clamp(20px,7vw,110px) 45px;color:var(--muted);font-size:12px}
+footer .signature{font-weight:900;color:var(--ink)}
+.floating-line{position:fixed;right:16px;bottom:16px;z-index:45;background:#06c755;color:white;padding:13px 17px;border-radius:999px;font-weight:900;box-shadow:0 15px 40px rgba(6,199,85,.28)}
+.toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,130px);z-index:60;background:#211914;color:white;padding:12px 18px;border-radius:999px;transition:.25s;box-shadow:var(--shadow);font-size:13px}
+.toast.show{transform:translate(-50%,0)}
+@media(max-width:1050px){.formula{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){
+ .hero{grid-template-columns:1fr;min-height:auto;padding-top:56px}
+ .hero-media,.hero-media>img{min-height:430px}
+ .grid{grid-template-columns:repeat(2,1fr)}
+ .heading{display:block}
+ .order-box{grid-template-columns:1fr}
+ .business-grid{grid-template-columns:1fr}
+ .channel-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:620px){
+ header{align-items:center}
+ .brand small{display:none}
+ .brand b{font-size:13px}
+ .brand-logo{width:39px;height:39px}
+ .switcher button{padding:8px 9px;font-size:11px}
+ .hero{padding:48px 18px 42px;gap:28px}
+ h1{font-size:50px}
+ .hero-media,.hero-media>img{min-height:340px}
+ .hero-media{border-radius:26px}
+ .hero-brand{width:78px;height:78px;border-radius:18px;right:12px;top:12px}
+ .section{padding:58px 18px}
+ .grid{grid-template-columns:1fr}
+ .cheesecake-summary{grid-template-columns:1fr}
+ .cheesecake-summary img{min-height:240px}
+ .cheesecake-copy{padding:24px}
+ .choco-card .card-image{aspect-ratio:4/4.3}
+ .order-box{margin:10px 12px 54px;padding:31px 22px}
+ .formula{grid-template-columns:1fr}
+ .channel-grid{grid-template-columns:1fr}
+ footer{display:block;padding:20px 20px 90px}
+ footer span{display:block;margin:4px 0}
+ .floating-line{right:12px;bottom:12px}
+}
+</style>
+</head>
+<body>
+<header>
+ <a class="brand" href="#top">
+  <img class="brand-logo" id="brandLogo" src="assets/brand/candy-baked-logo.jpeg" alt="Candy Baked">
+  <span><b>Candy Baked × OGENIC</b><small>BAKERY & THAI CRAFT CHOCOLATE</small></span>
+ </a>
+ <div class="switcher" aria-label="เลือกธุรกิจ">
+  <button class="active" data-show="bakery" type="button">Candy Baked</button>
+  <button data-show="chocolate" type="button">Chocolate</button>
+ </div>
+</header>
+
+<main id="top">
+<section id="bakeryView">
+ <section class="hero bakery">
+  <div>
+   <p class="eyebrow">CANDY BAKED · ร้านขนมแมวหน้าดำ</p>
+   <h1>อบสด.<br>ทำด้วยใจ.</h1>
+   <p class="copy">ขนมจาก Candy Baked พร้อมราคาเดียว 89 บาท สอบถามรอบผลิตและสั่งซื้อผ่าน LINE Official Account</p>
+   <div class="menu-counts" aria-label="จำนวนเมนู">
+    <span>🥐 ชิโอะปัง 15 เมนู</span>
+    <span>🍰 ชีสเค้กหน้าไหม้ 5 เมนู</span>
+   </div>
+   <div class="actions">
+    <a class="btn primary" href="#bakeryMenu">ดูเมนูทั้งหมด</a>
+    <a class="btn soft" href="https://page.line.me/014refkl" target="_blank" rel="noopener">เปิด LINE OA</a>
+   </div>
+  </div>
+  <div class="hero-media">
+   <img src="assets/hero/candy-baked-cover.jpeg" alt="เมนู Candy Baked">
+   <img class="hero-brand" src="assets/brand/candy-baked-logo.jpeg" alt="โลโก้ Candy Baked">
+  </div>
+ </section>
+
+ <section class="section" id="bakeryMenu">
+  <div class="heading">
+   <div><p class="eyebrow">CANDY BAKED CATALOG</p><h2>20 เมนู ราคา 89 บาท</h2></div>
+   <p>ราคาที่แสดงไม่รวมค่าส่ง ค่าส่งเริ่มต้น 40 บาทตามพื้นที่และจำนวนสินค้า หรือเลือกรับหน้าร้านได้</p>
+  </div>
+  <article class="cheesecake-summary">
+   <img src="assets/hero/candy-baked-cover.jpeg" alt="ชีสเค้กหน้าไหม้ Candy Baked">
+   <div class="cheesecake-copy">
+    <p class="eyebrow">BURNT CHEESECAKE · 5 FLAVORS</p>
+    <h3>ชีสเค้กหน้าไหม้ 5 เมนู</h3>
+    <p>เนื้อชีสเค้กเข้มข้น ขนาด 60 กรัมต่อถ้วย เลือกรสได้ตามรอบผลิต</p>
+    <div class="flavor-list">
+     <span>ออริจินอล</span><span>สตรอว์เบอร์รี</span><span>บลูเบอร์รี</span>
+     <span>นูเทลล่ากล้วย</span><span>วิปครีมโอรีโอ้</span>
+    </div>
+    <strong class="price-pill">89 บาท / ถ้วย</strong>
+   </div>
+  </article>
+  <div class="grid" id="bakeryGrid" aria-live="polite"></div>
+ </section>
+
+ <section class="order-box">
+  <div><p class="eyebrow" style="color:#ffd6d3">ORDER & CONTACT</p><h2>สั่งขนมผ่าน LINE OA</h2><p>แจ้งเมนู จำนวน และวันที่ต้องการรับ ร้านอยู่ย่านสาธุประดิษฐ์–พระราม 3 กรุงเทพฯ 10120</p></div>
+  <div class="actions">
+   <a class="btn primary" href="https://page.line.me/014refkl" target="_blank" rel="noopener">เปิด LINE OA</a>
+   <a class="btn soft" href="https://www.google.com/maps/search/?api=1&query=Sathu+Pradit+Rama+III+Bangkok+10120" target="_blank" rel="noopener">ดูพื้นที่ร้าน</a>
+  </div>
+ </section>
+</section>
+
+<section id="chocolateView" class="hidden">
+ <section class="hero choco">
+  <div>
+   <p class="eyebrow">OGENIC · THAI ORIGIN CRAFT CHOCOLATE</p>
+   <h1>รสชาติจาก<br>แหล่งปลูกไทย</h1>
+   <p class="copy">คราฟต์ช็อกโกแลต 50%, 80%, 90% และ 100% Total Cacao พร้อมโปรไฟล์รสชาติของแต่ละแหล่งปลูก</p>
+   <div class="actions"><a class="btn primary" href="#chocolateMenu">ดูช็อกโกแลต</a><button class="btn soft copy-line" type="button">คัดลอก LINE ร้าน</button></div>
+  </div>
+  <div class="hero-media">
+   <img src="assets/hero/chocolate-cover.jpeg" alt="โครงสร้างผลโกโก้">
+   <img class="hero-brand ogenic" src="assets/brand/ogenic-logo.jpeg" alt="โลโก้ OGENIC Chocolate">
+  </div>
+ </section>
+ <section class="section choco-section" id="chocolateMenu">
+  <div class="heading">
+   <div><p class="eyebrow">CHOCOLATE COLLECTION</p><h2>14 Origin Profiles</h2></div>
+   <p>ตัวเลขบนสินค้าใช้ Total Cacao ซึ่งรวม Cocoa Mass และ Added Cocoa Butter ในสูตร</p>
+  </div>
+  <div class="filters">
+   <button class="filter active" data-cacao="all" type="button">ทั้งหมด</button>
+   <button class="filter" data-cacao="50" type="button">50%</button>
+   <button class="filter" data-cacao="80" type="button">80%</button>
+   <button class="filter" data-cacao="90" type="button">90%</button>
+   <button class="filter" data-cacao="100" type="button">100%</button>
+  </div>
+  <div class="grid" id="chocolateGrid" aria-live="polite"></div>
+  <div class="formula" id="formulaGrid"></div>
+ </section>
+</section>
+
+<section class="section business-strip">
+ <div class="business-grid">
+  <div class="business-item"><b>🧁 Candy Baked</b><span>เค้ก เบเกอรี่ ของหวาน และงานสั่งทำ</span></div>
+  <div class="business-item"><b>🍫 OGENIC Chocolate</b><span>Thai Origin Craft Chocolate · 50/80/90/100%</span></div>
+  <div class="business-item"><b>🛡️ ISO 27001:2022</b><span>Information security management framework</span></div>
+ </div>
+</section>
+
+<section class="section" id="officialChannels">
+ <div class="heading">
+  <div><p class="eyebrow">OFFICIAL CHANNELS</p><h2>ช่องทางหลักของร้าน</h2></div>
+  <p>ช่องทางติดต่อของทั้งสองแบรนด์ เว็บไซต์ และ LINE Official Account</p>
+ </div>
+ <div class="channel-grid">
+  <a class="channel" href="https://www.facebook.com/share/19U4SMbCJr/?mibextid=wwXIfr" target="_blank" rel="noopener"><strong>🍞 Candy Baked</strong><span>Facebook ร้านขนม</span></a>
+  <a class="channel" href="https://www.facebook.com/share/1BuFHfSk6w/?mibextid=wwXIfr" target="_blank" rel="noopener"><strong>🍫 OGENIC Chocolate</strong><span>Facebook ช็อกโกแลต</span></a>
+  <a class="channel" href="https://page.line.me/014refkl" target="_blank" rel="noopener"><strong>💬 LINE Official Account</strong><span>สอบถามและสั่งสินค้า</span></a>
+  <a class="channel" href="https://ogenicchocolate.com/" target="_blank" rel="noopener"><strong>🌐 Official Website</strong><span>เว็บไซต์ศูนย์กลาง</span></a>
+  <div class="channel iso-card"><strong>🛡️ ISO 27001:2022</strong><span>Information Security Management</span></div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <span>© <span id="year"></span> Candy Baked × OGENIC Chocolate</span>
+ <span class="signature">Txmdy_nbd.</span>
+</footer>
+<a class="floating-line" href="https://page.line.me/014refkl" target="_blank" rel="noopener">💬 สั่งผ่าน LINE</a>
+<div class="toast" id="toast">คัดลอกแล้ว</div>
+
+<script>
+let BAKERY=[];
+let CHOCOLATE=[];
+let FORMULAS={};
+const bakeryGrid=document.querySelector('#bakeryGrid');
+const chocolateGrid=document.querySelector('#chocolateGrid');
+const formulaGrid=document.querySelector('#formulaGrid');
+const toast=document.querySelector('#toast');
+const brandLogo=document.querySelector('#brandLogo');
+document.querySelector('#year').textContent=new Date().getFullYear();
+
+function safe(value=''){
+ return String(value).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch]));
+}
+function img(path,label){
+ return `<img src="${safe(path)}" alt="${safe(label)}" loading="lazy" onerror="this.remove();this.parentElement.querySelector('.fallback').hidden=false"><div class="fallback" hidden>${safe(label)}</div>`;
+}
+function soldOut(p){
+ return p.soldOut===true||p.status==='Out of Stock'||p.publishStatus==='Out of Stock';
+}
+function renderBakery(){
+ bakeryGrid.innerHTML=BAKERY.map(p=>{
+  const unavailable=soldOut(p);
+  const english=p.descriptionEn||`${p.name} · handcrafted by Candy Baked.`;
+  return `<article class="card ${unavailable?'sold-out':''}">
+   <div class="card-image">${img(p.image,p.thai)}<span class="badge">${safe(p.orderType)}</span>${unavailable?'<span class="sold-out-stamp">สินค้าหมด</span>':''}</div>
+   <div class="card-body">
+    <p class="kicker">${safe(p.id)} · ${safe(p.group)}</p>
+    <h3>${safe(p.name)}</h3>
+    <p class="thai-name">${safe(p.thai)}</p>
+    <div class="bilingual"><span class="th">${safe(p.description)}</span><span class="en">${safe(english)}</span></div>
+    <div class="tags">${(p.details||[]).map(x=>`<span class="tag">${safe(x)}</span>`).join('')}</div>
+    <div class="shipping-note">ราคาไม่รวมค่าส่ง · ค่าส่งเริ่มต้น 40 บาท · รับหน้าร้านได้</div>
+    <div class="meta"><span><b>89 บาท</b> · ${safe(p.leadTime)}</span><a href="https://page.line.me/014refkl" target="_blank" rel="noopener"><b>${unavailable?'สอบถามรอบถัดไป':'สั่งผ่าน LINE'} →</b></a></div>
+   </div>
+  </article>`;
+ }).join('');
+}
+function renderChocolate(c='all'){
+ const list=c==='all'?CHOCOLATE:CHOCOLATE.filter(p=>String(p.cacao)===String(c));
+ chocolateGrid.innerHTML=list.map(p=>{
+  const unavailable=soldOut(p);
+  const image=p.image||`assets/chocolate/${String(p.id).padStart(2,'0')}.jpg`;
+  return `<article class="card choco-card ${unavailable?'sold-out':''}">
+   <div class="card-image">${img(image,p.cacao+'%')}<span class="badge">${safe(p.cacao)}% CACAO</span>${unavailable?'<span class="sold-out-stamp">สินค้าหมด</span>':''}</div>
+   <div class="card-body">
+    <p class="kicker">${safe(p.origin)}</p><h3>${safe(p.name)}</h3>
+    <div class="tags"><span class="tag">${safe(p.profile)}</span><span class="tag">${safe(p.sku)}</span></div>
+    <div class="bilingual"><span class="th">${safe(p.description)}</span><span class="en">${safe(p.notes)}</span></div>
+   </div>
+  </article>`;
+ }).join('');
+}
+function renderFormulas(){
+ formulaGrid.innerHTML=Object.entries(FORMULAS).map(([pct,f])=>`<article class="formula-card ${String(pct)==='50'?'milk':''}">
+  <p class="eyebrow" style="color:#d7b49e">STANDARD 35 G BAR</p><h3>${safe(pct)}%</h3>
+  <div class="formula-row"><span>Cocoa Mass</span><b>${Number(f.mass_pct)}% · ${Number(f.mass_g).toFixed(2)} g</b></div>
+  <div class="formula-row"><span>Added Cocoa Butter</span><b>${Number(f.butter_pct)}% · ${Number(f.butter_g).toFixed(2)} g</b></div>
+  ${f.milk_pct!==undefined?`<div class="formula-row"><span>Whole Milk Powder</span><b>${Number(f.milk_pct)}% · ${Number(f.milk_g).toFixed(2)} g</b></div>`:''}
+  <div class="formula-row"><span>Sugar</span><b>${Number(f.sugar_pct)}% · ${Number(f.sugar_g).toFixed(2)} g</b></div>
+  <div class="formula-row"><span>Total</span><b>100% · 35.00 g</b></div>
+ </article>`).join('');
+}
+async function loadData(){
+ try{
+  const responses=await Promise.all([
+   fetch('bakery-products.json'),
+   fetch('chocolate-products.json'),
+   fetch('chocolate-formulas.json')
+  ]);
+  if(responses.some(r=>!r.ok))throw new Error('data load failed');
+  [BAKERY,CHOCOLATE,FORMULAS]=await Promise.all(responses.map(r=>r.json()));
+  renderBakery();renderChocolate();renderFormulas();
+ }catch(error){
+  bakeryGrid.innerHTML='<p>กำลังปรับปรุงรายการสินค้า กรุณาสอบถามผ่าน LINE OA</p>';
+  chocolateGrid.innerHTML='<p>กำลังปรับปรุงรายการสินค้า กรุณาสอบถามผ่าน LINE OA</p>';
+ }
+}
+document.querySelectorAll('.filter').forEach(button=>button.addEventListener('click',()=>{
+ document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));
+ button.classList.add('active');renderChocolate(button.dataset.cacao);
+}));
+document.querySelectorAll('.switcher button').forEach(button=>button.addEventListener('click',()=>{
+ document.querySelectorAll('.switcher button').forEach(x=>x.classList.remove('active'));
+ button.classList.add('active');
+ const bakery=button.dataset.show==='bakery';
+ document.querySelector('#bakeryView').classList.toggle('hidden',!bakery);
+ document.querySelector('#chocolateView').classList.toggle('hidden',bakery);
+ brandLogo.src=bakery?'assets/brand/candy-baked-logo.jpeg':'assets/brand/ogenic-logo.jpeg';
+ brandLogo.alt=bakery?'Candy Baked':'OGENIC Chocolate';
+ window.scrollTo({top:0,behavior:'smooth'});
+}));
+document.querySelectorAll('.copy-line').forEach(button=>button.addEventListener('click',async()=>{
+ try{await navigator.clipboard.writeText('https://page.line.me/014refkl');toast.textContent='คัดลอกลิงก์ LINE OA แล้ว'}
+ catch(error){toast.textContent='LINE OA: https://page.line.me/014refkl'}
+ toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2200);
+}));
+loadData();
+</script>
+</body>
+</html>
