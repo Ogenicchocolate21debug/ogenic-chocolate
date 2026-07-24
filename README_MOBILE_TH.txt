@@ -1,21 +1,16 @@
-CANDY BAKED × OGENIC — MOBILE DEPLOY V3
+CANDY BAKED × OGENIC — MOBILE DEPLOY V5
 
-อัปเดตรอบนี้:
-- เพิ่มชิโอะปัง 15 เมนู
-- ครอปรูปสินค้าจากภาพหน้าจอ LINE
-- ใส่ชื่อสินค้า ราคา SKU และรายละเอียดเว็บ
-- Candy Baked เป็นหน้าแรก
-- OGENIC Chocolate 14 รายการอยู่ในเว็บเดียวกัน
+อัปจากโทรศัพท์แบบสั้น:
+1. เปิด dash.cloudflare.com
+2. Workers & Pages
+3. เลือก ogenic-chocolate
+4. Create deployment / Upload assets
+5. เลือก ogenic-launch-v5.zip
+6. กด Deploy
 
-วิธีอัปทับ Cloudflare Pages จากมือถือ:
-1. ดาวน์โหลด ZIP นี้ลงแอป Files
-2. เข้า dash.cloudflare.com ผ่าน Safari
-3. Workers & Pages
-4. เลือกโปรเจกต์ ogenic-chocolate
-5. Create deployment หรือ Upload assets
-6. เลือก ZIP นี้และกด Deploy
-7. เปิด https://ogenic-chocolate.pages.dev/ แล้วรีเฟรช
-
-หมายเหตุรูป:
-รูปสินค้า 15 รูปในรอบนี้ถูกครอปจากภาพหน้าจอ LINE จึงเหมาะกับการทดลองและเปิดหน้าเว็บก่อน
-เมื่อมีภาพต้นฉบับ ให้ส่งมาเรียงตามเมนูหรือบอกชื่อสินค้า ก็นำมาแทนไฟล์เดิมได้ทันที
+หลัง Deploy:
+- หน้า Candy ต้องเห็น 20 เมนู ราคา 89 บาท
+- หน้า Chocolate ต้องมีตัวกรอง 50/80/90/100%
+- ด้านล่างต้องไม่มี Founder/Provider
+- ต้องเห็น ISO 27001:2022 และ Txmdy_nbd.
+- หากยังเห็นหน้าเดิม ให้เปิด Private Tab เพื่อเลี่ยงแคช
