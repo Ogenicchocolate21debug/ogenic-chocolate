@@ -2,18 +2,36 @@
   {
     "id": "CBK-SHP-001",
     "name": "Original Shio Pan",
-    "thai": "ชิโอะปัง",
+    "thai": "ชิโอะปังแป้งออริจินัล",
     "group": "Shio Pan",
     "orderType": "Original",
     "leadTime": "สั่งผ่าน LINE OA",
-    "price": 89,
-    "description": "ชิโอะปังรสออริจินัล เนื้อขนมนุ่ม หอมเนย เหมาะสำหรับทานเดี่ยวหรือทานคู่เครื่องดื่ม",
+    "price": 49,
+    "description": "ชิโอะปังแป้งธรรมดาแบบเปล่า เนื้อนุ่ม หอมเนย ด้านนอกบางกรอบ เหมาะสำหรับทานเดี่ยวหรือทานคู่เครื่องดื่ม",
     "details": [
       "ออริจินัล",
       "หอมเนย",
-      "ราคา 89 บาท"
+      "ราคา 49 บาท"
     ],
     "image": "assets/bakery/01-shio-pan.jpg",
+    "featured": true,
+    "soldOut": false
+  },
+  {
+    "id": "CBK-SHP-016",
+    "name": "Chocolate Dough Shio Pan",
+    "thai": "ชิโอะปังแป้งช็อกโกแลต",
+    "group": "Shio Pan",
+    "orderType": "Chocolate Dough",
+    "leadTime": "สั่งผ่าน LINE OA",
+    "price": 59,
+    "description": "ชิโอะปังเนื้อนุ่มจากแป้งผสมช็อกโกแลต หอมโกโก้และเนย รสหวานน้อย ด้านนอกบางกรอบ ด้านในนุ่ม กินเปล่าได้หรือเลือกเพิ่มไส้ตามเมนู",
+    "details": [
+      "แป้งผสมช็อกโกแลต",
+      "หอมโกโก้และเนย",
+      "ราคา 59 บาท"
+    ],
+    "image": "assets/bakery/16-chocolate-dough-shio-pan.jpeg",
     "featured": true,
     "soldOut": false
   },
