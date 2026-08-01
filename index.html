@@ -107,16 +107,23 @@ h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(46px,7vw,92px);li
 .preorder-intro p{color:var(--muted);margin:0}
 .preorder-note{padding:18px;border-left:2px solid var(--burnt);background:rgba(214,95,46,.07)}
 .preorder-note b{display:block;color:var(--burnt-light);margin-bottom:6px}
-.preorder-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-flow:dense;gap:12px}
-.preorder-frame{position:relative;overflow:hidden;min-width:0;border:1px solid rgba(240,139,88,.34);border-radius:16px;background:#170c08;box-shadow:0 16px 38px rgba(0,0,0,.32)}
-.preorder-frame:before{content:"";position:absolute;left:8px;right:8px;top:7px;z-index:2;height:4px;background:repeating-linear-gradient(90deg,rgba(240,139,88,.88) 0 6px,transparent 6px 12px);opacity:.72}
-.preorder-frame.featured{grid-column:span 2;grid-row:span 2}
-.preorder-frame img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;transition:transform .45s ease}
-.preorder-frame.featured img{height:100%;aspect-ratio:auto}
+.preorder-board{padding:14px;border:1px solid rgba(240,139,88,.34);border-radius:28px;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(214,95,46,.04));box-shadow:var(--shadow)}
+.preorder-groups{display:flex;flex-wrap:wrap;gap:8px;padding:4px 4px 16px}
+.preorder-group{border:1px solid rgba(255,255,255,.18);border-radius:999px;background:transparent;color:var(--muted);padding:8px 14px;font-weight:900;cursor:pointer}
+.preorder-group.active{border-color:var(--burnt);background:var(--burnt);color:#fff5ed}
+.preorder-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:clamp(96px,13vw,178px);grid-auto-flow:dense;gap:9px}
+.preorder-frame{position:relative;overflow:hidden;min-width:0;padding:0;border:1px solid rgba(240,139,88,.3);border-radius:14px;background:#170c08;cursor:pointer;box-shadow:0 16px 38px rgba(0,0,0,.28)}
+.preorder-frame.wide{grid-column:span 2}
+.preorder-frame.tall{grid-row:span 2}
+.preorder-frame.hero-tile{grid-column:span 2;grid-row:span 2}
+.preorder-frame img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease,filter .25s ease}
 .preorder-frame:hover img{transform:scale(1.035)}
-.frame-caption{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:11px 12px 12px;border-top:1px solid var(--line)}
-.frame-caption b{color:var(--burnt-light);font-size:10px;letter-spacing:.14em}
-.frame-caption span{color:var(--muted);font-size:10px;text-align:right}
+.preorder-frame[aria-pressed="true"]{border-color:var(--burnt-light);box-shadow:0 0 0 3px rgba(240,139,88,.28),0 16px 38px rgba(0,0,0,.38)}
+.preorder-frame[aria-pressed="true"] img{filter:brightness(.72)}
+.preorder-frame[aria-pressed="true"]:after{content:"✓";position:absolute;right:10px;top:10px;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--burnt);color:#fff;font-weight:900}
+.preorder-frame[hidden]{display:none}
+.preorder-selection{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 4px 0;color:var(--muted);font-size:13px}
+.preorder-selection b{color:var(--burnt-light)}
 .preorder-cta{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:28px;padding:24px;border:1px solid rgba(240,139,88,.3);border-radius:22px;background:linear-gradient(130deg,rgba(214,95,46,.16),rgba(255,255,255,.03))}
 .preorder-cta p{margin:0;color:var(--muted)}
 .channel-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:26px}
@@ -141,7 +148,7 @@ footer .signature{font-weight:900;color:var(--ink)}
  .grid{grid-template-columns:repeat(2,1fr)}
  .heading{display:block}
  .order-box{grid-template-columns:1fr}
- .preorder-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .preorder-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
  .channel-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:620px){
@@ -170,11 +177,13 @@ footer .signature{font-weight:900;color:var(--ink)}
  .brand-cover{aspect-ratio:16/9;margin-bottom:38px;border-radius:20px}
  .cover-label{left:12px;bottom:11px;font-size:8px}
  .preorder-intro{grid-template-columns:1fr;gap:20px}
- .preorder-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
- .preorder-frame.featured{grid-column:span 2;grid-row:span 1}
- .preorder-frame.featured img{aspect-ratio:16/10;height:auto}
- .frame-caption{display:block;padding:10px}
- .frame-caption span{display:block;margin-top:4px;text-align:left}
+ .preorder-board{padding:8px;border-radius:20px}
+ .preorder-groups{overflow-x:auto;flex-wrap:nowrap;padding:4px 2px 12px;scrollbar-width:none}
+ .preorder-group{white-space:nowrap;flex:none;padding:7px 12px}
+ .preorder-grid{grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:clamp(78px,22vw,112px);gap:6px}
+ .preorder-frame.wide{grid-column:span 2}
+ .preorder-frame.hero-tile{grid-column:span 2;grid-row:span 2}
+ .preorder-selection{display:block;padding:12px 4px 3px}
  .preorder-cta{display:block;padding:20px}
  .preorder-cta .btn{margin-top:15px;width:100%}
  .channel-grid{grid-template-columns:1fr}
@@ -289,29 +298,38 @@ footer .signature{font-weight:900;color:var(--ink)}
  </div>
  <div class="preorder-intro">
   <div>
-   <p class="eyebrow">PRE-ORDER · CUSTOM MADE</p>
-   <h2 id="preorderTitle">Custom Chocolates, Birthday Cakes &amp; Made-to-Order Bakes</h2>
-   <p>Made to order for birthdays and special occasions. Share your idea with us—we can customize the flavour, design and size.</p>
+   <p class="eyebrow">CUSTOM PRE-ORDER</p>
+   <h2 id="preorderTitle">Birthday Cakes, Custom Chocolates &amp; Made-to-Order Bakes</h2>
+   <p>Made for birthdays and special occasions. Choose a reference you like, then talk to us about the flavour, design and size.</p>
   </div>
-  <div class="preorder-note"><b>PRE-ORDER</b><p>สนใจแบบไหน ส่งรูปหรือแจ้งไอเดียผ่าน LINE OA เพื่อสอบถามรายละเอียดและคิวผลิต</p></div>
+  <div class="preorder-note"><b>DESIGN IT YOUR WAY</b><p>สนใจแบบไหน เลือกภาพตัวอย่างแล้วทักสอบถามรายละเอียดเพิ่มเติมได้เลย</p></div>
  </div>
- <div class="preorder-grid" aria-label="ตัวอย่างงานพรีออเดอร์">
-  <figure class="preorder-frame featured"><img src="assets/preorder/01-burnt-cheesecake.jpeg" alt="ตัวอย่างชีสเค้กพร้อมผลไม้" loading="lazy"><figcaption class="frame-caption"><b>PRE-ORDER 01</b><span>สอบถามรายละเอียดเพิ่มเติม</span></figcaption></figure>
-  <figure class="preorder-frame"><img src="assets/preorder/02-banana-dessert.jpeg" alt="ตัวอย่างขนมกล้วยและครีม" loading="lazy"><figcaption class="frame-caption"><b>PRE-ORDER 02</b><span>สอบถามรายละเอียดเพิ่มเติม</span></figcaption></figure>
-  <figure class="preorder-frame"><img src="assets/preorder/03-banana-dessert.jpeg" alt="ตัวอย่างขนมกล้วยในถ้วย" loading="lazy"><figcaption class="frame-caption"><b>PRE-ORDER 03</b><span>สอบถามรายละเอียดเพิ่มเติม</span></figcaption></figure>
-  <figure class="preorder-frame"><img src="assets/preorder/04-strawberry-dessert.jpeg" alt="ตัวอย่างขนมครีมและสตรอว์เบอร์รี" loading="lazy"><figcaption class="frame-caption"><b>PRE-ORDER 04</b><span>สอบถามรายละเอียดเพิ่มเติม</span></figcaption></figure>
-  <figure class="preorder-frame"><img src="assets/preorder/05-blueberry-dessert.jpeg" alt="ตัวอย่างขนมครีมและบลูเบอร์รี" loading="lazy"><figcaption class="frame-caption"><b>PRE-ORDER 05</b><span>สอบถามรายละเอียดเพิ่มเติม</span></figcaption></figure>
-  <figure class="preorder-frame featured"><img src="assets/preorder/06-birthday-cake.jpeg" alt="ตัวอย่างเค้กวันเกิดคาราเมลและครีม" loading="lazy"><figcaption class="frame-caption"><b>PRE-ORDER 06</b><span>สอบถามรายละเอียดเพิ่มเติม</span></figcaption></figure>
-  <figure class="preorder-frame"><img src="assets/preorder/07-pandan-buns.jpeg" alt="ตัวอย่างขนมปังสีเขียวบนจานไม้" loading="lazy"><figcaption class="frame-caption"><b>PRE-ORDER 07</b><span>สอบถามรายละเอียดเพิ่มเติม</span></figcaption></figure>
-  <figure class="preorder-frame"><img src="assets/preorder/08-cupcakes.jpeg" alt="ตัวอย่างคัพเค้กผลไม้ในกล่องของขวัญ" loading="lazy"><figcaption class="frame-caption"><b>PRE-ORDER 08</b><span>สอบถามรายละเอียดเพิ่มเติม</span></figcaption></figure>
-  <figure class="preorder-frame"><img src="assets/preorder/09-chocolate-cake.jpeg" alt="ตัวอย่างเค้กช็อกโกแลตและผลไม้" loading="lazy"><figcaption class="frame-caption"><b>PRE-ORDER 09</b><span>สอบถามรายละเอียดเพิ่มเติม</span></figcaption></figure>
-  <figure class="preorder-frame"><img src="assets/preorder/10-chocolate-buns.jpeg" alt="ตัวอย่างขนมปังช็อกโกแลตจัดเป็นวง" loading="lazy"><figcaption class="frame-caption"><b>PRE-ORDER 10</b><span>สอบถามรายละเอียดเพิ่มเติม</span></figcaption></figure>
-  <figure class="preorder-frame"><img src="assets/preorder/11-pandan-buns-overhead.jpeg" alt="ตัวอย่างขนมปังสีเขียวมุมมองด้านบน" loading="lazy"><figcaption class="frame-caption"><b>PRE-ORDER 11</b><span>สอบถามรายละเอียดเพิ่มเติม</span></figcaption></figure>
-  <figure class="preorder-frame"><img src="assets/preorder/12-plain-buns-overhead.jpeg" alt="ตัวอย่างขนมปังอัลมอนด์มุมมองด้านบน" loading="lazy"><figcaption class="frame-caption"><b>PRE-ORDER 12</b><span>สอบถามรายละเอียดเพิ่มเติม</span></figcaption></figure>
-  <figure class="preorder-frame"><img src="assets/preorder/13-almond-pandan-flower.jpeg" alt="ตัวอย่างขนมปังอัลมอนด์ไส้สีเขียวรูปดอกไม้" loading="lazy"><figcaption class="frame-caption"><b>PRE-ORDER 13</b><span>สอบถามรายละเอียดเพิ่มเติม</span></figcaption></figure>
-  <figure class="preorder-frame"><img src="assets/preorder/14-pandan-buns-close.jpeg" alt="ตัวอย่างขนมปังสีเขียวจัดเป็นวง" loading="lazy"><figcaption class="frame-caption"><b>PRE-ORDER 14</b><span>สอบถามรายละเอียดเพิ่มเติม</span></figcaption></figure>
+ <div class="preorder-board">
+  <div class="preorder-groups" role="group" aria-label="เลือกหมวดงานพรีออเดอร์">
+   <button class="preorder-group active" type="button" data-preorder-group="all">ทั้งหมด</button>
+   <button class="preorder-group" type="button" data-preorder-group="birthday">Birthday</button>
+   <button class="preorder-group" type="button" data-preorder-group="chocolate">Chocolate</button>
+   <button class="preorder-group" type="button" data-preorder-group="bakery">Bakery</button>
+  </div>
+  <div class="preorder-grid" aria-label="เลือกภาพตัวอย่างงานพรีออเดอร์">
+   <button class="preorder-frame hero-tile" type="button" data-groups="birthday bakery" data-reference="01" aria-pressed="false"><img src="assets/preorder/01-burnt-cheesecake.jpeg" alt="ตัวอย่างงานพรีออเดอร์ 01" loading="lazy"></button>
+   <button class="preorder-frame wide" type="button" data-groups="bakery" data-reference="02" aria-pressed="false"><img src="assets/preorder/02-banana-dessert.jpeg" alt="ตัวอย่างงานพรีออเดอร์ 02" loading="lazy"></button>
+   <button class="preorder-frame tall" type="button" data-groups="bakery" data-reference="03" aria-pressed="false"><img src="assets/preorder/03-banana-dessert.jpeg" alt="ตัวอย่างงานพรีออเดอร์ 03" loading="lazy"></button>
+   <button class="preorder-frame" type="button" data-groups="bakery" data-reference="04" aria-pressed="false"><img src="assets/preorder/04-strawberry-dessert.jpeg" alt="ตัวอย่างงานพรีออเดอร์ 04" loading="lazy"></button>
+   <button class="preorder-frame" type="button" data-groups="bakery" data-reference="05" aria-pressed="false"><img src="assets/preorder/05-blueberry-dessert.jpeg" alt="ตัวอย่างงานพรีออเดอร์ 05" loading="lazy"></button>
+   <button class="preorder-frame hero-tile" type="button" data-groups="birthday bakery" data-reference="06" aria-pressed="false"><img src="assets/preorder/06-birthday-cake.jpeg" alt="ตัวอย่างงานวันเกิด 06" loading="lazy"></button>
+   <button class="preorder-frame" type="button" data-groups="bakery" data-reference="07" aria-pressed="false"><img src="assets/preorder/07-pandan-buns.jpeg" alt="ตัวอย่างงานพรีออเดอร์ 07" loading="lazy"></button>
+   <button class="preorder-frame tall" type="button" data-groups="birthday bakery" data-reference="08" aria-pressed="false"><img src="assets/preorder/08-cupcakes.jpeg" alt="ตัวอย่างงานวันเกิด 08" loading="lazy"></button>
+   <button class="preorder-frame wide" type="button" data-groups="birthday chocolate" data-reference="09" aria-pressed="false"><img src="assets/preorder/09-chocolate-cake.jpeg" alt="ตัวอย่างงานช็อกโกแลตและวันเกิด 09" loading="lazy"></button>
+   <button class="preorder-frame" type="button" data-groups="chocolate bakery" data-reference="10" aria-pressed="false"><img src="assets/preorder/10-chocolate-buns.jpeg" alt="ตัวอย่างงานช็อกโกแลต 10" loading="lazy"></button>
+   <button class="preorder-frame" type="button" data-groups="bakery" data-reference="11" aria-pressed="false"><img src="assets/preorder/11-pandan-buns-overhead.jpeg" alt="ตัวอย่างงานพรีออเดอร์ 11" loading="lazy"></button>
+   <button class="preorder-frame wide" type="button" data-groups="bakery" data-reference="12" aria-pressed="false"><img src="assets/preorder/12-plain-buns-overhead.jpeg" alt="ตัวอย่างงานพรีออเดอร์ 12" loading="lazy"></button>
+   <button class="preorder-frame" type="button" data-groups="bakery" data-reference="13" aria-pressed="false"><img src="assets/preorder/13-almond-pandan-flower.jpeg" alt="ตัวอย่างงานพรีออเดอร์ 13" loading="lazy"></button>
+   <button class="preorder-frame" type="button" data-groups="bakery" data-reference="14" aria-pressed="false"><img src="assets/preorder/14-pandan-buns-close.jpeg" alt="ตัวอย่างงานพรีออเดอร์ 14" loading="lazy"></button>
+  </div>
+  <div class="preorder-selection" aria-live="polite"><span id="preorderSelection">เลือกภาพที่สนใจจากคอลเลกชันนี้ได้เลย</span><span>PRE-ORDER · CUSTOM MADE</span></div>
  </div>
- <div class="preorder-cta"><p>ทุกภาพเป็นตัวอย่างงานสั่งทำ สนใจแบบไหนส่งภาพหรือไอเดียมาคุยกันได้</p><a class="btn primary" href="https://page.line.me/014refkl" target="_blank" rel="noopener">สอบถามเมนูพรีออเดอร์</a></div>
+ <div class="preorder-cta"><p>สินค้ากลุ่มนี้เป็นงานพรีออเดอร์ สามารถปรับแบบ รสชาติ ขนาด และรายละเอียดได้ตามต้องการ</p><a class="btn primary" href="https://page.line.me/014refkl" target="_blank" rel="noopener">ทักสอบถามแบบที่เลือก</a></div>
 </section>
 
 <section class="section" id="officialChannels">
@@ -415,6 +433,19 @@ document.querySelectorAll('.switcher button').forEach(button=>button.addEventLis
  brandLogo.src=bakery?'assets/brand/candy-baked-logo.jpeg':'assets/brand/ogenic-logo.jpeg';
  brandLogo.alt=bakery?'Candy Baked':'OGENIC Chocolate';
  window.scrollTo({top:0,behavior:'smooth'});
+}));
+document.querySelectorAll('.preorder-group').forEach(button=>button.addEventListener('click',()=>{
+ document.querySelectorAll('.preorder-group').forEach(x=>x.classList.remove('active'));
+ button.classList.add('active');
+ const group=button.dataset.preorderGroup;
+ document.querySelectorAll('.preorder-frame').forEach(frame=>{
+  frame.hidden=group!=='all'&&!frame.dataset.groups.split(' ').includes(group);
+ });
+}));
+document.querySelectorAll('.preorder-frame').forEach(frame=>frame.addEventListener('click',()=>{
+ document.querySelectorAll('.preorder-frame').forEach(x=>x.setAttribute('aria-pressed','false'));
+ frame.setAttribute('aria-pressed','true');
+ document.querySelector('#preorderSelection').innerHTML=`เลือกตัวอย่าง <b>${safe(frame.dataset.reference)}</b> แล้ว · ทัก LINE OA เพื่อคุยรายละเอียดได้เลย`;
 }));
 document.querySelectorAll('.copy-line').forEach(button=>button.addEventListener('click',async()=>{
  try{await navigator.clipboard.writeText('https://page.line.me/014refkl');toast.textContent='คัดลอกลิงก์ LINE OA แล้ว'}
