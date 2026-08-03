@@ -1,0 +1,51 @@
+name: Build Cloudflare Deploy ZIP
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - design/ogenic-dark-luxury-v1
+    paths:
+      - 'index.html'
+      - 'bakery-products.json'
+      - 'chocolate-products.json'
+      - 'assets/**'
+      - '.github/workflows/build-deploy-zip.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build-deploy-zip:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out full website
+        uses: actions/checkout@v4
+
+      - name: Verify required website files
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f index.html
+          test -f bakery-products.json
+          test -f chocolate-products.json
+          test -d assets
+          find assets -type f | grep -q .
+
+      - name: Build complete deployment package
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p deploy-package
+          cp index.html bakery-products.json chocolate-products.json deploy-package/
+          cp -R assets deploy-package/assets
+          cd deploy-package
+          zip -r ../ogenic-cloudflare-deploy.zip .
+
+      - name: Upload deployment ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: ogenic-cloudflare-deploy
+          path: ogenic-cloudflare-deploy.zip
+          if-no-files-found: error
+          retention-days: 30
