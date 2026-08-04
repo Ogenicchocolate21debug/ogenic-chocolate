@@ -1,0 +1,7 @@
+Exact mirror of active Worker version 0dc5ba1f-3efe-4038-be91-db7481e2de32
+Only broken image delivery paths were changed. Layout, text, CSS, JS, routes and cart logic came from the live Worker.
+Changed text files:
+docs/index.html
+docs/chocolate/index.html
+docs/assets/index-CpUJzGDa.js
+docs/assets/catalog-carousel-BRWE5VJT.js
