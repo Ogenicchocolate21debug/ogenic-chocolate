@@ -1,0 +1,240 @@
+name: Build exact Worker preview
+
+on:
+  push:
+    branches:
+      - preview/exact-worker-v0dc5ba1f
+    paths:
+      - .github/workflows/build-exact-preview.yml
+
+permissions:
+  contents: write
+
+jobs:
+  mirror-and-render:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout preview branch
+        uses: actions/checkout@v4
+        with:
+          ref: preview/exact-worker-v0dc5ba1f
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Mirror active Worker and change image paths only
+        shell: bash
+        run: |
+          rm -rf docs preview-screenshots exact-worker-image-fix-v0dc5ba1f.zip
+          mkdir -p docs/chocolate docs/assets/bakery preview-screenshots
+          cat > /tmp/mirror.py <<'PY'
+          from __future__ import annotations
+          import re
+          import shutil
+          import urllib.request
+          from pathlib import Path
+          from urllib.parse import urljoin
+
+          WORKER = "https://sweet-block-940d.tawatchaisamornrum11.workers.dev"
+          GH = "https://raw.githubusercontent.com/Ogenicchocolate21debug/ogenic-chocolate/design/ogenic-dark-luxury-v1"
+          ROOT = Path("docs")
+          UA = {"User-Agent": "Mozilla/5.0 GitHub-Actions-Exact-Preview"}
+
+          def get(url: str) -> bytes:
+              req = urllib.request.Request(url, headers=UA)
+              with urllib.request.urlopen(req, timeout=60) as r:
+                  return r.read()
+
+          def write(path: Path, data: bytes) -> None:
+              path.parent.mkdir(parents=True, exist_ok=True)
+              path.write_bytes(data)
+
+          pages = {
+              "/": ROOT / "index.html",
+              "/chocolate/": ROOT / "chocolate" / "index.html",
+          }
+          queue: list[str] = []
+          seen: set[str] = set()
+
+          asset_re = re.compile(rb"/assets/[A-Za-z0-9._/-]+")
+
+          for route, out in pages.items():
+              body = get(WORKER + route)
+              write(out, body)
+              queue.extend(x.decode() for x in asset_re.findall(body))
+
+          while queue:
+              path = queue.pop(0)
+              if path in seen:
+                  continue
+              seen.add(path)
+              try:
+                  body = get(WORKER + path)
+              except Exception as exc:
+                  print(f"WARN asset fetch failed: {path}: {exc}")
+                  continue
+              write(ROOT / path.lstrip("/"), body)
+              if path.endswith((".js", ".css", ".html", ".json")):
+                  queue.extend(x.decode() for x in asset_re.findall(body))
+
+          bakery = [
+              "01-shio-pan.jpg",
+              "02-oreo-whipped-cream.jpg",
+              "03-strawberry-whipped-cream.jpg",
+              "04-nutella-strawberry-crumble.jpg",
+              "05-banoffee.jpg",
+              "06-caramel-banana-crumble.jpg",
+              "07-nutella-banana-crumble.jpg",
+              "08-strawberry-whip-crumble.jpg",
+              "09-brownie-whipped-cream.jpg",
+              "10-marshmallow-whipped-cream.jpg",
+              "11-foi-thong-whipped-cream.jpg",
+              "12-nutella-banana.jpg",
+              "13-blueberry-whipped-cream.jpg",
+              "14-dark-chocolate.jpg",
+              "15-dark-chocolate-almond.jpg",
+              "16-chocolate-dough-shio-pan.jpeg",
+          ]
+          for filename in bakery:
+              write(ROOT / "assets" / "bakery" / filename, get(f"{GH}/assets/bakery/{filename}"))
+
+          replacements = {
+              "https://ogenicchocolate.com/assets": "/assets",
+              "/__l5e/assets-v1/7949dbb6-b0b1-4ae2-903e-e7c4a2ade402/chocolate-dough-shio-pan.jpg": "/assets/bakery/16-chocolate-dough-shio-pan.jpeg",
+          }
+          changed: list[str] = []
+          for path in ROOT.rglob("*"):
+              if not path.is_file() or path.suffix.lower() not in {".html", ".js", ".css", ".json"}:
+                  continue
+              try:
+                  text = path.read_text("utf-8")
+              except UnicodeDecodeError:
+                  continue
+              original = text
+              for old, new in replacements.items():
+                  text = text.replace(old, new)
+              if text != original:
+                  path.write_text(text, "utf-8")
+                  changed.append(str(path))
+
+          try:
+              write(ROOT / "favicon.ico", get(WORKER + "/assets/brand/candy-baked-logo.webp"))
+          except Exception:
+              pass
+
+          (ROOT / "_redirects").write_text("/chocolate /chocolate/ 301\n", "utf-8")
+          (ROOT / "MIRROR_INFO.txt").write_text(
+              "Exact mirror of active Worker version 0dc5ba1f-3efe-4038-be91-db7481e2de32\n"
+              "Only broken image delivery paths were changed. Layout, text, CSS, JS, routes and cart logic came from the live Worker.\n"
+              + "Changed text files:\n" + "\n".join(changed) + "\n",
+              "utf-8",
+          )
+
+          leftovers = []
+          for path in ROOT.rglob("*"):
+              if path.is_file() and path.suffix.lower() in {".html", ".js", ".css", ".json"}:
+                  try:
+                      text = path.read_text("utf-8")
+                  except UnicodeDecodeError:
+                      continue
+                  if "ogenicchocolate.com/assets" in text or "/__l5e/" in text:
+                      leftovers.append(str(path))
+          if leftovers:
+              raise SystemExit(f"Broken image references remain: {leftovers}")
+
+          print(f"Mirrored {len(seen)} production assets")
+          print(f"Rewritten files: {changed}")
+          PY
+          python /tmp/mirror.py
+
+      - name: Install Playwright
+        run: |
+          python -m pip install --quiet playwright
+          python -m playwright install --with-deps chromium
+
+      - name: Render exact mobile screenshots and verify images
+        shell: bash
+        run: |
+          python -m http.server 8090 --directory docs >/tmp/preview-server.log 2>&1 &
+          echo $! >/tmp/preview-server.pid
+          for i in $(seq 1 30); do
+            curl -sf http://127.0.0.1:8090/ >/dev/null && break
+            sleep 1
+          done
+          cat > /tmp/render.py <<'PY'
+          import asyncio
+          import json
+          from pathlib import Path
+          from playwright.async_api import async_playwright
+
+          OUT = Path("preview-screenshots")
+          OUT.mkdir(exist_ok=True)
+
+          async def capture(page, name, scroll_y=0):
+              await page.evaluate(f"window.scrollTo(0, {scroll_y})")
+              await page.wait_for_timeout(900)
+              await page.screenshot(path=str(OUT / name), full_page=False)
+
+          async def force_all_images(page):
+              await page.evaluate("document.querySelectorAll('img').forEach(i => i.loading='eager')")
+              height = await page.evaluate("document.body.scrollHeight")
+              for y in range(0, height, 600):
+                  await page.evaluate(f"window.scrollTo(0,{y})")
+                  await page.wait_for_timeout(120)
+              await page.wait_for_timeout(1500)
+              return await page.evaluate("[...document.images].filter(i => i.complete && i.naturalWidth === 0).map(i => i.currentSrc || i.src)")
+
+          async def main():
+              async with async_playwright() as p:
+                  browser = await p.chromium.launch(headless=True)
+                  context = await browser.new_context(viewport={"width": 390, "height": 1800}, device_scale_factor=1)
+                  page = await context.new_page()
+                  failed = []
+                  page.on("requestfailed", lambda r: failed.append(r.url))
+
+                  await page.goto("http://127.0.0.1:8090/", wait_until="networkidle")
+                  await capture(page, "01-candy-top.png", 0)
+                  await capture(page, "02-candy-products.png", 850)
+                  broken_home = await force_all_images(page)
+                  await capture(page, "03-candy-footer.png", max(0, (await page.evaluate('document.body.scrollHeight')) - 1800))
+
+                  await page.goto("http://127.0.0.1:8090/chocolate/", wait_until="networkidle")
+                  await capture(page, "04-chocolate-top.png", 0)
+                  await capture(page, "05-chocolate-products.png", 850)
+                  broken_choc = await force_all_images(page)
+
+                  result = {
+                      "viewport": "390x1800",
+                      "broken_home": broken_home,
+                      "broken_chocolate": broken_choc,
+                      "failed_requests": failed,
+                      "home_scroll_width": await page.evaluate("document.documentElement.scrollWidth"),
+                  }
+                  (OUT / "verification.json").write_text(json.dumps(result, ensure_ascii=False, indent=2), "utf-8")
+                  print(json.dumps(result, ensure_ascii=False, indent=2))
+                  if broken_home or broken_choc:
+                      raise SystemExit("Broken images remain")
+                  await browser.close()
+
+          asyncio.run(main())
+          PY
+          python /tmp/render.py
+          kill "$(cat /tmp/preview-server.pid)" || true
+
+      - name: Package exact fixed mirror
+        run: |
+          python - <<'PY'
+          import shutil
+          shutil.make_archive('exact-worker-image-fix-v0dc5ba1f', 'zip', 'docs')
+          PY
+
+      - name: Commit mirror, screenshots and ZIP
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs preview-screenshots exact-worker-image-fix-v0dc5ba1f.zip
+          git commit -m "Generate exact Worker image-fix preview" || exit 0
+          git push origin HEAD:preview/exact-worker-v0dc5ba1f
