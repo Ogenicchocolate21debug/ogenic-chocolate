@@ -5,3 +5,9 @@ docs/index.html
 docs/chocolate/index.html
 docs/assets/index-CpUJzGDa.js
 docs/assets/catalog-carousel-BRWE5VJT.js
+docs/assets/routes-BTVVz2HD.js
+
+Bakery category image fix v2:
+- Bakery product images now use eager loading after category changes.
+- The Bakery carousel remounts when the selected category changes.
+- Cart logic, cart button effect, layout, text and the Chocolate page were not changed.
