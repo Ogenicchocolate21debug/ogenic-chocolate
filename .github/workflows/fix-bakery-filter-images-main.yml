@@ -1,0 +1,160 @@
+name: Run Bakery category image fix
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/fix-bakery-filter-images-main.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch-target-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout target deploy branch
+        uses: actions/checkout@v4
+        with:
+          ref: preview/exact-worker-v0dc5ba1f
+          fetch-depth: 0
+
+      - name: Patch Bakery filter image behavior
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          route = Path('docs/assets/routes-BTVVz2HD.js')
+          text = route.read_text('utf-8')
+          original = text
+
+          old_img = 'loading:`lazy`,className:`h-full w-full object-cover transition-transform duration-500 hover:scale-[1.03]`'
+          new_img = 'loading:`eager`,decoding:`async`,className:`h-full w-full object-cover transition-transform duration-500 hover:scale-[1.03]`'
+          old_carousel = '(0,g.jsx)(p,{items:n,getKey:e=>e.code,'
+          new_carousel = '(0,g.jsx)(p,{key:e,items:n,getKey:e=>e.code,'
+
+          if old_img not in text and new_img not in text:
+              raise SystemExit('Bakery image pattern not found')
+          if old_carousel not in text and new_carousel not in text:
+              raise SystemExit('Bakery carousel pattern not found')
+
+          text = text.replace(old_img, new_img)
+          text = text.replace(old_carousel, new_carousel)
+          route.write_text(text, 'utf-8')
+
+          info = Path('docs/MIRROR_INFO.txt')
+          prior = info.read_text('utf-8') if info.exists() else ''
+          note = (
+              '\nBakery category image fix v2:\n'
+              '- Bakery product images use eager loading after category changes.\n'
+              '- Catalog carousel remounts with the selected category key.\n'
+              '- Cart logic, cart effect, layout, text and Chocolate page are unchanged.\n'
+          )
+          if 'Bakery category image fix v2:' not in prior:
+              info.write_text(prior + note, 'utf-8')
+          PY
+
+      - name: Install Playwright WebKit
+        run: |
+          python -m pip install --quiet playwright
+          python -m playwright install --with-deps webkit
+
+      - name: Verify all Bakery categories without refresh
+        shell: bash
+        run: |
+          python -m http.server 8090 --directory docs >/tmp/preview-server.log 2>&1 &
+          echo $! >/tmp/preview-server.pid
+          for i in $(seq 1 30); do
+            curl -sf http://127.0.0.1:8090/ >/dev/null && break
+            sleep 1
+          done
+
+          cat > /tmp/test_categories.py <<'PY'
+          import asyncio
+          import json
+          from pathlib import Path
+          from playwright.async_api import async_playwright
+
+          categories = [
+              'ทั้งหมด', 'Original', 'Whipped Cream', 'Fruit & Cream',
+              'Nutella', 'Banana', 'Chocolate', 'Thai Dessert',
+              'ทั้งหมด', 'Nutella', 'Banana', 'ทั้งหมด'
+          ]
+
+          async def main():
+              async with async_playwright() as p:
+                  browser = await p.webkit.launch(headless=True)
+                  page = await browser.new_page(viewport={'width': 390, 'height': 844})
+                  failed = []
+                  page.on('requestfailed', lambda request: failed.append(request.url))
+                  await page.goto('http://127.0.0.1:8090/', wait_until='networkidle')
+                  results = []
+
+                  for category in categories:
+                      await page.get_by_role('button', name=category, exact=True).click()
+                      await page.wait_for_timeout(900)
+                      state = await page.evaluate('''() => {
+                        const section = document.querySelector('#bakery-menu');
+                        const imgs = [...section.querySelectorAll('img')];
+                        return {
+                          total: imgs.length,
+                          broken: imgs.filter(img => img.complete && img.naturalWidth === 0).map(img => img.currentSrc || img.src),
+                          pending: imgs.filter(img => !img.complete).map(img => img.currentSrc || img.src),
+                        };
+                      }''')
+                      state['category'] = category
+                      results.append(state)
+                      if state['total'] == 0 or state['broken'] or state['pending']:
+                          raise RuntimeError(f'Image failure after selecting {category}: {state}')
+
+                  await page.get_by_role('button', name='เพิ่มลงตะกร้า').first.click()
+                  await page.wait_for_timeout(300)
+                  cart_effect = await page.locator('[data-cart-button]').evaluate(
+                      "el => el.classList.contains('cart-bump') || /[1-9]/.test(el.textContent || '')"
+                  )
+                  if not cart_effect:
+                      raise RuntimeError('Cart effect/count did not respond')
+
+                  output = {
+                      'engine': 'Playwright WebKit',
+                      'viewport': '390x844',
+                      'tested_without_refresh': categories,
+                      'category_results': results,
+                      'failed_requests': failed,
+                      'cart_effect_responded': cart_effect,
+                  }
+                  Path('preview-screenshots/bakery-filter-verification-v2.json').write_text(
+                      json.dumps(output, ensure_ascii=False, indent=2), 'utf-8'
+                  )
+                  await page.screenshot(path='preview-screenshots/06-bakery-filter-fixed-v2.png')
+                  print(json.dumps(output, ensure_ascii=False, indent=2))
+                  await browser.close()
+
+          asyncio.run(main())
+          PY
+
+          python /tmp/test_categories.py
+          kill "$(cat /tmp/preview-server.pid)" || true
+
+      - name: Build replacement Cloudflare ZIP
+        run: |
+          rm -f exact-worker-image-fix-v0dc5ba1f-v2.zip
+          python - <<'PY'
+          import shutil
+          shutil.make_archive('exact-worker-image-fix-v0dc5ba1f-v2', 'zip', 'docs')
+          PY
+
+      - name: Commit to target branch
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/assets/routes-BTVVz2HD.js docs/MIRROR_INFO.txt \
+            preview-screenshots/bakery-filter-verification-v2.json \
+            preview-screenshots/06-bakery-filter-fixed-v2.png \
+            exact-worker-image-fix-v0dc5ba1f-v2.zip
+          git commit -m "Fix Bakery images after category filtering" || exit 0
+          git push origin HEAD:preview/exact-worker-v0dc5ba1f
