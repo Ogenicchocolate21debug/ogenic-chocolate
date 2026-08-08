@@ -1,0 +1,55 @@
+{
+  "name": "OGENIC AI Media Pipeline",
+  "version": "0.1.0",
+  "status_model": ["draft", "generated", "approved", "rejected", "published"],
+  "defaults": {
+    "image_model": "gpt-image-2",
+    "video_model": "veo-3.1-fast-generate-preview",
+    "aspect_ratio": "9:16",
+    "resolution": "1080p",
+    "duration_seconds": 8,
+    "require_human_approval": true
+  },
+  "stages": [
+    {
+      "id": "validate_input",
+      "input": ["asset_url", "prompt", "brand", "product_name"],
+      "output": ["validated_request", "idempotency_key"]
+    },
+    {
+      "id": "enhance_image",
+      "provider": "openai",
+      "optional": true,
+      "model_env": "AI_IMAGE_MODEL",
+      "output": ["enhanced_asset"]
+    },
+    {
+      "id": "generate_video",
+      "provider": "google_gemini",
+      "model_env": "VEO_MODEL",
+      "async": true,
+      "output": ["operation_id"]
+    },
+    {
+      "id": "poll_video",
+      "depends_on": "generate_video",
+      "output": ["video_asset"]
+    },
+    {
+      "id": "approval",
+      "required": true,
+      "output": ["approval_status", "approved_by", "approved_at"]
+    },
+    {
+      "id": "publish_meta",
+      "provider": "meta",
+      "condition": "approval_status == approved",
+      "output": ["platform_post_id", "published_at"]
+    },
+    {
+      "id": "audit",
+      "always": true,
+      "redact_secrets": true
+    }
+  ]
+}
