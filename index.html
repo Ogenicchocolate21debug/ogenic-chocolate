@@ -168,9 +168,9 @@ footer .signature{font-weight:900;color:var(--ink)}
   <div>
    <p class="eyebrow">CANDY BAKED · ร้านขนมแมวหน้าดำ</p>
    <h1>อบสด.<br>ทำด้วยใจ.</h1>
-   <p class="copy">ราคาที่แสดงเป็นราคาสินค้าหน้าร้าน ชิโอะปังแบบเปล่าเริ่มต้น 39 บาท และเมนูไส้อยู่ที่ 59 บาท ฟรีค่าส่งเมื่อสั่งครบ 250 บาท · ภายใน 10 กิโลเมตรแรก</p>
+   <p class="copy">ราคาที่แสดงเป็นราคาสินค้าหน้าร้าน ชิโอะปัง Original 39 บาท · Charcoal 49 บาท · เมนูไส้ 69 บาท ฟรีค่าส่งเมื่อสั่งครบ 250 บาท · ภายใน 10 กิโลเมตรแรก</p>
    <div class="menu-counts" aria-label="จำนวนเมนู">
-    <span>🥐 ชิโอะปัง 16 เมนู</span>
+    <span>🥐 ชิโอะปัง 15 เมนู · 2 แบบแป้ง</span>
     <span>🍰 ชีสเค้กหน้าไหม้ 5 เมนู</span>
    </div>
    <div class="actions">
@@ -186,7 +186,7 @@ footer .signature{font-weight:900;color:var(--ink)}
 
  <section class="section" id="bakeryMenu">
   <div class="heading">
-   <div><p class="eyebrow">CANDY BAKED CATALOG</p><h2>ชิโอะปัง 16 เมนู · ราคาเริ่มต้น 39 บาท</h2></div>
+   <div><p class="eyebrow">CANDY BAKED CATALOG</p><h2>ชิโอะปัง 15 เมนู · Original 39 / Charcoal 49 บาท</h2></div>
    <p>ราคาที่แสดงไม่รวมค่าส่ง ค่าส่งเริ่มต้น 40 บาทตามพื้นที่และจำนวนสินค้า หรือเลือกรับหน้าร้านได้</p>
   </div>
   <article class="cheesecake-summary">
@@ -199,7 +199,7 @@ footer .signature{font-weight:900;color:var(--ink)}
      <span>ออริจินอล</span><span>สตรอว์เบอร์รี</span><span>บลูเบอร์รี</span>
      <span>นูเทลล่ากล้วย</span><span>วิปครีมโอรีโอ้</span>
     </div>
-    <strong class="price-pill">89 บาท / ถ้วย</strong>
+    <strong class="price-pill">69 บาท / ถ้วย</strong>
    </div>
   </article>
   <div class="grid" id="bakeryGrid" aria-live="polite"></div>
@@ -295,7 +295,7 @@ function soldOut(p){
  return p.soldOut===true||p.status==='Out of Stock'||p.publishStatus==='Out of Stock';
 }
 function renderBakery(){
- bakeryGrid.innerHTML=BAKERY.map(p=>{
+ bakeryGrid.innerHTML=BAKERY.filter(p=>!p.mergeInto).map(p=>{
   const unavailable=soldOut(p);
   const english=p.descriptionEn||`${p.name} · handcrafted by Candy Baked.`;
   return `<article class="card ${unavailable?'sold-out':''}">
