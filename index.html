@@ -168,9 +168,9 @@ footer .signature{font-weight:900;color:var(--ink)}
   <div>
    <p class="eyebrow">CANDY BAKED · ร้านขนมแมวหน้าดำ</p>
    <h1>อบสด.<br>ทำด้วยใจ.</h1>
-   <p class="copy">ขนมจาก Candy Baked พร้อมราคาเดียว 89 บาท สอบถามรอบผลิตและสั่งซื้อผ่าน LINE Official Account</p>
+   <p class="copy">ราคาที่แสดงเป็นราคาสินค้าหน้าร้าน ชิโอะปังแบบเปล่าเริ่มต้น 39 บาท และเมนูไส้อยู่ที่ 59 บาท ฟรีค่าส่งเมื่อสั่งครบ 250 บาท · ภายใน 10 กิโลเมตรแรก</p>
    <div class="menu-counts" aria-label="จำนวนเมนู">
-    <span>🥐 ชิโอะปัง 15 เมนู</span>
+    <span>🥐 ชิโอะปัง 16 เมนู</span>
     <span>🍰 ชีสเค้กหน้าไหม้ 5 เมนู</span>
    </div>
    <div class="actions">
@@ -186,7 +186,7 @@ footer .signature{font-weight:900;color:var(--ink)}
 
  <section class="section" id="bakeryMenu">
   <div class="heading">
-   <div><p class="eyebrow">CANDY BAKED CATALOG</p><h2>20 เมนู ราคา 89 บาท</h2></div>
+   <div><p class="eyebrow">CANDY BAKED CATALOG</p><h2>ชิโอะปัง 16 เมนู · ราคาเริ่มต้น 39 บาท</h2></div>
    <p>ราคาที่แสดงไม่รวมค่าส่ง ค่าส่งเริ่มต้น 40 บาทตามพื้นที่และจำนวนสินค้า หรือเลือกรับหน้าร้านได้</p>
   </div>
   <article class="cheesecake-summary">
@@ -307,7 +307,7 @@ function renderBakery(){
     <div class="bilingual"><span class="th">${safe(p.description)}</span><span class="en">${safe(english)}</span></div>
     <div class="tags">${(p.details||[]).map(x=>`<span class="tag">${safe(x)}</span>`).join('')}</div>
     <div class="shipping-note">ราคาไม่รวมค่าส่ง · ค่าส่งเริ่มต้น 40 บาท · รับหน้าร้านได้</div>
-    <div class="meta"><span><b>89 บาท</b> · ${safe(p.leadTime)}</span><a href="https://page.line.me/014refkl" target="_blank" rel="noopener"><b>${unavailable?'สอบถามรอบถัดไป':'สั่งผ่าน LINE'} →</b></a></div>
+    <div class="meta"><span><b>${Number(p.price)} บาท</b> · ${safe(p.leadTime)}</span><a href="https://page.line.me/014refkl" target="_blank" rel="noopener"><b>${unavailable?'สอบถามรอบถัดไป':'สั่งผ่าน LINE'} →</b></a></div>
    </div>
   </article>`;
  }).join('');

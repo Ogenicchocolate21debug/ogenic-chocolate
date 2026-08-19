@@ -1,0 +1,17 @@
+sku,product_group,previous_price_thb,new_price_thb,price_change_thb,verified_cost_thb,new_gross_profit_formula,new_gross_margin_formula,cost_status
+CBK-SHP-001,Original Shio Pan,49,39,-10,,39-C,(39-C)/39*100,Missing verified cost inputs
+CBK-SHP-016,Chocolate Dough Shio Pan,59,49,-10,,49-C,(49-C)/49*100,Missing verified cost inputs
+CBK-SHP-002,Filled menu,89,59,-30,,59-C,(59-C)/59*100,Missing verified cost inputs
+CBK-SHP-003,Filled menu,89,59,-30,,59-C,(59-C)/59*100,Missing verified cost inputs
+CBK-SHP-004,Filled menu,89,59,-30,,59-C,(59-C)/59*100,Missing verified cost inputs
+CBK-SHP-005,Filled menu,89,59,-30,,59-C,(59-C)/59*100,Missing verified cost inputs
+CBK-SHP-006,Filled menu,89,59,-30,,59-C,(59-C)/59*100,Missing verified cost inputs
+CBK-SHP-007,Filled menu,89,59,-30,,59-C,(59-C)/59*100,Missing verified cost inputs
+CBK-SHP-008,Filled menu,89,59,-30,,59-C,(59-C)/59*100,Missing verified cost inputs
+CBK-SHP-009,Filled menu,89,59,-30,,59-C,(59-C)/59*100,Missing verified cost inputs
+CBK-SHP-010,Filled menu,89,59,-30,,59-C,(59-C)/59*100,Missing verified cost inputs
+CBK-SHP-011,Filled menu,89,59,-30,,59-C,(59-C)/59*100,Missing verified cost inputs
+CBK-SHP-012,Filled menu,89,59,-30,,59-C,(59-C)/59*100,Missing verified cost inputs
+CBK-SHP-013,Filled menu,89,59,-30,,59-C,(59-C)/59*100,Missing verified cost inputs
+CBK-SHP-014,Filled menu,89,59,-30,,59-C,(59-C)/59*100,Missing verified cost inputs
+CBK-SHP-015,Filled menu,89,59,-30,,59-C,(59-C)/59*100,Missing verified cost inputs

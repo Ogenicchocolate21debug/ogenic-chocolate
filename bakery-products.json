@@ -6,14 +6,32 @@
     "group": "Shio Pan",
     "orderType": "Original",
     "leadTime": "สั่งผ่าน LINE OA",
-    "price": 89,
+    "price": 39,
     "description": "ชิโอะปังรสออริจินัล เนื้อขนมนุ่ม หอมเนย เหมาะสำหรับทานเดี่ยวหรือทานคู่เครื่องดื่ม",
     "details": [
       "ออริจินัล",
       "หอมเนย",
-      "ราคา 89 บาท"
+      "ราคา 39 บาท"
     ],
     "image": "assets/bakery/01-shio-pan.jpg",
+    "featured": true,
+    "soldOut": false
+  },
+  {
+    "id": "CBK-SHP-016",
+    "name": "Chocolate Dough Shio Pan",
+    "thai": "ชิโอะปังแป้งช็อกโกแลต",
+    "group": "Shio Pan",
+    "orderType": "Original",
+    "leadTime": "สั่งผ่าน LINE OA",
+    "price": 49,
+    "description": "ชิโอะปังเนื้อนุ่มจากแป้งผสมช็อกโกแลต หอมโกโก้และเนย รสหวานน้อย ด้านนอกบางกรอบ ด้านในนุ่ม กินเปล่าได้หรือเลือกเพิ่มไส้ตามเมนู",
+    "details": [
+      "แป้งช็อกโกแลต",
+      "หอมโกโก้และเนย",
+      "ราคา 49 บาท"
+    ],
+    "image": "https://candybaked.ogenicchocolate.com/assets/bakery/16-chocolate-dough-shio-pan.jpeg",
     "featured": true,
     "soldOut": false
   },
@@ -24,12 +42,12 @@
     "group": "Shio Pan",
     "orderType": "Whipped Cream",
     "leadTime": "สั่งผ่าน LINE OA",
-    "price": 89,
+    "price": 59,
     "description": "ชิโอะปังสอดไส้วิปครีมและคุกกี้โอรีโอ ให้สัมผัสครีมมี่และกรุบกรอบ",
     "details": [
       "วิปครีม",
       "โอรีโอ",
-      "ราคา 89 บาท"
+      "ราคา 59 บาท"
     ],
     "image": "assets/bakery/02-oreo-whipped-cream.jpg",
     "featured": true,
@@ -42,12 +60,12 @@
     "group": "Shio Pan",
     "orderType": "Fruit & Cream",
     "leadTime": "สั่งผ่าน LINE OA",
-    "price": 89,
+    "price": 59,
     "description": "ชิโอะปังวิปครีมพร้อมสตรอว์เบอร์รี ให้รสหวานอมเปรี้ยวและสัมผัสสดชื่น",
     "details": [
       "วิปครีม",
       "สตรอว์เบอร์รี",
-      "ราคา 89 บาท"
+      "ราคา 59 บาท"
     ],
     "image": "assets/bakery/03-strawberry-whipped-cream.jpg",
     "featured": true,
@@ -60,7 +78,7 @@
     "group": "Shio Pan",
     "orderType": "Nutella",
     "leadTime": "สั่งผ่าน LINE OA",
-    "price": 89,
+    "price": 59,
     "description": "ชิโอะปังนูเทลล่า สตรอว์เบอร์รี และครัมเบิล รวมความเข้มข้น หวานอมเปรี้ยว และความกรุบในชิ้นเดียว",
     "details": [
       "นูเทลล่า",
@@ -78,7 +96,7 @@
     "group": "Shio Pan",
     "orderType": "Banana",
     "leadTime": "สั่งผ่าน LINE OA",
-    "price": 89,
+    "price": 59,
     "description": "ชิโอะปังสไตล์บานอฟฟี่ จัดเต็มกล้วย วิปครีม และซอสคาราเมล",
     "details": [
       "กล้วย",
@@ -96,7 +114,7 @@
     "group": "Shio Pan",
     "orderType": "Banana",
     "leadTime": "สั่งผ่าน LINE OA",
-    "price": 89,
+    "price": 59,
     "description": "ชิโอะปังกล้วยคาราเมล โรยครัมเบิล เพิ่มกลิ่นหอมหวานและสัมผัสกรุบ",
     "details": [
       "กล้วย",
@@ -114,7 +132,7 @@
     "group": "Shio Pan",
     "orderType": "Nutella",
     "leadTime": "สั่งผ่าน LINE OA",
-    "price": 89,
+    "price": 59,
     "description": "ชิโอะปังนูเทลล่ากับกล้วยและครัมเบิล รสเข้มข้นและมีเนื้อสัมผัสหลายชั้น",
     "details": [
       "นูเทลล่า",
@@ -132,7 +150,7 @@
     "group": "Shio Pan",
     "orderType": "Fruit & Cream",
     "leadTime": "สั่งผ่าน LINE OA",
-    "price": 89,
+    "price": 59,
     "description": "ชิโอะปังวิปครีม สตรอว์เบอร์รี และครัมเบิล หวานอมเปรี้ยวพร้อมความกรุบ",
     "details": [
       "วิปครีม",
@@ -150,12 +168,12 @@
     "group": "Shio Pan",
     "orderType": "Chocolate",
     "leadTime": "สั่งผ่าน LINE OA",
-    "price": 89,
+    "price": 59,
     "description": "ชิโอะปังวิปครีมพร้อมชิ้นบราวนี่ เหมาะสำหรับคนชอบรสช็อกโกแลตและครีมนุ่ม",
     "details": [
       "วิปครีม",
       "บราวนี่",
-      "ราคา 89 บาท"
+      "ราคา 59 บาท"
     ],
     "image": "assets/bakery/09-brownie-whipped-cream.jpg",
     "featured": false,
@@ -168,12 +186,12 @@
     "group": "Shio Pan",
     "orderType": "Whipped Cream",
     "leadTime": "สั่งผ่าน LINE OA",
-    "price": 89,
+    "price": 59,
     "description": "ชิโอะปังวิปครีมและมาร์ชแมลโลว์ ให้สัมผัสนุ่มฟูและรสหวานละมุน",
     "details": [
       "วิปครีม",
       "มาร์ชแมลโลว์",
-      "ราคา 89 บาท"
+      "ราคา 59 บาท"
     ],
     "image": "assets/bakery/10-marshmallow-whipped-cream.jpg",
     "featured": false,
@@ -186,12 +204,12 @@
     "group": "Shio Pan",
     "orderType": "Thai Dessert",
     "leadTime": "สั่งผ่าน LINE OA",
-    "price": 89,
+    "price": 59,
     "description": "ชิโอะปังวิปครีมฝอยทอง ผสมผสานเบเกอรี่กับขนมไทยในรสหวานหอม",
     "details": [
       "วิปครีม",
       "ฝอยทอง",
-      "ราคา 89 บาท"
+      "ราคา 59 บาท"
     ],
     "image": "assets/bakery/11-foi-thong-whipped-cream.jpg",
     "featured": false,
@@ -204,12 +222,12 @@
     "group": "Shio Pan",
     "orderType": "Nutella",
     "leadTime": "สั่งผ่าน LINE OA",
-    "price": 89,
+    "price": 59,
     "description": "ชิโอะปังนูเทลล่าและกล้วย คู่รสคลาสสิกที่ให้ความเข้มข้นและความหวานจากผลไม้",
     "details": [
       "นูเทลล่า",
       "กล้วย",
-      "ราคา 89 บาท"
+      "ราคา 59 บาท"
     ],
     "image": "assets/bakery/12-nutella-banana.jpg",
     "featured": false,
@@ -222,12 +240,12 @@
     "group": "Shio Pan",
     "orderType": "Fruit & Cream",
     "leadTime": "สั่งผ่าน LINE OA",
-    "price": 89,
+    "price": 59,
     "description": "ชิโอะปังวิปครีมบลูเบอร์รี หอมผลไม้และมีรสหวานอมเปรี้ยว",
     "details": [
       "วิปครีม",
       "บลูเบอร์รี",
-      "ราคา 89 บาท"
+      "ราคา 59 บาท"
     ],
     "image": "assets/bakery/13-blueberry-whipped-cream.jpg",
     "featured": false,
@@ -240,12 +258,12 @@
     "group": "Shio Pan",
     "orderType": "Chocolate",
     "leadTime": "สั่งผ่าน LINE OA",
-    "price": 89,
+    "price": 59,
     "description": "ชิโอะปังเคลือบดาร์กช็อกโกแลต สำหรับคนชอบรสช็อกโกแลตเข้ม",
     "details": [
       "ดาร์กช็อกโกแลต",
       "รสเข้ม",
-      "ราคา 89 บาท"
+      "ราคา 59 บาท"
     ],
     "image": "assets/bakery/14-dark-chocolate.jpg",
     "featured": false,
@@ -258,12 +276,12 @@
     "group": "Shio Pan",
     "orderType": "Chocolate",
     "leadTime": "สั่งผ่าน LINE OA",
-    "price": 89,
+    "price": 59,
     "description": "ชิโอะปังเคลือบดาร์กช็อกโกแลต โรยอัลมอนด์ เพิ่มความหอมมันและกรุบกรอบ",
     "details": [
       "ดาร์กช็อกโกแลต",
       "อัลมอนด์",
-      "ราคา 89 บาท"
+      "ราคา 59 บาท"
     ],
     "image": "assets/bakery/15-dark-chocolate-almond.jpg",
     "featured": false,
