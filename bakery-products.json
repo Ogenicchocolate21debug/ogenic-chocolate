@@ -1,13 +1,13 @@
 [
   {
     "id": "CBK-SHP-001",
-    "name": "Original Shio Pan",
-    "thai": "ชิโอะปัง",
+    "name": "ShioPan Original / Charcoal",
+    "thai": "ชิโอะปัง-ออริจินัล",
     "group": "Shio Pan",
     "orderType": "Original",
     "leadTime": "สั่งผ่าน LINE OA",
     "price": 39,
-    "description": "ชิโอะปังรสออริจินัล เนื้อขนมนุ่ม หอมเนย เหมาะสำหรับทานเดี่ยวหรือทานคู่เครื่องดื่ม",
+    "description": "ชิโอะปัง-ออริจินัล เนื้อนุ่มหอมมันเนย เหมาะสำหรับทานเล่น หรือ ทานคู่กับเครื่องดื่ม",
     "details": [
       "ออริจินัล",
       "หอมเนย",
@@ -15,17 +15,30 @@
     ],
     "image": "assets/bakery/01-shio-pan.jpg",
     "featured": true,
-    "soldOut": false
+    "soldOut": false,
+    "descriptionEn": "Original ShioPan is soft, rich, and buttery—perfect as a snack or paired with your favorite drink.",
+    "variants": [
+      {
+        "name": "Original",
+        "price": 39,
+        "sku": "CBK-SHP-001"
+      },
+      {
+        "name": "Charcoal",
+        "price": 49,
+        "sku": "CBK-SHP-016"
+      }
+    ]
   },
   {
     "id": "CBK-SHP-016",
-    "name": "Chocolate Dough Shio Pan",
-    "thai": "ชิโอะปังแป้งช็อกโกแลต",
+    "name": "ShioPan - Charcoal",
+    "thai": "ชิโอะปัง-ชาโคล",
     "group": "Shio Pan",
     "orderType": "Original",
     "leadTime": "สั่งผ่าน LINE OA",
     "price": 49,
-    "description": "ชิโอะปังเนื้อนุ่มจากแป้งผสมช็อกโกแลต หอมโกโก้และเนย รสหวานน้อย ด้านนอกบางกรอบ ด้านในนุ่ม กินเปล่าได้หรือเลือกเพิ่มไส้ตามเมนู",
+    "description": "ชิโอะปังแป้งชาโคล เนื้อนุ่ม หอมเนย รสละมุน เหมาะสำหรับทานเล่นหรือทานคู่เครื่องดื่ม",
     "details": [
       "แป้งช็อกโกแลต",
       "หอมโกโก้และเนย",
@@ -33,258 +46,444 @@
     ],
     "image": "https://candybaked.ogenicchocolate.com/assets/bakery/16-chocolate-dough-shio-pan.jpeg",
     "featured": true,
-    "soldOut": false
+    "soldOut": false,
+    "descriptionEn": "Soft charcoal ShioPan with a gentle buttery aroma, ideal as a snack or paired with a drink.",
+    "mergeInto": "CBK-SHP-001"
   },
   {
     "id": "CBK-SHP-002",
-    "name": "Oreo Whipped Cream",
+    "name": "ShioPan - Oreo Whipped Cream",
     "thai": "ชิโอะปังวิปครีมโอรีโอ",
     "group": "Shio Pan",
     "orderType": "Whipped Cream",
     "leadTime": "สั่งผ่าน LINE OA",
-    "price": 59,
+    "price": 69,
     "description": "ชิโอะปังสอดไส้วิปครีมและคุกกี้โอรีโอ ให้สัมผัสครีมมี่และกรุบกรอบ",
     "details": [
       "วิปครีม",
       "โอรีโอ",
-      "ราคา 59 บาท"
+      "ราคา 69 บาท"
     ],
     "image": "assets/bakery/02-oreo-whipped-cream.jpg",
     "featured": true,
-    "soldOut": false
+    "soldOut": false,
+    "descriptionEn": "Soft ShioPan filled with whipped cream and crunchy Oreo cookies."
   },
   {
     "id": "CBK-SHP-003",
-    "name": "Strawberry Whipped Cream",
+    "name": "ShioPan - Strawberry Whipped Cream",
     "thai": "ชิโอะปังวิปครีมสตรอว์เบอร์รี",
     "group": "Shio Pan",
     "orderType": "Fruit & Cream",
     "leadTime": "สั่งผ่าน LINE OA",
-    "price": 59,
+    "price": 69,
     "description": "ชิโอะปังวิปครีมพร้อมสตรอว์เบอร์รี ให้รสหวานอมเปรี้ยวและสัมผัสสดชื่น",
     "details": [
       "วิปครีม",
       "สตรอว์เบอร์รี",
-      "ราคา 59 บาท"
+      "ราคา 69 บาท"
     ],
     "image": "assets/bakery/03-strawberry-whipped-cream.jpg",
     "featured": true,
-    "soldOut": false
+    "soldOut": false,
+    "descriptionEn": "Soft ShioPan with whipped cream and strawberry for a bright sweet-tart finish."
   },
   {
     "id": "CBK-SHP-004",
-    "name": "Nutella Strawberry Crumble",
+    "name": "ShioPan - Nutella Strawberry Crumble",
     "thai": "ชิโอะปังนูเทลล่าสตรอว์เบอร์รีครัมเบิล",
     "group": "Shio Pan",
     "orderType": "Nutella",
     "leadTime": "สั่งผ่าน LINE OA",
-    "price": 59,
+    "price": 69,
     "description": "ชิโอะปังนูเทลล่า สตรอว์เบอร์รี และครัมเบิล รวมความเข้มข้น หวานอมเปรี้ยว และความกรุบในชิ้นเดียว",
     "details": [
       "นูเทลล่า",
       "สตรอว์เบอร์รี",
-      "ครัมเบิล"
+      "ครัมเบิล",
+      "ราคา 69 บาท"
     ],
     "image": "assets/bakery/04-nutella-strawberry-crumble.jpg",
     "featured": true,
-    "soldOut": false
+    "soldOut": false,
+    "descriptionEn": "Nutella, strawberry, and crumble bring rich chocolate, fruit, and crunch together."
   },
   {
     "id": "CBK-SHP-005",
-    "name": "Banoffee",
+    "name": "ShioPan - Banoffee",
     "thai": "ชิโอะปังบานอฟฟี่",
     "group": "Shio Pan",
     "orderType": "Banana",
     "leadTime": "สั่งผ่าน LINE OA",
-    "price": 59,
+    "price": 69,
     "description": "ชิโอะปังสไตล์บานอฟฟี่ จัดเต็มกล้วย วิปครีม และซอสคาราเมล",
     "details": [
       "กล้วย",
       "วิปครีม",
-      "คาราเมล"
+      "คาราเมล",
+      "ราคา 69 บาท"
     ],
     "image": "assets/bakery/05-banoffee.jpg",
     "featured": true,
-    "soldOut": false
+    "soldOut": false,
+    "descriptionEn": "Banoffee-style ShioPan layered with banana, whipped cream, and caramel sauce."
   },
   {
     "id": "CBK-SHP-006",
-    "name": "Caramel Banana Crumble",
+    "name": "ShioPan - Caramel Banana Crumble",
     "thai": "ชิโอะปังคาราเมลกล้วยครัมเบิล",
     "group": "Shio Pan",
     "orderType": "Banana",
     "leadTime": "สั่งผ่าน LINE OA",
-    "price": 59,
+    "price": 69,
     "description": "ชิโอะปังกล้วยคาราเมล โรยครัมเบิล เพิ่มกลิ่นหอมหวานและสัมผัสกรุบ",
     "details": [
       "กล้วย",
       "คาราเมล",
-      "ครัมเบิล"
+      "ครัมเบิล",
+      "ราคา 69 บาท"
     ],
     "image": "assets/bakery/06-caramel-banana-crumble.jpg",
     "featured": false,
-    "soldOut": false
+    "soldOut": false,
+    "descriptionEn": "Banana and caramel ShioPan finished with a crisp crumble topping."
   },
   {
     "id": "CBK-SHP-007",
-    "name": "Nutella Banana Crumble",
+    "name": "ShioPan - Nutella Banana Crumble",
     "thai": "ชิโอะปังนูเทลล่ากล้วยครัมเบิล",
     "group": "Shio Pan",
     "orderType": "Nutella",
     "leadTime": "สั่งผ่าน LINE OA",
-    "price": 59,
+    "price": 69,
     "description": "ชิโอะปังนูเทลล่ากับกล้วยและครัมเบิล รสเข้มข้นและมีเนื้อสัมผัสหลายชั้น",
     "details": [
       "นูเทลล่า",
       "กล้วย",
-      "ครัมเบิล"
+      "ครัมเบิล",
+      "ราคา 69 บาท"
     ],
     "image": "assets/bakery/07-nutella-banana-crumble.jpg",
     "featured": false,
-    "soldOut": false
+    "soldOut": false,
+    "descriptionEn": "Nutella, banana, and crumble create a rich, layered bite."
   },
   {
     "id": "CBK-SHP-008",
-    "name": "Strawberry Whip Crumble",
+    "name": "ShioPan - Strawberry Whip Crumble",
     "thai": "ชิโอะปังวิปสตรอว์เบอร์รีครัมเบิล",
     "group": "Shio Pan",
     "orderType": "Fruit & Cream",
     "leadTime": "สั่งผ่าน LINE OA",
-    "price": 59,
+    "price": 69,
     "description": "ชิโอะปังวิปครีม สตรอว์เบอร์รี และครัมเบิล หวานอมเปรี้ยวพร้อมความกรุบ",
     "details": [
       "วิปครีม",
       "สตรอว์เบอร์รี",
-      "ครัมเบิล"
+      "ครัมเบิล",
+      "ราคา 69 บาท"
     ],
     "image": "assets/bakery/08-strawberry-whip-crumble.jpg",
     "featured": false,
-    "soldOut": false
+    "soldOut": false,
+    "descriptionEn": "Whipped cream, strawberry, and crumble deliver a creamy, fruity crunch."
   },
   {
     "id": "CBK-SHP-009",
-    "name": "Brownie Whipped Cream",
+    "name": "ShioPan - Brownie Whipped Cream",
     "thai": "ชิโอะปังวิปครีมบราวนี่",
     "group": "Shio Pan",
     "orderType": "Chocolate",
     "leadTime": "สั่งผ่าน LINE OA",
-    "price": 59,
+    "price": 69,
     "description": "ชิโอะปังวิปครีมพร้อมชิ้นบราวนี่ เหมาะสำหรับคนชอบรสช็อกโกแลตและครีมนุ่ม",
     "details": [
       "วิปครีม",
       "บราวนี่",
-      "ราคา 59 บาท"
+      "ราคา 69 บาท"
     ],
     "image": "assets/bakery/09-brownie-whipped-cream.jpg",
     "featured": false,
-    "soldOut": false
+    "soldOut": false,
+    "descriptionEn": "Whipped cream and brownie pieces make this a soft, chocolate-forward ShioPan."
   },
   {
     "id": "CBK-SHP-010",
-    "name": "Marshmallow Whipped Cream",
+    "name": "ShioPan - Marshmallow Whipped Cream",
     "thai": "ชิโอะปังวิปครีมมาร์ชแมลโลว์",
     "group": "Shio Pan",
     "orderType": "Whipped Cream",
     "leadTime": "สั่งผ่าน LINE OA",
-    "price": 59,
+    "price": 69,
     "description": "ชิโอะปังวิปครีมและมาร์ชแมลโลว์ ให้สัมผัสนุ่มฟูและรสหวานละมุน",
     "details": [
       "วิปครีม",
       "มาร์ชแมลโลว์",
-      "ราคา 59 บาท"
+      "ราคา 69 บาท"
     ],
     "image": "assets/bakery/10-marshmallow-whipped-cream.jpg",
     "featured": false,
-    "soldOut": false
+    "soldOut": false,
+    "descriptionEn": "Fluffy whipped cream and marshmallow give this ShioPan a soft, mellow sweetness."
   },
   {
     "id": "CBK-SHP-011",
-    "name": "Foi Thong Whipped Cream",
+    "name": "ShioPan - Foi Thong Whipped Cream",
     "thai": "ชิโอะปังวิปครีมฝอยทอง",
     "group": "Shio Pan",
     "orderType": "Thai Dessert",
     "leadTime": "สั่งผ่าน LINE OA",
-    "price": 59,
+    "price": 69,
     "description": "ชิโอะปังวิปครีมฝอยทอง ผสมผสานเบเกอรี่กับขนมไทยในรสหวานหอม",
     "details": [
       "วิปครีม",
       "ฝอยทอง",
-      "ราคา 59 บาท"
+      "ราคา 69 บาท"
     ],
     "image": "assets/bakery/11-foi-thong-whipped-cream.jpg",
     "featured": false,
-    "soldOut": false
+    "soldOut": false,
+    "descriptionEn": "Whipped cream and foi thong pair soft bakery texture with fragrant Thai sweetness."
   },
   {
     "id": "CBK-SHP-012",
-    "name": "Nutella Banana",
+    "name": "ShioPan - Nutella Banana",
     "thai": "ชิโอะปังนูเทลล่ากล้วย",
     "group": "Shio Pan",
     "orderType": "Nutella",
     "leadTime": "สั่งผ่าน LINE OA",
-    "price": 59,
+    "price": 69,
     "description": "ชิโอะปังนูเทลล่าและกล้วย คู่รสคลาสสิกที่ให้ความเข้มข้นและความหวานจากผลไม้",
     "details": [
       "นูเทลล่า",
       "กล้วย",
-      "ราคา 59 บาท"
+      "ราคา 69 บาท"
     ],
     "image": "assets/bakery/12-nutella-banana.jpg",
     "featured": false,
-    "soldOut": false
+    "soldOut": false,
+    "descriptionEn": "Nutella and banana form a rich, familiar chocolate-fruit pairing."
   },
   {
     "id": "CBK-SHP-013",
-    "name": "Blueberry Whipped Cream",
+    "name": "ShioPan - Blueberry Whipped Cream",
     "thai": "ชิโอะปังวิปครีมบลูเบอร์รี",
     "group": "Shio Pan",
     "orderType": "Fruit & Cream",
     "leadTime": "สั่งผ่าน LINE OA",
-    "price": 59,
+    "price": 69,
     "description": "ชิโอะปังวิปครีมบลูเบอร์รี หอมผลไม้และมีรสหวานอมเปรี้ยว",
     "details": [
       "วิปครีม",
       "บลูเบอร์รี",
-      "ราคา 59 บาท"
+      "ราคา 69 บาท"
     ],
     "image": "assets/bakery/13-blueberry-whipped-cream.jpg",
     "featured": false,
-    "soldOut": false
+    "soldOut": false,
+    "descriptionEn": "Whipped cream and blueberry add a fragrant, gently sweet-tart finish."
   },
   {
     "id": "CBK-SHP-014",
-    "name": "Dark Chocolate",
+    "name": "ShioPan - Dark Chocolate",
     "thai": "ชิโอะปังดาร์กช็อกโกแลต",
     "group": "Shio Pan",
     "orderType": "Chocolate",
     "leadTime": "สั่งผ่าน LINE OA",
-    "price": 59,
+    "price": 69,
     "description": "ชิโอะปังเคลือบดาร์กช็อกโกแลต สำหรับคนชอบรสช็อกโกแลตเข้ม",
     "details": [
       "ดาร์กช็อกโกแลต",
       "รสเข้ม",
-      "ราคา 59 บาท"
+      "ราคา 69 บาท"
     ],
     "image": "assets/bakery/14-dark-chocolate.jpg",
     "featured": false,
-    "soldOut": false
+    "soldOut": false,
+    "descriptionEn": "Dark chocolate coating brings a bold cocoa finish for chocolate lovers."
   },
   {
     "id": "CBK-SHP-015",
-    "name": "Dark Chocolate Almond",
+    "name": "ShioPan - Dark Chocolate Almond",
     "thai": "ชิโอะปังดาร์กช็อกโกแลตอัลมอนด์",
     "group": "Shio Pan",
     "orderType": "Chocolate",
     "leadTime": "สั่งผ่าน LINE OA",
-    "price": 59,
+    "price": 69,
     "description": "ชิโอะปังเคลือบดาร์กช็อกโกแลต โรยอัลมอนด์ เพิ่มความหอมมันและกรุบกรอบ",
     "details": [
       "ดาร์กช็อกโกแลต",
       "อัลมอนด์",
-      "ราคา 59 บาท"
+      "ราคา 69 บาท"
     ],
     "image": "assets/bakery/15-dark-chocolate-almond.jpg",
     "featured": false,
-    "soldOut": false
+    "soldOut": false,
+    "descriptionEn": "Dark chocolate coating and roasted almond add rich cocoa and nutty crunch."
+  },
+  {
+    "id": "CBK-CHK-016",
+    "name": "Burnt Cheesecake - Original",
+    "thai": "ชีสเค้กหน้าไหม้ ออริจินอล",
+    "slug": "burnt-cheesecake-original",
+    "orderType": "Original",
+    "group": "Burnt Cheesecake",
+    "leadTime": "สั่งผ่าน LINE OA",
+    "price": 69,
+    "description": "ชีสเค้กหน้าไหม้ ออริจินอล เนื้อชีสเค้กเข้มข้น ขนาด 60 กรัมต่อชิ้น",
+    "descriptionEn": "Burnt Cheesecake - Original, rich and creamy, 60 g per piece.",
+    "details": [
+      "ขนาด 60 กรัม",
+      "ราคา 69 บาท"
+    ],
+    "image": "assets/hero/candy-baked-cover.jpeg",
+    "featured": false,
+    "soldOut": false,
+    "costAnalysis": {
+      "sourceDate": "2026-08-20",
+      "materialCostPerBatch": 387.968,
+      "overheadPercent": 10,
+      "targetProfitPercentInSource": 50,
+      "laborCostPerBatch": 88,
+      "approvedBatchCostBasis": 729,
+      "unitsPerBatch": 10,
+      "costPerUnit": 72.9,
+      "sellingPrice": 69,
+      "grossProfitPerUnit": -3.9,
+      "grossMarginPercent": -5.65,
+      "note": "ใช้ฐานต้นทุนเดียวกันทั้ง 5 รสตามภาพเจ้าของ; ยังไม่รวมค่าธรรมเนียมช่องทาง ท็อปปิงเฉพาะรส และบรรจุภัณฑ์เพิ่มเติม"
+    }
+  },
+  {
+    "id": "CBK-CHK-017",
+    "name": "Burnt Cheesecake - Strawberry",
+    "thai": "ชีสเค้กหน้าไหม้ สตรอว์เบอร์รี",
+    "slug": "burnt-cheesecake-strawberry",
+    "orderType": "Fruit",
+    "group": "Burnt Cheesecake",
+    "leadTime": "สั่งผ่าน LINE OA",
+    "price": 69,
+    "description": "ชีสเค้กหน้าไหม้ สตรอว์เบอร์รี เนื้อชีสเค้กเข้มข้น ขนาด 60 กรัมต่อชิ้น",
+    "descriptionEn": "Burnt Cheesecake - Strawberry, rich and creamy, 60 g per piece.",
+    "details": [
+      "ขนาด 60 กรัม",
+      "ราคา 69 บาท"
+    ],
+    "image": "assets/hero/candy-baked-cover.jpeg",
+    "featured": false,
+    "soldOut": false,
+    "costAnalysis": {
+      "sourceDate": "2026-08-20",
+      "materialCostPerBatch": 387.968,
+      "overheadPercent": 10,
+      "targetProfitPercentInSource": 50,
+      "laborCostPerBatch": 88,
+      "approvedBatchCostBasis": 729,
+      "unitsPerBatch": 10,
+      "costPerUnit": 72.9,
+      "sellingPrice": 69,
+      "grossProfitPerUnit": -3.9,
+      "grossMarginPercent": -5.65,
+      "note": "ใช้ฐานต้นทุนเดียวกันทั้ง 5 รสตามภาพเจ้าของ; ยังไม่รวมค่าธรรมเนียมช่องทาง ท็อปปิงเฉพาะรส และบรรจุภัณฑ์เพิ่มเติม"
+    }
+  },
+  {
+    "id": "CBK-CHK-018",
+    "name": "Burnt Cheesecake - Blueberry",
+    "thai": "ชีสเค้กหน้าไหม้ บลูเบอร์รี",
+    "slug": "burnt-cheesecake-blueberry",
+    "orderType": "Fruit",
+    "group": "Burnt Cheesecake",
+    "leadTime": "สั่งผ่าน LINE OA",
+    "price": 69,
+    "description": "ชีสเค้กหน้าไหม้ บลูเบอร์รี เนื้อชีสเค้กเข้มข้น ขนาด 60 กรัมต่อชิ้น",
+    "descriptionEn": "Burnt Cheesecake - Blueberry, rich and creamy, 60 g per piece.",
+    "details": [
+      "ขนาด 60 กรัม",
+      "ราคา 69 บาท"
+    ],
+    "image": "assets/hero/candy-baked-cover.jpeg",
+    "featured": false,
+    "soldOut": false,
+    "costAnalysis": {
+      "sourceDate": "2026-08-20",
+      "materialCostPerBatch": 387.968,
+      "overheadPercent": 10,
+      "targetProfitPercentInSource": 50,
+      "laborCostPerBatch": 88,
+      "approvedBatchCostBasis": 729,
+      "unitsPerBatch": 10,
+      "costPerUnit": 72.9,
+      "sellingPrice": 69,
+      "grossProfitPerUnit": -3.9,
+      "grossMarginPercent": -5.65,
+      "note": "ใช้ฐานต้นทุนเดียวกันทั้ง 5 รสตามภาพเจ้าของ; ยังไม่รวมค่าธรรมเนียมช่องทาง ท็อปปิงเฉพาะรส และบรรจุภัณฑ์เพิ่มเติม"
+    }
+  },
+  {
+    "id": "CBK-CHK-019",
+    "name": "Burnt Cheesecake - Nutella Banana",
+    "thai": "ชีสเค้กหน้าไหม้ นูเทลล่ากล้วย",
+    "slug": "burnt-cheesecake-nutella-banana",
+    "orderType": "Nutella",
+    "group": "Burnt Cheesecake",
+    "leadTime": "สั่งผ่าน LINE OA",
+    "price": 69,
+    "description": "ชีสเค้กหน้าไหม้ นูเทลล่ากล้วย เนื้อชีสเค้กเข้มข้น ขนาด 60 กรัมต่อชิ้น",
+    "descriptionEn": "Burnt Cheesecake - Nutella Banana, rich and creamy, 60 g per piece.",
+    "details": [
+      "ขนาด 60 กรัม",
+      "ราคา 69 บาท"
+    ],
+    "image": "assets/hero/candy-baked-cover.jpeg",
+    "featured": false,
+    "soldOut": false,
+    "costAnalysis": {
+      "sourceDate": "2026-08-20",
+      "materialCostPerBatch": 387.968,
+      "overheadPercent": 10,
+      "targetProfitPercentInSource": 50,
+      "laborCostPerBatch": 88,
+      "approvedBatchCostBasis": 729,
+      "unitsPerBatch": 10,
+      "costPerUnit": 72.9,
+      "sellingPrice": 69,
+      "grossProfitPerUnit": -3.9,
+      "grossMarginPercent": -5.65,
+      "note": "ใช้ฐานต้นทุนเดียวกันทั้ง 5 รสตามภาพเจ้าของ; ยังไม่รวมค่าธรรมเนียมช่องทาง ท็อปปิงเฉพาะรส และบรรจุภัณฑ์เพิ่มเติม"
+    }
+  },
+  {
+    "id": "CBK-CHK-020",
+    "name": "Burnt Cheesecake - Oreo Whipped Cream",
+    "thai": "ชีสเค้กหน้าไหม้ วิปครีมโอรีโอ้",
+    "slug": "burnt-cheesecake-oreo-whipped-cream",
+    "orderType": "Whipped Cream",
+    "group": "Burnt Cheesecake",
+    "leadTime": "สั่งผ่าน LINE OA",
+    "price": 69,
+    "description": "ชีสเค้กหน้าไหม้ วิปครีมโอรีโอ้ เนื้อชีสเค้กเข้มข้น ขนาด 60 กรัมต่อชิ้น",
+    "descriptionEn": "Burnt Cheesecake - Oreo Whipped Cream, rich and creamy, 60 g per piece.",
+    "details": [
+      "ขนาด 60 กรัม",
+      "ราคา 69 บาท"
+    ],
+    "image": "assets/hero/candy-baked-cover.jpeg",
+    "featured": false,
+    "soldOut": false,
+    "costAnalysis": {
+      "sourceDate": "2026-08-20",
+      "materialCostPerBatch": 387.968,
+      "overheadPercent": 10,
+      "targetProfitPercentInSource": 50,
+      "laborCostPerBatch": 88,
+      "approvedBatchCostBasis": 729,
+      "unitsPerBatch": 10,
+      "costPerUnit": 72.9,
+      "sellingPrice": 69,
+      "grossProfitPerUnit": -3.9,
+      "grossMarginPercent": -5.65,
+      "note": "ใช้ฐานต้นทุนเดียวกันทั้ง 5 รสตามภาพเจ้าของ; ยังไม่รวมค่าธรรมเนียมช่องทาง ท็อปปิงเฉพาะรส และบรรจุภัณฑ์เพิ่มเติม"
+    }
   }
 ]
