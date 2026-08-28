@@ -1,15 +1,6 @@
 name: Emergency GitHub Pages Storefront
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - index.html
-      - bakery-products.json
-      - chocolate-products.json
-      - chocolate-formulas.json
-      - assets/**
-      - .github/workflows/deploy-github-pages.yml
   workflow_dispatch:
 
 permissions:
