@@ -439,12 +439,13 @@
     "details": [
       "Shio Pan"
     ],
-    "image": "https://cdn.shopify.com/s/files/1/0648/5491/7217/files/candy-baked-shio-pan-caramel-banana-crumble_4799ea10-85a6-448c-be6e-2424688c5a30.png?v=1787382751",
+    "image": "assets/bakery/06-caramel-banana-crumble.jpg",
     "featured": true,
     "soldOut": false,
     "shopifyHandle": "ชิโอะปังคาราเมลกล้วยครัมเบิล-shiopan-caramel-banana-crumble",
     "shopifyUrl": "https://7ft7dv-2s.myshopify.com/products/ชิโอะปังคาราเมลกล้วยครัมเบิล-shiopan-caramel-banana-crumble",
-    "source": "Shopify"
+    "source": "Shopify",
+    "imageFallback": "https://cdn.shopify.com/s/files/1/0648/5491/7217/files/candy-baked-shio-pan-caramel-banana-crumble_4799ea10-85a6-448c-be6e-2424688c5a30.png?v=1787382751"
   },
   {
     "id": "CBK-SHP-014",
@@ -458,12 +459,13 @@
     "details": [
       "Shio Pan"
     ],
-    "image": "https://cdn.shopify.com/s/files/1/0648/5491/7217/files/candy-baked-shio-pan-dark-chocolate_76bc5eb1-9fb2-4f53-9c91-914db2fe9e31.png?v=1787382740",
+    "image": "assets/bakery/14-dark-chocolate.jpg",
     "featured": true,
     "soldOut": false,
     "shopifyHandle": "ชิโอะปังดาร์กช็อกโกแลต-shiopan-dark-chocolate",
     "shopifyUrl": "https://7ft7dv-2s.myshopify.com/products/ชิโอะปังดาร์กช็อกโกแลต-shiopan-dark-chocolate",
-    "source": "Shopify"
+    "source": "Shopify",
+    "imageFallback": "https://cdn.shopify.com/s/files/1/0648/5491/7217/files/candy-baked-shio-pan-dark-chocolate_76bc5eb1-9fb2-4f53-9c91-914db2fe9e31.png?v=1787382740"
   },
   {
     "id": "CBK-SHP-015",
@@ -477,12 +479,13 @@
     "details": [
       "Shio Pan"
     ],
-    "image": "https://cdn.shopify.com/s/files/1/0648/5491/7217/files/candy-baked-shio-pan-dark-chocolate-almond_623a2d24-a017-4913-aa1d-a37a672c88eb.png?v=1787382747",
+    "image": "assets/bakery/15-dark-chocolate-almond.jpg",
     "featured": true,
     "soldOut": false,
     "shopifyHandle": "ชิโอะปังดาร์กช็อกโกแลตอัลมอนด์-shiopan-dark-chocolate-almond",
     "shopifyUrl": "https://7ft7dv-2s.myshopify.com/products/ชิโอะปังดาร์กช็อกโกแลตอัลมอนด์-shiopan-dark-chocolate-almond",
-    "source": "Shopify"
+    "source": "Shopify",
+    "imageFallback": "https://cdn.shopify.com/s/files/1/0648/5491/7217/files/candy-baked-shio-pan-dark-chocolate-almond_623a2d24-a017-4913-aa1d-a37a672c88eb.png?v=1787382747"
   },
   {
     "id": "CBK-SHP-012",
@@ -496,12 +499,13 @@
     "details": [
       "Shio Pan"
     ],
-    "image": "https://cdn.shopify.com/s/files/1/0648/5491/7217/files/candy-baked-shio-pan-nutella-banana_ad215d10-52bf-4abf-ab95-052c0307a401.png?v=1787382754",
+    "image": "assets/bakery/12-nutella-banana.jpg",
     "featured": true,
     "soldOut": false,
     "shopifyHandle": "ชิโอะปังนูเทลล่ากล้วย-shiopan-nutella-banana",
     "shopifyUrl": "https://7ft7dv-2s.myshopify.com/products/ชิโอะปังนูเทลล่ากล้วย-shiopan-nutella-banana",
-    "source": "Shopify"
+    "source": "Shopify",
+    "imageFallback": "https://cdn.shopify.com/s/files/1/0648/5491/7217/files/candy-baked-shio-pan-nutella-banana_ad215d10-52bf-4abf-ab95-052c0307a401.png?v=1787382754"
   },
   {
     "id": "CBK-SHP-007",
@@ -515,12 +519,13 @@
     "details": [
       "Shio Pan"
     ],
-    "image": "https://cdn.shopify.com/s/files/1/0648/5491/7217/files/candy-baked-shio-pan-nutella-banana-crumble_4b1fd7c5-738c-487f-9a95-0aa40555585e.png?v=1787382757",
+    "image": "assets/bakery/07-nutella-banana-crumble.jpg",
     "featured": true,
     "soldOut": false,
     "shopifyHandle": "ชิโอะปังนูเทลล่ากล้วยครัมเบิล-shiopan-nutella-banana-crumble",
     "shopifyUrl": "https://7ft7dv-2s.myshopify.com/products/ชิโอะปังนูเทลล่ากล้วยครัมเบิล-shiopan-nutella-banana-crumble",
-    "source": "Shopify"
+    "source": "Shopify",
+    "imageFallback": "https://cdn.shopify.com/s/files/1/0648/5491/7217/files/candy-baked-shio-pan-nutella-banana-crumble_4b1fd7c5-738c-487f-9a95-0aa40555585e.png?v=1787382757"
   },
   {
     "id": "CBK-SHP-004",
@@ -534,12 +539,13 @@
     "details": [
       "Shio Pan"
     ],
-    "image": "https://cdn.shopify.com/s/files/1/0648/5491/7217/files/candy-baked-shio-pan-nutella-strawberry-crumble_f1c791e4-a507-4d9c-a1fa-e6989f598210.png?v=1787382743",
+    "image": "assets/bakery/04-nutella-strawberry-crumble.jpg",
     "featured": true,
     "soldOut": false,
     "shopifyHandle": "ชิโอะปังนูเทลล่าสตรอว์เบอร์รีครัมเบิล-shiopan-nutella-strawberry-crumble",
     "shopifyUrl": "https://7ft7dv-2s.myshopify.com/products/ชิโอะปังนูเทลล่าสตรอว์เบอร์รีครัมเบิล-shiopan-nutella-strawberry-crumble",
-    "source": "Shopify"
+    "source": "Shopify",
+    "imageFallback": "https://cdn.shopify.com/s/files/1/0648/5491/7217/files/candy-baked-shio-pan-nutella-strawberry-crumble_f1c791e4-a507-4d9c-a1fa-e6989f598210.png?v=1787382743"
   },
   {
     "id": "CBK-SHP-005",
@@ -553,12 +559,13 @@
     "details": [
       "Shio Pan"
     ],
-    "image": "https://cdn.shopify.com/s/files/1/0648/5491/7217/files/candy-baked-shio-pan-banoffee_44f07b6f-47d0-49fb-92bb-8042ad6a1537.png?v=1787382763",
+    "image": "assets/bakery/05-banoffee.jpg",
     "featured": true,
     "soldOut": false,
     "shopifyHandle": "ชิโอะปังบานอฟฟี่-shiopan-banoffee",
     "shopifyUrl": "https://7ft7dv-2s.myshopify.com/products/ชิโอะปังบานอฟฟี่-shiopan-banoffee",
-    "source": "Shopify"
+    "source": "Shopify",
+    "imageFallback": "https://cdn.shopify.com/s/files/1/0648/5491/7217/files/candy-baked-shio-pan-banoffee_44f07b6f-47d0-49fb-92bb-8042ad6a1537.png?v=1787382763"
   },
   {
     "id": "CBK-SHP-009",
@@ -572,12 +579,13 @@
     "details": [
       "Shio Pan"
     ],
-    "image": "https://cdn.shopify.com/s/files/1/0648/5491/7217/files/candy-baked-shio-pan-brownie-whipped-cream_1b8ffc6e-4acc-4a63-b7a6-627698476f0b.png?v=1787382766",
+    "image": "assets/bakery/09-brownie-whipped-cream.jpg",
     "featured": true,
     "soldOut": false,
     "shopifyHandle": "ชิโอะปังวิปครีมบราวนี่-shiopan-brownie-whipped-cream",
     "shopifyUrl": "https://7ft7dv-2s.myshopify.com/products/ชิโอะปังวิปครีมบราวนี่-shiopan-brownie-whipped-cream",
-    "source": "Shopify"
+    "source": "Shopify",
+    "imageFallback": "https://cdn.shopify.com/s/files/1/0648/5491/7217/files/candy-baked-shio-pan-brownie-whipped-cream_1b8ffc6e-4acc-4a63-b7a6-627698476f0b.png?v=1787382766"
   },
   {
     "id": "CBK-SHP-013",
@@ -591,12 +599,13 @@
     "details": [
       "Shio Pan"
     ],
-    "image": "https://cdn.shopify.com/s/files/1/0648/5491/7217/files/candy-baked-shio-pan-blueberry-whipped-cream_022ccf02-4c8f-4c54-8da1-4e4031b92983.png?v=1787382771",
+    "image": "assets/bakery/13-blueberry-whipped-cream.jpg",
     "featured": true,
     "soldOut": false,
     "shopifyHandle": "ชิโอะปังวิปครีมบลูเบอร์รี-shiopan-blueberry-whipped-cream",
     "shopifyUrl": "https://7ft7dv-2s.myshopify.com/products/ชิโอะปังวิปครีมบลูเบอร์รี-shiopan-blueberry-whipped-cream",
-    "source": "Shopify"
+    "source": "Shopify",
+    "imageFallback": "https://cdn.shopify.com/s/files/1/0648/5491/7217/files/candy-baked-shio-pan-blueberry-whipped-cream_022ccf02-4c8f-4c54-8da1-4e4031b92983.png?v=1787382771"
   },
   {
     "id": "CBK-SHP-011",
@@ -610,12 +619,13 @@
     "details": [
       "Shio Pan"
     ],
-    "image": "https://cdn.shopify.com/s/files/1/0648/5491/7217/files/candy-baked-shio-pan-foi-thong-whipped-cream_36c43968-8705-4c3c-a1ec-1941406f1762.png?v=1787382796",
+    "image": "assets/bakery/11-foi-thong-whipped-cream.jpg",
     "featured": true,
     "soldOut": false,
     "shopifyHandle": "ชิโอะปังวิปครีมฝอยทอง-shiopan-foi-thong-whipped-cream",
     "shopifyUrl": "https://7ft7dv-2s.myshopify.com/products/ชิโอะปังวิปครีมฝอยทอง-shiopan-foi-thong-whipped-cream",
-    "source": "Shopify"
+    "source": "Shopify",
+    "imageFallback": "https://cdn.shopify.com/s/files/1/0648/5491/7217/files/candy-baked-shio-pan-foi-thong-whipped-cream_36c43968-8705-4c3c-a1ec-1941406f1762.png?v=1787382796"
   },
   {
     "id": "CBK-SHP-010",
@@ -629,12 +639,13 @@
     "details": [
       "Shio Pan"
     ],
-    "image": "https://cdn.shopify.com/s/files/1/0648/5491/7217/files/candy-baked-shio-pan-marshmallow-whipped-cream_061d51fd-7da8-4bf7-8440-2c1c140cd196.png?v=1787382775",
+    "image": "assets/bakery/10-marshmallow-whipped-cream.jpg",
     "featured": true,
     "soldOut": false,
     "shopifyHandle": "ชิโอะปังวิปครีมมาร์ชแมลโลว์-shiopan-marshmallow-whipped-cream",
     "shopifyUrl": "https://7ft7dv-2s.myshopify.com/products/ชิโอะปังวิปครีมมาร์ชแมลโลว์-shiopan-marshmallow-whipped-cream",
-    "source": "Shopify"
+    "source": "Shopify",
+    "imageFallback": "https://cdn.shopify.com/s/files/1/0648/5491/7217/files/candy-baked-shio-pan-marshmallow-whipped-cream_061d51fd-7da8-4bf7-8440-2c1c140cd196.png?v=1787382775"
   },
   {
     "id": "CBK-SHP-003",
@@ -648,12 +659,13 @@
     "details": [
       "Shio Pan"
     ],
-    "image": "https://cdn.shopify.com/s/files/1/0648/5491/7217/files/candy-baked-shio-pan-strawberry-whipped-cream_cde61596-40b0-4e17-8045-6f75c8747f74.png?v=1787382781",
+    "image": "assets/bakery/03-strawberry-whipped-cream.jpg",
     "featured": true,
     "soldOut": false,
     "shopifyHandle": "ชิโอะปังวิปครีมสตรอว์เบอร์รี-shiopan-strawberry-whipped-cream",
     "shopifyUrl": "https://7ft7dv-2s.myshopify.com/products/ชิโอะปังวิปครีมสตรอว์เบอร์รี-shiopan-strawberry-whipped-cream",
-    "source": "Shopify"
+    "source": "Shopify",
+    "imageFallback": "https://cdn.shopify.com/s/files/1/0648/5491/7217/files/candy-baked-shio-pan-strawberry-whipped-cream_cde61596-40b0-4e17-8045-6f75c8747f74.png?v=1787382781"
   },
   {
     "id": "CBK-SHP-002",
@@ -667,12 +679,13 @@
     "details": [
       "Shio Pan"
     ],
-    "image": "https://cdn.shopify.com/s/files/1/0648/5491/7217/files/candy-baked-shio-pan-oreo-whipped-cream_d3cf71ee-0c7c-4553-9532-0bbc0ca62b8a.png?v=1787382785",
+    "image": "assets/bakery/02-oreo-whipped-cream.jpg",
     "featured": true,
     "soldOut": false,
     "shopifyHandle": "ชิโอะปังวิปครีมโอรีโอ-shiopan-oreo-whipped-cream",
     "shopifyUrl": "https://7ft7dv-2s.myshopify.com/products/ชิโอะปังวิปครีมโอรีโอ-shiopan-oreo-whipped-cream",
-    "source": "Shopify"
+    "source": "Shopify",
+    "imageFallback": "https://cdn.shopify.com/s/files/1/0648/5491/7217/files/candy-baked-shio-pan-oreo-whipped-cream_d3cf71ee-0c7c-4553-9532-0bbc0ca62b8a.png?v=1787382785"
   },
   {
     "id": "CBK-SHP-008",
@@ -686,12 +699,13 @@
     "details": [
       "Shio Pan"
     ],
-    "image": "https://cdn.shopify.com/s/files/1/0648/5491/7217/files/candy-baked-shio-pan-strawberry-whip-crumble_95f6afe7-c5ed-4ebc-b688-d3a4a5b50bc0.png?v=1787382801",
+    "image": "assets/bakery/08-strawberry-whip-crumble.jpg",
     "featured": true,
     "soldOut": false,
     "shopifyHandle": "ชิโอะปังวิปสตรอว์เบอร์รีครัมเบิล-shiopan-strawberry-whip-crumble",
     "shopifyUrl": "https://7ft7dv-2s.myshopify.com/products/ชิโอะปังวิปสตรอว์เบอร์รีครัมเบิล-shiopan-strawberry-whip-crumble",
-    "source": "Shopify"
+    "source": "Shopify",
+    "imageFallback": "https://cdn.shopify.com/s/files/1/0648/5491/7217/files/candy-baked-shio-pan-strawberry-whip-crumble_95f6afe7-c5ed-4ebc-b688-d3a4a5b50bc0.png?v=1787382801"
   },
   {
     "id": "CBK-SHP-001",
@@ -705,12 +719,13 @@
     "details": [
       "Shio Pan"
     ],
-    "image": "https://cdn.shopify.com/s/files/1/0648/5491/7217/files/candy-baked-shio-pan-original_d272ca72-15f6-4e94-8deb-4648e7a8a862.png?v=1787382733",
+    "image": "assets/bakery/01-shio-pan.jpg",
     "featured": true,
     "soldOut": false,
     "shopifyHandle": "original-shio-pan",
     "shopifyUrl": "https://7ft7dv-2s.myshopify.com/products/original-shio-pan",
-    "source": "Shopify"
+    "source": "Shopify",
+    "imageFallback": "https://cdn.shopify.com/s/files/1/0648/5491/7217/files/candy-baked-shio-pan-original_d272ca72-15f6-4e94-8deb-4648e7a8a862.png?v=1787382733"
   },
   {
     "id": "CBK-THN-032",
