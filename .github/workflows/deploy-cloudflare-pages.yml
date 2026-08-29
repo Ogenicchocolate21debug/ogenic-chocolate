@@ -36,7 +36,7 @@ jobs:
           # Preserve the repository asset tree exactly as referenced by the site.
           # Copying only selected folders caused product media to work in GitHub
           # but disappear from the deployed Cloudflare Pages build.
-          cp -R assets dist/assets/
+          cp -R assets/. dist/assets/
           touch dist/.nojekyll
 
       - name: Deploy production to Cloudflare Pages
