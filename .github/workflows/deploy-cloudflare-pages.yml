@@ -33,8 +33,10 @@ jobs:
           set -euo pipefail
           mkdir -p dist/assets
           cp index.html bakery-products.json chocolate-products.json chocolate-formulas.json dist/
-          cp -R assets/brand dist/assets/
-          cp -R assets/chocolate dist/assets/
+          # Preserve the repository asset tree exactly as referenced by the site.
+          # Copying only selected folders caused product media to work in GitHub
+          # but disappear from the deployed Cloudflare Pages build.
+          cp -R assets/. dist/assets/
           touch dist/.nojekyll
 
       - name: Deploy production to Cloudflare Pages
