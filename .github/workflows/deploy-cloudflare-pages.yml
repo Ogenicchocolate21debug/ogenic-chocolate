@@ -59,6 +59,13 @@ jobs:
           fi
 
           test -n "$TOKEN"
+          echo "normalized_token_length=${#TOKEN}"
+          if [[ "$TOKEN" =~ ^[A-Za-z0-9_-]{30,}$ ]]; then
+            echo "normalized_token_format=token-like"
+          else
+            echo "normalized_token_format=invalid"
+            exit 1
+          fi
 
           echo "::add-mask::$TOKEN"
           {
