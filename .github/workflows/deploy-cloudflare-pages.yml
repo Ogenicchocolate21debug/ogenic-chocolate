@@ -44,7 +44,6 @@ jobs:
         run: |
           set -euo pipefail
           TOKEN="$(printf '%s' "$RAW_CLOUDFLARE_API_TOKEN" | tr -d '\r\n' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
-          ACCOUNT_ID="$(printf '%s' "$RAW_CLOUDFLARE_ACCOUNT_ID" | tr -d '\r\n' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
 
           TOKEN="${TOKEN#CLOUDFLARE_API_TOKEN=}"
           TOKEN="${TOKEN#Bearer }"
