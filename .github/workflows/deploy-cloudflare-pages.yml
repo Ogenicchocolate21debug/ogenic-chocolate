@@ -53,6 +53,11 @@ jobs:
           TOKEN="${TOKEN#\'}"
           TOKEN="${TOKEN%\'}"
 
+          CANDIDATE="$(printf '%s' "$TOKEN" | grep -oE '[A-Za-z0-9_-]{30,}' | tail -n 1 || true)"
+          if [ -n "$CANDIDATE" ]; then
+            TOKEN="$CANDIDATE"
+          fi
+
           test -n "$TOKEN"
 
           echo "::add-mask::$TOKEN"
