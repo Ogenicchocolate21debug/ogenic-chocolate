@@ -23,6 +23,7 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    name: Deploy to Cloudflare Pages
     steps:
       - name: Checkout main
         uses: actions/checkout@v6
@@ -36,68 +37,12 @@ jobs:
           cp -R assets/. dist/assets/
           touch dist/.nojekyll
 
-      - name: Resolve Cloudflare API token
-        shell: bash
-        env:
-          TOKEN_01: ${{ secrets.CLOUDFLARE_TOKEN }}
-          TOKEN_02: ${{ secrets.CLOUDFLARE_TOKEN_NAME }}
-          TOKEN_03: ${{ secrets.CLOUDFLARE_TOKEN_ID }}
-          TOKEN_04: ${{ secrets.CLOUDFLARE_TOKEN_KEY }}
-          TOKEN_05: ${{ secrets.CLOUDFLARE_TOKEN_SECRET }}
-          TOKEN_06: ${{ secrets.CLOUDFLARE_TOKEN_API }}
-          TOKEN_07: ${{ secrets.CLOUDFLARE_TOKEN_API_KEY }}
-          TOKEN_08: ${{ secrets.CLOUDFLARE_TOKEN_API_SECRET }}
-          TOKEN_09: ${{ secrets.CLOUDFLARE_TOKEN_VALUE }}
-          TOKEN_10: ${{ secrets.CLOUDFLARE_TOKEN_CANDY }}
-          TOKEN_11: ${{ secrets.CLOUDFLARE_TOKEN_CANDYBAKED }}
-          TOKEN_12: ${{ secrets.CLOUDFLARE_TOKEN_CANDY_BAKED }}
-          TOKEN_13: ${{ secrets.CLOUDFLARE_TOKEN_CANDYBAKED_FACTORY }}
-          TOKEN_14: ${{ secrets.CLOUDFLARE_TOKEN_CANDY_BAKED_FACTORY }}
-          TOKEN_15: ${{ secrets.CLOUDFLARE_TOKEN_OGENIC }}
-          TOKEN_16: ${{ secrets.CLOUDFLARE_TOKEN_OGENIC_CHOCOLATE }}
-          TOKEN_17: ${{ secrets.CLOUDFLARE_TOKEN_DEPLOY }}
-          TOKEN_18: ${{ secrets.CLOUDFLARE_TOKEN_DEPLOYMENT }}
-          TOKEN_19: ${{ secrets.CLOUDFLARE_TOKEN_PAGES }}
-          TOKEN_20: ${{ secrets.CLOUDFLARE_TOKEN_PRODUCTION }}
-          TOKEN_21: ${{ secrets.CLOUDFLARE_TOKEN_GITHUB }}
-          TOKEN_22: ${{ secrets.CLOUDFLARE_TOKEN_GITHUB_ACTIONS }}
-          TOKEN_23: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          TOKEN_24: ${{ secrets.CF_API_TOKEN }}
-          TOKEN_25: ${{ secrets.CLOUDFLARE_API_KEY }}
-          TOKEN_26: ${{ secrets.CLOUDFLARE_API_SECRET }}
-        run: |
-          set -euo pipefail
-          TOKEN=""
-          for RAW in "$TOKEN_01" "$TOKEN_02" "$TOKEN_03" "$TOKEN_04" "$TOKEN_05" "$TOKEN_06" "$TOKEN_07" "$TOKEN_08" "$TOKEN_09" "$TOKEN_10" "$TOKEN_11" "$TOKEN_12" "$TOKEN_13" "$TOKEN_14" "$TOKEN_15" "$TOKEN_16" "$TOKEN_17" "$TOKEN_18" "$TOKEN_19" "$TOKEN_20" "$TOKEN_21" "$TOKEN_22" "$TOKEN_23" "$TOKEN_24" "$TOKEN_25" "$TOKEN_26"
-          do
-            [ -n "$RAW" ] || continue
-            VALUE="$(printf '%s' "$RAW" | tr -d '\r\n' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
-            VALUE="${VALUE#CLOUDFLARE_API_TOKEN=}"
-            VALUE="${VALUE#CLOUDFLARE_TOKEN=}"
-            VALUE="${VALUE#CF_API_TOKEN=}"
-            VALUE="${VALUE#Bearer }"
-            VALUE="${VALUE#bearer }"
-            EXTRACTED="$(printf '%s' "$VALUE" | grep -oE '[A-Za-z0-9_-]{30,}' | tail -n 1 || true)"
-            if [ -n "$EXTRACTED" ]; then
-              VALUE="$EXTRACTED"
-            fi
-            if [ -n "$VALUE" ]; then
-              TOKEN="$VALUE"
-              break
-            fi
-          done
-          if [ -z "$TOKEN" ]; then
-            echo "credential_check=no_supported_cloudflare_token_found"
-            exit 1
-          fi
-          echo "::add-mask::$TOKEN"
-          echo "NORMALIZED_CLOUDFLARE_API_TOKEN=$TOKEN" >> "$GITHUB_ENV"
-          echo "credential_check=actions_token_ready"
-
       - name: Deploy production to Cloudflare Pages
+        id: cloudflare
         uses: cloudflare/wrangler-action@v4
         with:
-          apiToken: ${{ env.NORMALIZED_CLOUDFLARE_API_TOKEN }}
+          apiToken: ${{ secrets.CLOUDFLARE_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          wranglerVersion: "4"
+          wranglerVersion: "4.127.1"
           command: pages deploy dist --project-name=ogenic-chocolate --branch=main --commit-dirty=true
