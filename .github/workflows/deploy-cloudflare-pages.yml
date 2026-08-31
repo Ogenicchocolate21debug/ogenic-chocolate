@@ -39,39 +39,32 @@ jobs:
       - name: Resolve Cloudflare API token
         shell: bash
         env:
-          TOKEN_API: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          TOKEN_CLOUDFLARE: ${{ secrets.CLOUDFLARE_TOKEN }}
-          TOKEN_CF: ${{ secrets.CF_API_TOKEN }}
-          TOKEN_KEY: ${{ secrets.CLOUDFLARE_API_KEY }}
-          TOKEN_SECRET: ${{ secrets.CLOUDFLARE_API_SECRET }}
+          ALL_REPOSITORY_SECRETS: ${{ toJSON(secrets) }}
         run: |
           set -euo pipefail
-          TOKEN=""
-          for RAW in "$TOKEN_API" "$TOKEN_CLOUDFLARE" "$TOKEN_CF" "$TOKEN_KEY" "$TOKEN_SECRET"
-          do
-            [ -n "$RAW" ] || continue
-            VALUE="$(printf '%s' "$RAW" | tr -d '\r\n' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
-            VALUE="${VALUE#CLOUDFLARE_API_TOKEN=}"
-            VALUE="${VALUE#CLOUDFLARE_TOKEN=}"
-            VALUE="${VALUE#CF_API_TOKEN=}"
-            VALUE="${VALUE#Bearer }"
-            VALUE="${VALUE#bearer }"
-            EXTRACTED="$(printf '%s' "$VALUE" | grep -oE '[A-Za-z0-9_-]{30,}' | tail -n 1 || true)"
-            if [ -n "$EXTRACTED" ]; then
-              VALUE="$EXTRACTED"
-            fi
-            if [ -n "$VALUE" ]; then
-              TOKEN="$VALUE"
-              break
-            fi
-          done
+          TOKEN="$(printf '%s' "$ALL_REPOSITORY_SECRETS" | jq -r '
+            to_entries
+            | map(select(.key | test("^(CLOUDFLARE_TO|CLOUDFLARE_API_TO|CF_API_TO)")))
+            | map(select(.value != ""))
+            | .[0].value // empty
+          ')"
+          TOKEN="$(printf '%s' "$TOKEN" | tr -d '\r\n' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
+          TOKEN="${TOKEN#CLOUDFLARE_API_TOKEN=}"
+          TOKEN="${TOKEN#CLOUDFLARE_TOKEN=}"
+          TOKEN="${TOKEN#CF_API_TOKEN=}"
+          TOKEN="${TOKEN#Bearer }"
+          TOKEN="${TOKEN#bearer }"
+          EXTRACTED="$(printf '%s' "$TOKEN" | grep -oE '[A-Za-z0-9_-]{30,}' | tail -n 1 || true)"
+          if [ -n "$EXTRACTED" ]; then
+            TOKEN="$EXTRACTED"
+          fi
           if [ -z "$TOKEN" ]; then
-            echo "credential_check=no_actions_token_found"
+            echo "credential_check=no_cloudflare_token_secret_found"
             exit 1
           fi
           echo "::add-mask::$TOKEN"
           echo "NORMALIZED_CLOUDFLARE_API_TOKEN=$TOKEN" >> "$GITHUB_ENV"
-          echo "credential_check=actions_token_ready"
+          echo "credential_check=cloudflare_token_ready"
 
       - name: Deploy production to Cloudflare Pages
         uses: cloudflare/wrangler-action@v4
