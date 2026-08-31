@@ -36,81 +36,36 @@ jobs:
           cp -R assets/. dist/assets/
           touch dist/.nojekyll
 
-      - name: Resolve Cloudflare credentials
+      - name: Normalize Cloudflare API token
         shell: bash
         env:
           SECRET_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          SECRET_API_KEY: ${{ secrets.CLOUDFLARE_API_KEY }}
-          SECRET_API_SECRET: ${{ secrets.CLOUDFLARE_API_SECRET }}
-          SECRET_CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
-          SECRET_CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
-          SECRET_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          SECRET_API_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_API_ACCOUNT_ID }}
-          SECRET_API_ID: ${{ secrets.CLOUDFLARE_API_ID }}
-          SECRET_CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
-          VARIABLE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID || vars.CF_ACCOUNT_ID }}
         run: |
           set -euo pipefail
-
-          clean_value() {
-            local value="$1"
-            value="$(printf '%s' "$value" | tr -d '\r\n' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
-            value="${value#CLOUDFLARE_API_TOKEN=}"
-            value="${value#CLOUDFLARE_API_KEY=}"
-            value="${value#CLOUDFLARE_API_SECRET=}"
-            value="${value#CLOUDFLARE_ACCOUNT_ID=}"
-            value="${value#CLOUDFLARE_API_ACCOUNT_ID=}"
-            value="${value#Bearer }"
-            value="${value#bearer }"
-            value="${value#\"}"
-            value="${value%\"}"
-            value="${value#\'}"
-            value="${value%\'}"
-            local extracted
-            extracted="$(printf '%s' "$value" | grep -oE '[A-Za-z0-9_-]{30,}' | tail -n 1 || true)"
-            if [ -n "$extracted" ]; then
-              value="$extracted"
-            fi
-            printf '%s' "$value"
-          }
-
-          TOKEN=""
-          ACCOUNT_ID=""
-          for raw in             "$SECRET_API_TOKEN"             "$SECRET_API_KEY"             "$SECRET_API_SECRET"             "$SECRET_CLOUDFLARE_TOKEN"             "$SECRET_CF_API_TOKEN"             "$SECRET_ACCOUNT_ID"             "$SECRET_API_ACCOUNT_ID"             "$SECRET_API_ID"             "$SECRET_CF_ACCOUNT_ID"             "$VARIABLE_ACCOUNT_ID"
-          do
-            value="$(clean_value "$raw")"
-            [ -n "$value" ] || continue
-            if [ -z "$ACCOUNT_ID" ] && [[ "$value" =~ ^[0-9A-Fa-f]{32}$ ]]; then
-              ACCOUNT_ID="$value"
-              continue
-            fi
-            if [ -z "$TOKEN" ] && [[ "$value" =~ ^(cfut_|cfat_)[A-Za-z0-9_-]{40,}$|^[A-Za-z0-9_-]{40,}$ ]]; then
-              TOKEN="$value"
-            fi
-          done
-
+          TOKEN="$(printf '%s' "$SECRET_API_TOKEN" | tr -d '\r\n' | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
+          TOKEN="${TOKEN#CLOUDFLARE_API_TOKEN=}"
+          TOKEN="${TOKEN#Bearer }"
+          TOKEN="${TOKEN#bearer }"
+          TOKEN="${TOKEN#\"}"
+          TOKEN="${TOKEN%\"}"
+          TOKEN="${TOKEN#\'}"
+          TOKEN="${TOKEN%\'}"
+          EXTRACTED="$(printf '%s' "$TOKEN" | grep -oE '[A-Za-z0-9_-]{30,}' | tail -n 1 || true)"
+          if [ -n "$EXTRACTED" ]; then
+            TOKEN="$EXTRACTED"
+          fi
           if [ -z "$TOKEN" ]; then
             echo "credential_check=api_token_not_found"
             exit 1
           fi
-          if [ -z "$ACCOUNT_ID" ]; then
-            echo "credential_check=account_id_not_found"
-            exit 1
-          fi
-
-          echo "credential_check=token_and_account_resolved"
           echo "::add-mask::$TOKEN"
-          echo "::add-mask::$ACCOUNT_ID"
-          {
-            echo "NORMALIZED_CLOUDFLARE_API_TOKEN=$TOKEN"
-            echo "NORMALIZED_CLOUDFLARE_ACCOUNT_ID=$ACCOUNT_ID"
-          } >> "$GITHUB_ENV"
+          echo "NORMALIZED_CLOUDFLARE_API_TOKEN=$TOKEN" >> "$GITHUB_ENV"
+          echo "credential_check=api_token_ready"
 
       - name: Deploy production to Cloudflare Pages
         uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ env.NORMALIZED_CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ env.NORMALIZED_CLOUDFLARE_ACCOUNT_ID }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           wranglerVersion: "4"
           command: pages deploy dist --project-name=ogenic-chocolate --branch=main --commit-dirty=true
