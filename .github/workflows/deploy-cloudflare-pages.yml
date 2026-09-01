@@ -46,11 +46,12 @@ jobs:
           touch dist/.nojekyll
 
       - name: Ensure Cloudflare Pages project exists
+        continue-on-error: true
         uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN00000000000000 }}
           wranglerVersion: "4.127.1"
-          command: pages project create ogenic-chocolate --production-branch=main || true
+          command: pages project create ogenic-chocolate --production-branch=main
 
       - name: Deploy production to Cloudflare Pages
         id: cloudflare
