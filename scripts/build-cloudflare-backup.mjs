@@ -3,6 +3,7 @@ import path from 'node:path';
 
 const root = process.cwd();
 const dist = path.join(root, 'dist');
+const USER_AGENT = 'CandyBaked-Cloudflare-Backup/1.1';
 
 const safeId = value => String(value || 'item').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'item';
 const isAsciiName = value => /^[\x20-\x7E]+$/.test(String(value || '').trim());
@@ -41,32 +42,83 @@ function extFrom(contentType, url) {
   return '.jpg';
 }
 
+function normalizeImageUrl(value, base) {
+  if (!value) return null;
+  const raw = String(value).trim();
+  if (!raw) return null;
+  if (raw.startsWith('//')) return `https:${raw}`;
+  try { return new URL(raw, base).href; } catch { return null; }
+}
+
+async function fetchImage(url) {
+  const response = await fetch(url, { headers: { 'user-agent': USER_AGENT } });
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  return {
+    bytes: Buffer.from(await response.arrayBuffer()),
+    contentType: response.headers.get('content-type')
+  };
+}
+
+async function resolveCurrentShopifyImage(item) {
+  const productUrl = String(item.shopifyUrl || '').trim().replace(/\/$/, '');
+  if (!/^https:\/\//i.test(productUrl) || !/\/products\//.test(productUrl)) return null;
+  try {
+    const response = await fetch(`${productUrl}.js`, {
+      headers: { 'user-agent': USER_AGENT, accept: 'application/json' }
+    });
+    if (!response.ok) throw new Error(`product.js HTTP ${response.status}`);
+    const product = await response.json();
+    return normalizeImageUrl(product.featured_image || product.images?.[0], productUrl);
+  } catch (error) {
+    console.warn(`Shopify image lookup failed for ${item.id || item.name}: ${error.message}`);
+    return null;
+  }
+}
+
 async function backupOne(item, folder, index) {
-  const source = item.image || item.imageUrl;
+  const originalSource = item.image || item.imageUrl;
   const enriched = {
     ...item,
     nameTh: nameTh(item),
     nameEn: nameEn(item),
     nameJa: nameJa(item)
   };
-  if (!source || !/^https:\/\//i.test(source)) return enriched;
+  if (!originalSource || !/^https:\/\//i.test(originalSource)) return enriched;
+
+  let source = originalSource;
+  let imageResult;
   try {
-    const response = await fetch(source, { headers: { 'user-agent': 'CandyBaked-Cloudflare-Backup/1.0' } });
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    const bytes = Buffer.from(await response.arrayBuffer());
-    const ext = extFrom(response.headers.get('content-type'), source);
-    const filename = `${String(index + 1).padStart(3,'0')}-${safeId(item.id || item.name || item.nameTh)}${ext}`;
-    const directory = path.join(dist, 'assets', folder);
-    await fs.mkdir(directory, { recursive: true });
-    await fs.writeFile(path.join(directory, filename), bytes);
-    enriched.sourceImage = source;
-    enriched.image = `assets/${folder}/${filename}`;
-    enriched.backup = 'cloudflare-pages';
-  } catch (error) {
-    console.warn(`Image backup skipped for ${item.id || item.name}: ${error.message}`);
-    enriched.sourceImage = source;
-    enriched.backup = 'remote-fallback';
+    imageResult = await fetchImage(source);
+  } catch (legacyError) {
+    const refreshedSource = await resolveCurrentShopifyImage(item);
+    if (!refreshedSource) {
+      console.warn(`Image backup skipped for ${item.id || item.name}: ${legacyError.message}`);
+      enriched.sourceImage = originalSource;
+      enriched.backup = 'remote-fallback';
+      return enriched;
+    }
+    try {
+      source = refreshedSource;
+      imageResult = await fetchImage(source);
+      enriched.legacySourceImage = originalSource;
+      enriched.imageRefreshedFromShopify = true;
+      console.log(`Refreshed stale image for ${item.id || item.name}`);
+    } catch (refreshError) {
+      console.warn(`Image backup skipped for ${item.id || item.name}: ${refreshError.message}`);
+      enriched.sourceImage = originalSource;
+      enriched.backup = 'remote-fallback';
+      return enriched;
+    }
   }
+
+  const ext = extFrom(imageResult.contentType, source);
+  const filename = `${String(index + 1).padStart(3,'0')}-${safeId(item.id || item.name || item.nameTh)}${ext}`;
+  const directory = path.join(dist, 'assets', folder);
+  await fs.mkdir(directory, { recursive: true });
+  await fs.writeFile(path.join(directory, filename), imageResult.bytes);
+  enriched.sourceImage = source;
+  enriched.image = `assets/${folder}/${filename}`;
+  enriched.backup = 'cloudflare-pages';
   return enriched;
 }
 
@@ -81,7 +133,10 @@ async function processJson(sourceFile, outputFile, folder) {
     const output = [];
     for (let i = 0; i < data.length; i += 1) output.push(await backupOne(data[i], folder, i));
     await fs.writeFile(path.join(dist, outputFile), JSON.stringify(output, null, 2) + '\n');
-    console.log(`Backed up ${output.length} records from ${sourceFile}`);
+    const backedUp = output.filter(item => item.backup === 'cloudflare-pages').length;
+    const refreshed = output.filter(item => item.imageRefreshedFromShopify).length;
+    const fallback = output.filter(item => item.backup === 'remote-fallback').length;
+    console.log(`Backed up ${backedUp}/${output.length} from ${sourceFile}; refreshed=${refreshed}; fallback=${fallback}`);
   } catch (error) {
     console.warn(`Could not process ${sourceFile}: ${error.message}`);
   }
