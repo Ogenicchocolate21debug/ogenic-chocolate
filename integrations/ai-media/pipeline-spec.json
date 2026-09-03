@@ -1,0 +1,130 @@
+{
+  "name": "OGENIC AI Media Pipeline",
+  "version": "0.1.1",
+  "status_model": [
+    "draft",
+    "generated",
+    "approved",
+    "rejected",
+    "published"
+  ],
+  "defaults": {
+    "image_model": "gpt-image-2",
+    "video_model": "veo-3.1-fast-generate-preview",
+    "aspect_ratio": "9:16",
+    "resolution": "1080p",
+    "duration_seconds": 8,
+    "require_human_approval": true
+  },
+  "idempotency": {
+    "registry": "idempotency_registry",
+    "key_derivation": "hash(asset_url + prompt + model + settings)",
+    "stage_key_derivation": "idempotency_key + ':' + stage",
+    "lookup_before_side_effects": true,
+    "replay_behavior": "return the prior stage result; do not regenerate media or republish"
+  },
+  "stages": [
+    {
+      "id": "validate_input",
+      "input": [
+        "asset_url",
+        "prompt",
+        "brand",
+        "product_name"
+      ],
+      "output": [
+        "validated_request",
+        "idempotency_key"
+      ]
+    },
+    {
+      "id": "deduplicate_generation",
+      "depends_on": "validate_input",
+      "input": [
+        "idempotency_key"
+      ],
+      "lookup": "idempotency_registry",
+      "stage_key": "idempotency_key + ':generate_video'",
+      "output": [
+        "prior_video_asset",
+        "should_generate"
+      ]
+    },
+    {
+      "id": "enhance_image",
+      "provider": "openai",
+      "optional": true,
+      "condition": "validated_request.enhance_image == true",
+      "model_env": "AI_IMAGE_MODEL",
+      "input": [
+        "validated_request.asset_url"
+      ],
+      "output": [
+        "enhanced_asset"
+      ]
+    },
+    {
+      "id": "generate_video",
+      "provider": "google_gemini",
+      "model_env": "VEO_MODEL",
+      "aspect_ratio_env": "VEO_ASPECT_RATIO",
+      "resolution_env": "VEO_RESOLUTION",
+      "condition": "should_generate == true",
+      "input": [
+        "enhanced_asset || validated_request.asset_url",
+        "idempotency_key"
+      ],
+      "idempotency": {
+        "registry": "idempotency_registry",
+        "stage_key": "idempotency_key + ':generate_video'",
+        "on_replay": "return prior_video_asset"
+      },
+      "async": true,
+      "output": [
+        "operation_id"
+      ]
+    },
+    {
+      "id": "poll_video",
+      "depends_on": "generate_video",
+      "output": [
+        "video_asset"
+      ]
+    },
+    {
+      "id": "approval",
+      "required": true,
+      "input": [
+        "video_asset || prior_video_asset"
+      ],
+      "output": [
+        "approval_status",
+        "approved_by",
+        "approved_at"
+      ]
+    },
+    {
+      "id": "publish_meta",
+      "provider": "meta",
+      "condition": "approval_status == approved && validated_request.publish_after_approval == true && validated_request.publish_target == meta",
+      "input": [
+        "video_asset || prior_video_asset",
+        "idempotency_key"
+      ],
+      "idempotency": {
+        "registry": "idempotency_registry",
+        "stage_key": "idempotency_key + ':publish_meta'",
+        "on_replay": "return prior_platform_post_id"
+      },
+      "output": [
+        "platform_post_id",
+        "published_at"
+      ]
+    },
+    {
+      "id": "audit",
+      "always": true,
+      "redact_secrets": true
+    }
+  ]
+}
