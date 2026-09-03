@@ -1,0 +1,71 @@
+{
+  "skill": "god-mode-building-platform-website",
+  "mode": "staging-preview",
+  "generatedAt": "2026-09-04T01:40:00+07:00",
+  "sourceOfTruth": {
+    "name": "Main Photo",
+    "folderId": "1fmp43hwiRPWS6dP3sBsuqJXi5hLI-0rg",
+    "orderRule": ["A1", "A2", "A3", "A4", "A5"]
+  },
+  "stages": [
+    {
+      "id": "A1",
+      "name": "Head Website Hero + 4 photo under hero",
+      "folderId": "1tJn4nYYi3aPRxWLz3adm3EOyHX4X61xA",
+      "status": "verified",
+      "summary": "1 hero MP4 (no audio) + 4 ordered image tiles"
+    },
+    {
+      "id": "A2",
+      "name": "Story on website",
+      "folderId": "19M7goF-R_m_v7y5zj3il4crMkQ4pvqN0",
+      "status": "verified",
+      "summary": "Story 1 up"
+    },
+    {
+      "id": "A3",
+      "name": "On Website Product",
+      "folderId": "1VQtLC0Y555LGD4fvl0DbObLOXAcEADQJ",
+      "status": "verified",
+      "masterDocumentId": "10pJHPVNCensmTFuhfpUEfNQHvbbY_wJaMeB0h_SnANY",
+      "masterRevisionId": "ANLCKQkhYZMsbJnNi7tAweQJXvUlDFde6piVshO09obeGy_thuVe__fLEcWr4Dh-6QKxSZoi6Q4Skr69ZmBw",
+      "groups": [
+        {"order":1,"name":"ชิโอะปัง","en":"Shio Pan","jp":"塩パン","listedItems":16,"priceFrom":39},
+        {"order":2,"name":"ชีสเค้กหน้าไหม้","en":"Burnt Cheesecake","jp":"バスクチーズケーキ","listedItems":6,"priceFrom":50},
+        {"order":3,"name":"ฟัดจ์เค้ก","en":"Fudge Cake","jp":"ファッジケーキ","listedItems":6,"priceFrom":80},
+        {"order":4,"name":"บัตเตอร์ครีมเค้ก","en":"Buttercream Cake","jp":"バタークリームケーキ","listedItems":3,"priceFrom":89},
+        {"order":5,"name":"โรลเค้ก","en":"Roll Cake","jp":"ロールケーキ","listedItems":6,"priceFrom":30},
+        {"order":6,"name":"วาฟเฟิลเค้ก","en":"Waffle Cake","jp":"ワッフルケーキ","listedItems":8,"priceFrom":69},
+        {"order":7,"name":"ชิฟฟอนเค้ก","en":"Chiffon Cake","jp":"シフォンケーキ","listedItems":2,"priceFrom":75},
+        {"order":8,"name":"บานอฟฟี่","en":"Banoffee","jp":"バノフィー","listedItems":2,"priceFrom":120},
+        {"order":9,"name":"มัฟฟิน & คัพเค้ก","en":"Muffin & Cupcake","jp":"マフィン・カップケーキ","listedItems":7,"priceFrom":45},
+        {"order":10,"name":"เค้กปอนด์","en":"Pound Cake","jp":"ホールケーキ","listedItems":10,"priceNote":"Custom Cake Design 500–2,200 THB"},
+        {"order":11,"name":"ขนมปัง & บัน","en":"Bread & Bun","jp":"パン・バンズ","listedItems":8,"priceFrom":99},
+        {"order":12,"name":"ครัวซองต์ & เดนิช","en":"Croissant & Danish","jp":"クロワッサン・デニッシュ","listedItems":5,"priceFrom":45},
+        {"order":13,"name":"หมาล่า & ราเม็ง","en":"Mala, Ramen & Thai Noodles","jp":"麻辣・ラーメン・タイ麺","listedItems":"3 hot-pot sizes + 13 noodle packs + 4 builder sets + 29 toppings","priceFrom":7},
+        {"order":14,"name":"เครื่องดื่ม ปั่น & กาแฟ","en":"Drinks, Shakes & Coffee","jp":"ドリンク・シェイク・コーヒー","listedItems":7,"priceFrom":50}
+      ]
+    },
+    {
+      "id": "A4",
+      "name": "Poster",
+      "folderId": "11GCBgRoQlXYbnyC_pUIXfvv3HA8ODAXv",
+      "status": "verified",
+      "summary": "18 poster image assets present"
+    },
+    {
+      "id": "A5",
+      "name": "Story on website / poster product",
+      "folderId": "147-gGfFGzRXApwjgVaowJJp8FPYUn_-Y",
+      "status": "verified",
+      "summary": "A5_Story_Candy-Baked-Factory_Horizontal_No-Price.png"
+    }
+  ],
+  "deployment": {
+    "repository": "Ogenicchocolate21debug/ogenic-chocolate",
+    "branch": "skill-demo-a1-a5-20260904",
+    "cloudflareProject": "ogenic-chocolate",
+    "target": "preview",
+    "productionBranchUntouched": true
+  }
+}
