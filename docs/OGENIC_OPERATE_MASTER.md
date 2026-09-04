@@ -118,6 +118,22 @@ Rules:
 - no production promotion without explicit approval
 - source files in Drive are never renamed/deleted by this pipeline
 
+## CN canonical inventory — reconciled 2026-09-05
+- A1: 5 media = 4 images + 1 MP4
+- A2: 1 image
+- A3: 100 images across exactly 14 product groups
+- A4: 18 images
+- A5: 1 image
+- Main Photo total: **125 media = 124 images + 1 MP4**
+- Full A1→A5 backup/render coverage is **NOT YET VERIFIED COMPLETE**.
+
+Mandatory integrity gate:
+`SOURCE → PRODUCT MASTER → MEDIA INVENTORY → BACKUP MAP → DUPLICATE/EXTRA CHECK → PRICE/DATA DIFF → BUILD INPUTS → RENDER PATHS → WORKFLOW TARGET → CF PREVIEW → QA → REPORT`
+
+Status vocabulary: `PASS / WARN / DRIFT / DUPLICATE / MISSING / EXTRA / BLOCKED`.
+Production is blocked while any required layer is `DRIFT`, `DUPLICATE`, `MISSING`, `EXTRA`, or `BLOCKED`.
+Canonical audit: `backup/CN_MAINPHOTO_BACKUP_MANIFEST.md`.
+
 # CHAT-MODE OPERATE CONTRACT
 
 Normal chat is the primary control surface whenever connected capabilities allow the task.
@@ -164,6 +180,10 @@ Every agent should receive the same minimal bootstrap:
 5. Execute deterministic work mechanically; use model reasoning only for ambiguity.
 6. Persist verified decisions/results back to canonical artifacts.
 7. Never expose secrets or silently promote production.
+
+Canonical capability/bootstrap artifacts:
+- `Ogenicchocolate21debug/Core-Dv1/tools/capabilities.json`
+- `Ogenicchocolate21debug/Core-Dv1/skills/ogenic-harness-tools/SKILL.md`
 
 # DAILY CONTEXT SYNC TARGET
 Daily sync should reconcile verified operating metadata across GitHub + Notion/RAG + agent handoff artifacts. It should not copy raw secrets, private session cookies, or hidden model reasoning. Update only changed context and report drift/errors.
