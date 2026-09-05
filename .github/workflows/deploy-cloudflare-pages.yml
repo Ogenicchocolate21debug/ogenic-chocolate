@@ -5,12 +5,15 @@ on:
     branches: [main]
     paths:
       - index.html
+      - wf-sequence-preview.html
+      - wf-sequence.manifest.json
       - bakery-products.json
       - chocolate-products.json
       - chocolate-formulas.json
       - posters.json
       - assets/**
       - scripts/build-cloudflare-backup.mjs
+      - scripts/validate-wf-sequence.mjs
       - .github/workflows/deploy-cloudflare-pages.yml
   workflow_dispatch:
 
@@ -25,7 +28,7 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    name: Deploy to Cloudflare Pages
+    name: Validate A1-A6 and deploy to Cloudflare Pages
     steps:
       - name: Checkout main
         uses: actions/checkout@v6
@@ -35,12 +38,18 @@ jobs:
         with:
           node-version: "24"
 
+      - name: Validate canonical WF Sequence A1-A6
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/validate-wf-sequence.mjs
+
       - name: Prepare static site + Cloudflare image backup
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p dist/assets
-          cp index.html chocolate-formulas.json dist/
+          cp index.html wf-sequence-preview.html wf-sequence.manifest.json chocolate-formulas.json dist/
           cp -R assets/. dist/assets/
           node scripts/build-cloudflare-backup.mjs
           touch dist/.nojekyll
