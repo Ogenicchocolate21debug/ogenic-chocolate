@@ -1,0 +1,44 @@
+name: Cloudflare Restore Cart Preview
+
+on:
+  push:
+    branches: [cf-restore-cart-20260905]
+    paths:
+      - docs/**
+      - .github/workflows/deploy-cloudflare-restore-preview.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  deployments: write
+
+concurrency:
+  group: cloudflare-pages-restore-cart-preview
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy known-good cart preview to Cloudflare Pages
+    steps:
+      - name: Checkout restore preview branch
+        uses: actions/checkout@v6
+        with:
+          ref: cf-restore-cart-20260905
+
+      - name: Verify static preview source
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f docs/index.html
+          test -d docs/assets
+          echo "Known-good storefront mirror found in docs/"
+
+      - name: Deploy restore preview to Cloudflare Pages
+        id: cloudflare
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN00000000000000 }}
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          wranglerVersion: "4.127.1"
+          command: pages deploy docs --project-name=ogenic-chocolate --branch=cf-restore-cart-20260905 --commit-dirty=true
