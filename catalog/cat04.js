@@ -1,1 +1,0 @@
-CATALOG.push({"id":"04","source":"04 Buttercream Cake","items":[{"id":"04-001","name":"swiss-meringue-buttercream-______________--1.png","image":"assets/catalog/04/001.jpg"},{"id":"04-002","name":"buttercream-coconut-____________--1.png","image":"assets/catalog/04/002.jpg"},{"id":"04-003","name":"chocolate-buttercream-_____________--1.png","image":"assets/catalog/04/003.jpg"}]});

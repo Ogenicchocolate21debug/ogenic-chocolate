@@ -1,0 +1,127 @@
+{
+  "schema_version": "2.3",
+  "shortcut": "/WF.Sequence of Work Steps.Sequence of Work Steps.A,A1-A6",
+  "mode": "deterministic-sequence",
+  "requires_work_mode": false,
+  "source_of_truth": {
+    "canonical_product_database_folder": "https://drive.google.com/drive/folders/1VQtLC0Y555LGD4fvl0DbObLOXAcEADQJ",
+    "sequence_folder": "https://drive.google.com/drive/folders/1GSnmKCgWL8OMzGxwTBl5oKeBuyWfi3zz",
+    "sequence_doc": "https://docs.google.com/document/d/11oqBE2kTPajdrXnkH9IwBZAuj6amuvTl9MkRW-e-PNI/edit?usp=drivesdk",
+    "product_database_doc": "https://docs.google.com/document/d/10pJHPVNCensmTFuhfpUEfNQHvbbY_wJaMeB0h_SnANY/edit?usp=drivesdk"
+  },
+  "rules": {
+    "strict_order": ["A1", "A2", "A3", "A4", "A5", "A6"],
+    "no_step_skip": true,
+    "drive_is_authoritative_database": true,
+    "all_downstream_data_must_match_drive": true,
+    "product_database_doc_is_derived_from_drive": true,
+    "repository_catalog_is_derived_from_drive": true,
+    "no_guessing_product_data": true,
+    "reject_placeholder_product_names": true,
+    "delete_repository_legacy_not_present_in_drive": true,
+    "preview_before_publish": true,
+    "cloudflare_publish_only_after_validation": true,
+    "runtime_media_source": "repository-local-assets-after-drive-sync",
+    "drive_usage": "canonical-source-and-sync"
+  },
+  "steps": {
+    "A1": {
+      "type": "website_header_video",
+      "expected_count": 1,
+      "drive_file_id": "1hPb4E77atDaGLCnqVtHKIpvxbz3uYZ9O",
+      "expected_size_bytes": 889179,
+      "assets": ["assets/website/hero.mp4"]
+    },
+    "A2": {
+      "type": "second_row_images",
+      "expected_count": 4,
+      "drive_order": [
+        {"figure": 1, "drive_file_id": "1tnv1sucC6--8QM9X2xYIsKWkEFPYhQPB", "expected_size_bytes": 2337109},
+        {"figure": 2, "drive_file_id": "1hnb6nCtACTHXYJoj113WLjnQq_2RLMTq", "expected_size_bytes": 2226906},
+        {"figure": 3, "drive_file_id": "1ulCCX2vD8ODgNBpq_wKILdlFt_2pQkTI", "expected_size_bytes": 2300891},
+        {"figure": 4, "drive_file_id": "1nME-r2l_RXFkvlfU6F85F8CRP3EnG5fv", "expected_size_bytes": 2450770}
+      ],
+      "ordered_assets": [
+        "assets/website/row2-1.png",
+        "assets/website/row2-2.png",
+        "assets/website/row2-3.png",
+        "assets/website/row2-4.png"
+      ]
+    },
+    "A3": {
+      "type": "photo_story_and_text_story",
+      "expected_image_count": 1,
+      "drive_file_id": "1LV6x1Xg__epdjQBwccq8vddQidtXzQKr",
+      "expected_size_bytes": 1811138,
+      "asset": "assets/story/story-1-and-text.png",
+      "text_languages": ["th", "en"],
+      "text_source": "sequence_doc",
+      "sync_status": "SOURCE_BINARY_REQUIRED"
+    },
+    "A4": {
+      "type": "product_catalog",
+      "canonical_source": "source_of_truth.canonical_product_database_folder",
+      "expected_category_count": 14,
+      "expected_product_record_count": 133,
+      "expected_media_file_count": 97,
+      "fields": ["photo", "name_th", "name_en", "name_ja", "price"],
+      "category_order": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14"],
+      "categories": [
+        {"id":"01","th":"ชิโอะปัง","en":"Shio Pan","ja":"塩パン","expected_records":16,"expected_media_files":16,"note":"Drive contains items 1.1-1.16 only; category cover was removed"},
+        {"id":"02","th":"ชีสเค้กหน้าไหม้","en":"Burnt Cheesecake","ja":"バスクチーズケーキ","expected_records":6,"expected_media_files":6},
+        {"id":"03","th":"ฟัดจ์เค้ก","en":"Fudge Cake","ja":"ファッジケーキ","expected_records":5,"expected_media_files":5,"note":"Drive contains 3.2-3.6; 3.1 was removed"},
+        {"id":"04","th":"บัตเตอร์ครีมเค้ก","en":"Buttercream Cake","ja":"バタークリームケーキ","expected_records":3,"expected_media_files":3},
+        {"id":"05","th":"โรลเค้ก","en":"Roll Cake","ja":"ロールケーキ","expected_records":6,"expected_media_files":6},
+        {"id":"06","th":"วาฟเฟิลเค้ก","en":"Waffle Cake","ja":"ワッフルケーキ","expected_records":8,"expected_media_files":8,"note":"6.7 = วาฟเฟิลเพลน | Waffle Plain | プレーンワッフル | 69"},
+        {"id":"07","th":"ชิฟฟอนเค้ก","en":"Chiffon Cake","ja":"シフォンケーキ","expected_records":2,"expected_media_files":2},
+        {"id":"08","th":"บานอฟฟี่","en":"Banoffee","ja":"バノフィー","expected_records":2,"expected_media_files":2},
+        {"id":"09","th":"มัฟฟิน & คัพเค้ก","en":"Muffin & Cupcake","ja":"マフィン・カップケーキ","expected_records":6,"expected_media_files":6,"note":"Drive contains 9.1-9.5 and 9.7; duplicate 9.6 was removed"},
+        {"id":"10","th":"เค้กปอนด์","en":"Pound Cake","ja":"ホールケーキ","expected_records":10,"expected_media_files":10},
+        {"id":"11","th":"ขนมปัง & บัน","en":"Bread & Bun","ja":"パン・バンズ","expected_records":8,"expected_media_files":8},
+        {"id":"12","th":"ครัวซองต์ & เดนิช","en":"Croissant & Danish","ja":"クロワッサン・デニッシュ","expected_records":5,"expected_media_files":5},
+        {"id":"13","th":"หมาล่า & ราเม็ง","en":"Mala, Ramen & Thai Noodles","ja":"麻辣・ラーメン・タイ麺","expected_records":49,"expected_media_files":13,"note":"13 noodle-package media are mapped from the prior repo Ramen group into canonical group 13"},
+        {"id":"14","th":"เครื่องดื่ม ปั่น & กาแฟ","en":"Drinks, Shakes & Coffee","ja":"ドリンク・シェイク・コーヒー","expected_records":7,"expected_media_files":7,"note":"7 drink media are mapped from the prior repo Drinks group into canonical group 14"}
+      ],
+      "asset_root": "assets/catalog"
+    },
+    "A5": {
+      "type": "posters",
+      "expected_count": 18,
+      "asset_root": "assets/posters",
+      "filename_pattern": "001..018",
+      "canonical_order": "PT1..PT18"
+    },
+    "A6": {
+      "type": "story_the_end",
+      "expected_image_count": 1,
+      "drive_file_id": "1oOrT73mOEn3r50FS_kB77cELm0EXXjg1",
+      "expected_size_bytes": 2193694,
+      "asset": "assets/story/story-the-end.png",
+      "sync_status": "SOURCE_BINARY_REQUIRED"
+    }
+  },
+  "pipeline": [
+    "READ_GOOGLE_DRIVE_CANONICAL_DATABASE",
+    "DERIVE_PRODUCT_DATABASE_DOC_FROM_DRIVE",
+    "READ_SEQUENCE_SOURCE",
+    "SYNC_ASSETS_TO_REPOSITORY",
+    "NORMALIZE_A1_A6_MANIFEST",
+    "VALIDATE_IDENTITY_COUNTS_AND_ORDER",
+    "BUILD_STATIC_PREVIEW",
+    "VISUAL_AND_DATA_QA",
+    "BUILD_CLOUDFLARE_DIST",
+    "PUBLISH_CLOUDFLARE"
+  ],
+  "failure_policy": {
+    "missing_step": "BLOCK_PUBLISH",
+    "missing_asset": "BLOCK_PUBLISH",
+    "category_count_not_14": "BLOCK_PUBLISH",
+    "media_count_below_expected": "BLOCK_PUBLISH",
+    "media_count_above_expected": "BLOCK_PUBLISH",
+    "product_data_missing_required_field": "BLOCK_PUBLISH",
+    "placeholder_product_name": "BLOCK_PUBLISH",
+    "drive_vs_doc_mismatch": "BLOCK_PUBLISH",
+    "drive_vs_repository_mismatch": "BLOCK_PUBLISH",
+    "unexpected_legacy_category": "BLOCK_PUBLISH_AND_DELETE_FROM_REPO_BRANCH"
+  }
+}
