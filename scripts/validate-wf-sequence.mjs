@@ -41,7 +41,9 @@ if (!fs.existsSync(categoryRoot)) {
       const media = imageFiles(`${s.A4.asset_root}/${id}`);
       if (media.length === 0) errors.push(`A4 category ${id} has no local product images`);
       const expected = s.A4.categories.find(c => c.id === id)?.expected_records ?? 0;
-      if (expected && media.length < expected) warnings.push(`A4 category ${id}: local media ${media.length} < DB records ${expected}; sync may be incomplete`);
+      if (expected && media.length < expected) {
+        errors.push(`A4 category ${id}: local media ${media.length} < DB records ${expected}; sync incomplete`);
+      }
     }
   }
   for (const id of dirs.filter(id => /^\d{2}$/.test(id) && !canonical.includes(id))) {
