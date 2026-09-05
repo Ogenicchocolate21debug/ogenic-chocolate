@@ -1,0 +1,30 @@
+name: Validate WF Sequence A1-A6
+
+on:
+  pull_request:
+    paths:
+      - wf-sequence.manifest.json
+      - wf-sequence-preview.html
+      - scripts/validate-wf-sequence.mjs
+      - assets/**
+      - .github/workflows/deploy-cloudflare-pages.yml
+      - .github/workflows/wf-sequence-pr-check.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate canonical A1-A6
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR
+        uses: actions/checkout@v6
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+      - name: Run deterministic WF validator
+        shell: bash
+        run: node scripts/validate-wf-sequence.mjs
