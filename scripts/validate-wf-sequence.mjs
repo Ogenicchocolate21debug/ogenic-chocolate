@@ -26,6 +26,7 @@ for (const p of s.A2.ordered_assets) if (!exists(p)) errors.push(`A2 missing: ${
 if (!exists(s.A3.asset)) errors.push(`A3 missing: ${s.A3.asset}`);
 if (!exists(s.A6.asset)) errors.push(`A6 missing: ${s.A6.asset}`);
 
+let mediaTotal = 0;
 const categoryRoot = path.join(root, s.A4.asset_root);
 if (!fs.existsSync(categoryRoot)) {
   errors.push(`A4 asset root missing: ${s.A4.asset_root}`);
@@ -36,19 +37,27 @@ if (!fs.existsSync(categoryRoot)) {
     .sort();
   const canonical = s.A4.category_order;
   for (const id of canonical) {
-    if (!dirs.includes(id)) errors.push(`A4 missing category folder: ${id}`);
-    else {
-      const media = imageFiles(`${s.A4.asset_root}/${id}`);
-      if (media.length === 0) errors.push(`A4 category ${id} has no local product images`);
-      const expected = s.A4.categories.find(c => c.id === id)?.expected_records ?? 0;
-      if (expected && media.length < expected) {
-        errors.push(`A4 category ${id}: local media ${media.length} < DB records ${expected}; sync incomplete`);
-      }
+    const category = s.A4.categories.find(c => c.id === id);
+    if (!dirs.includes(id)) {
+      errors.push(`A4 missing category folder: ${id}`);
+      continue;
+    }
+    const media = imageFiles(`${s.A4.asset_root}/${id}`);
+    mediaTotal += media.length;
+    const expectedMedia = category?.expected_media_files ?? 0;
+    if (media.length < expectedMedia) {
+      errors.push(`A4 category ${id}: local media ${media.length} < expected media ${expectedMedia}; sync incomplete`);
+    } else if (media.length > expectedMedia) {
+      warnings.push(`A4 category ${id}: local media ${media.length} > expected media ${expectedMedia}; review extra files`);
     }
   }
   for (const id of dirs.filter(id => /^\d{2}$/.test(id) && !canonical.includes(id))) {
     warnings.push(`A4 legacy/unmapped category folder excluded from canonical sequence: ${id}`);
   }
+}
+
+if (mediaTotal < s.A4.expected_media_file_count) {
+  errors.push(`A4 media total incomplete: found ${mediaTotal}, expected at least ${s.A4.expected_media_file_count}`);
 }
 
 const posterFiles = imageFiles(s.A5.asset_root);
@@ -64,6 +73,7 @@ for (const stem of requiredPosterNames) {
 console.log('\nWF Sequence Validation');
 console.log(`Shortcut: ${m.shortcut}`);
 console.log(`Order: ${m.rules.strict_order.join(' -> ')}`);
+console.log(`A4 media: ${mediaTotal}/${s.A4.expected_media_file_count}`);
 for (const w of warnings) console.warn(`WARN: ${w}`);
 
 if (errors.length) {
