@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - index.html
+      - control-center.html
       - bakery-products.json
       - chocolate-products.json
       - chocolate-formulas.json
@@ -40,7 +41,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p dist/assets
-          cp index.html chocolate-formulas.json dist/
+          cp index.html control-center.html chocolate-formulas.json dist/
           cp -R assets/. dist/assets/
           node scripts/build-cloudflare-backup.mjs
           touch dist/.nojekyll
