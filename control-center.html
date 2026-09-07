@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="robots" content="noindex,nofollow,noarchive" />
+  <title>Candy Control Center | Owner Console</title>
+  <meta name="description" content="Owner control surface for Candy Baked Factory." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#0b090d;--panel:#121016;--panel2:#18141d;--text:#f8f2ea;--muted:#a99fae;--line:rgba(255,255,255,.09);
+      --cream:#f3e6d3;--gold:#d3b07a;--plum:#5f1f53;--pink:#d83a86;--red:#8f2639;--green:#6ed8a4;
+      --shadow:0 24px 80px rgba(0,0,0,.36);--radius:24px
+    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:
+      radial-gradient(circle at 10% -10%,rgba(216,58,134,.18),transparent 34%),
+      radial-gradient(circle at 100% 0,rgba(95,31,83,.28),transparent 28%),var(--bg);color:var(--text);
+      font-family:"Noto Sans Thai","DM Sans",sans-serif;min-height:100vh}
+    a{color:inherit;text-decoration:none}button,input,textarea{font:inherit}.shell{min-height:100vh;display:grid;grid-template-columns:260px 1fr}
+    .sidebar{position:sticky;top:0;height:100vh;padding:22px 16px;border-right:1px solid var(--line);background:rgba(10,8,12,.72);backdrop-filter:blur(18px)}
+    .brand{display:flex;align-items:center;gap:11px;padding:6px 8px 22px}.brand img{width:42px;height:42px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 1px rgba(255,255,255,.12)}
+    .brand strong{display:block;font-size:12px;letter-spacing:.06em}.brand small{color:var(--muted);font:9px "DM Sans";letter-spacing:.16em}
+    .nav{display:grid;gap:5px}.nav a{display:flex;gap:10px;align-items:center;padding:11px 12px;border-radius:14px;color:#cfc4d1;font-size:12px}.nav a.active,.nav a:hover{background:linear-gradient(90deg,rgba(216,58,134,.17),rgba(95,31,83,.11));color:#fff}
+    .nav i{width:8px;height:8px;border-radius:50%;background:#655b69}.nav a.active i{background:var(--pink);box-shadow:0 0 18px rgba(216,58,134,.9)}
+    .side-foot{position:absolute;left:16px;right:16px;bottom:18px;padding:13px;border:1px solid var(--line);border-radius:15px;background:rgba(255,255,255,.025)}
+    .side-foot b{display:block;font:10px "DM Sans";letter-spacing:.12em}.side-foot span{display:block;margin-top:5px;color:var(--muted);font-size:10px;line-height:1.55}
+    .main{min-width:0}.topbar{position:sticky;z-index:30;top:0;display:flex;justify-content:space-between;gap:12px;align-items:center;padding:14px clamp(16px,3vw,34px);border-bottom:1px solid var(--line);background:rgba(11,9,13,.82);backdrop-filter:blur(18px)}
+    .crumb{color:var(--muted);font-size:10px;letter-spacing:.08em}.status{display:flex;align-items:center;gap:7px;padding:8px 11px;border:1px solid rgba(110,216,164,.18);border-radius:999px;background:rgba(110,216,164,.06);color:#bdf3d4;font-size:10px;font-weight:700}.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 14px rgba(110,216,164,.85)}
+    .content{max-width:1380px;margin:auto;padding:28px clamp(16px,3vw,36px) 72px}.hero{position:relative;overflow:hidden;padding:clamp(26px,5vw,54px);border:1px solid var(--line);border-radius:32px;background:
+      linear-gradient(130deg,rgba(255,255,255,.035),rgba(255,255,255,.005)),
+      linear-gradient(120deg,rgba(95,31,83,.34),rgba(143,38,57,.14) 48%,rgba(216,58,134,.12));box-shadow:var(--shadow)}
+    .hero:after{content:"";position:absolute;right:-110px;top:-110px;width:360px;height:360px;border-radius:50%;border:1px solid rgba(255,255,255,.06);box-shadow:0 0 0 42px rgba(255,255,255,.015),0 0 0 88px rgba(255,255,255,.01)}
+    .eyebrow{margin:0;color:var(--gold);font:10px "DM Sans";font-weight:700;letter-spacing:.2em}.hero h1{max-width:800px;margin:10px 0 12px;font:clamp(38px,7vw,82px)/.96 "Playfair Display","Noto Sans Thai",serif;letter-spacing:-.035em}.hero p{max-width:680px;margin:0;color:#c6bac9;font-size:13px;line-height:1.75}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:25px}.btn{display:inline-flex;min-height:44px;align-items:center;justify-content:center;gap:7px;padding:10px 15px;border-radius:13px;border:1px solid var(--line);background:#1a151d;color:#fff;font-size:11px;font-weight:700;cursor:pointer}.btn.primary{border-color:transparent;background:linear-gradient(135deg,var(--pink),#992a63);box-shadow:0 14px 34px rgba(216,58,134,.22)}.btn.ghost:hover{background:#211a25}
+    .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:16px}.card{padding:18px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.018));box-shadow:0 12px 34px rgba(0,0,0,.15)}
+    .card-top{display:flex;justify-content:space-between;gap:8px;align-items:center}.badge{padding:5px 8px;border-radius:999px;background:rgba(255,255,255,.055);color:var(--muted);font:9px "DM Sans";letter-spacing:.08em}.badge.live{color:#baf0d1;background:rgba(110,216,164,.07)}.card h3{margin:19px 0 5px;font:18px "DM Sans";font-weight:700}.card p{margin:0;color:var(--muted);font-size:11px;line-height:1.6}.metric{margin-top:18px;font:30px "DM Sans";font-weight:700;letter-spacing:-.04em}.metric small{font-size:10px;color:var(--muted);font-weight:500;letter-spacing:0}
+    .workspace{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);gap:14px;margin-top:14px}.panel{border:1px solid var(--line);border-radius:22px;background:var(--panel);overflow:hidden}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid var(--line)}.panel-head h2{margin:0;font:13px "DM Sans";font-weight:700}.panel-head small{color:var(--muted);font-size:9px}.composer{padding:18px}.composer textarea{width:100%;min-height:210px;resize:vertical;padding:16px;border:1px solid var(--line);outline:none;border-radius:16px;background:#0d0b10;color:#fff;line-height:1.65;font-size:12px}.composer textarea:focus{border-color:rgba(216,58,134,.45);box-shadow:0 0 0 3px rgba(216,58,134,.07)}.composer-meta{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:11px}.route{color:var(--muted);font-size:9px}.route b{color:#fff}
+    .list{display:grid}.row{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding:14px 16px;border-bottom:1px solid var(--line)}.row:last-child{border-bottom:0}.row-dot{width:9px;height:9px;border-radius:50%;background:#7b6e80}.row-dot.hot{background:var(--pink);box-shadow:0 0 12px rgba(216,58,134,.7)}.row b{display:block;font-size:11px}.row span{display:block;margin-top:2px;color:var(--muted);font-size:9px}.row a{font:9px "DM Sans";color:var(--gold)}
+    .notice{margin-top:14px;padding:14px 16px;border:1px solid rgba(211,176,122,.16);border-radius:17px;background:rgba(211,176,122,.045);color:#cdbfa9;font-size:10px;line-height:1.65}
+    .mobile-menu{display:none}.drawer{display:none}.footer{padding-top:26px;color:#6f6474;font-size:9px;text-align:center}
+    @media(max-width:1050px){.grid{grid-template-columns:repeat(2,1fr)}.workspace{grid-template-columns:1fr}.shell{grid-template-columns:220px 1fr}}
+    @media(max-width:760px){.shell{display:block}.sidebar{display:none}.mobile-menu{display:inline-flex}.content{padding-top:18px}.hero{border-radius:24px}.grid{grid-template-columns:1fr 1fr;gap:10px}.card{padding:15px}.card h3{font-size:15px}.workspace{gap:10px}.drawer.open{display:block;position:fixed;z-index:100;inset:0;background:rgba(5,4,7,.78);backdrop-filter:blur(8px)}.drawer-box{width:min(84vw,330px);height:100%;padding:22px 16px;background:#0d0b10;border-right:1px solid var(--line)}.drawer-close{float:right;border:0;background:transparent;color:#fff;font-size:22px}.drawer .nav{margin-top:28px}}
+    @media(max-width:470px){.grid{grid-template-columns:1fr}.hero h1{font-size:43px}.hero-actions{display:grid}.btn{width:100%}.composer-meta{align-items:stretch;flex-direction:column}.composer-meta .btn{width:100%}}
+  </style>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <a class="brand" href="/"><img src="assets/brand/candy-baked-logo.jpeg" alt="Candy Baked Factory"><span><strong>CANDY CONTROL</strong><small>OWNER CONSOLE</small></span></a>
+    <nav class="nav">
+      <a class="active" href="#overview"><i></i>Overview</a><a href="#codex"><i></i>Codex Dispatch</a><a href="#integrations"><i></i>Integrations</a><a href="#publishing"><i></i>Publishing</a><a href="#deploy"><i></i>Deploy & CI</a>
+    </nav>
+    <div class="side-foot"><b>CONTROL PLANE</b><span>Privileged actions stay behind OGENIC. No provider secrets are embedded on this page.</span></div>
+  </aside>
+  <main class="main">
+    <div class="topbar"><div><button class="btn ghost mobile-menu" id="openMenu">☰</button> <span class="crumb">Candy Baked Factory / Owner / Control Center</span></div><div class="status"><span class="dot"></span>CONTROL SHELL LIVE</div></div>
+    <div class="content" id="overview">
+      <section class="hero">
+        <p class="eyebrow">CANDY BAKED FACTORY · OGENIC CONTROL</p>
+        <h1>Run the shop.<br>Build the system.</h1>
+        <p>ศูนย์ควบคุมหลังบ้านสำหรับ Candy — งานโค้ด, Codex, API, Content, Deploy และ Automation อยู่ในมุมเดียว โดยงานที่มีสิทธิ์สูงจะวิ่งผ่าน OGENIC ฝั่ง server เท่านั้น</p>
+        <div class="hero-actions"><a class="btn primary" href="https://ogenic-phase-vi-staging.tawatchaisamornrum11.workers.dev" target="_blank" rel="noopener">OPEN OGENIC CONTROL ↗</a><a class="btn ghost" href="/" target="_blank">VIEW STOREFRONT ↗</a></div>
+      </section>
+
+      <section class="grid">
+        <article class="card"><div class="card-top"><span class="badge live">LIVE</span><span>01</span></div><h3>Codex</h3><p>Implementation engine routed through OGENIC / Linear.</p><div class="metric">1 <small>active task</small></div></article>
+        <article class="card"><div class="card-top"><span class="badge">API</span><span>02</span></div><h3>Bot / Chat API</h3><p>Developer surface for apps, bots and customer integrations.</p><div class="metric">v1 <small>staging build</small></div></article>
+        <article class="card"><div class="card-top"><span class="badge">FLOW</span><span>03</span></div><h3>Publishing</h3><p>News, Fanclub, promotion and product content dispatch.</p><div class="metric">1× <small>publish path</small></div></article>
+        <article class="card"><div class="card-top"><span class="badge live">READY</span><span>04</span></div><h3>Cloudflare</h3><p>Production storefront deployment and CI visibility.</p><div class="metric">CF <small>Pages</small></div></article>
+      </section>
+
+      <section class="workspace" id="codex">
+        <div class="panel">
+          <div class="panel-head"><div><h2>Codex Dispatch</h2><small>Owner request composer</small></div><span class="badge">SERVER-SIDE</span></div>
+          <div class="composer"><textarea id="prompt" placeholder="เช่น: แก้หน้า ShioPan ให้ภาพใหญ่ขึ้น, เพิ่มข่าว Fanclub, ทำเมนู API สำหรับบอต..."></textarea><div class="composer-meta"><div class="route">ROUTE · <b>Candy → OGENIC → Linear → Codex → GitHub → CI → Cloudflare</b></div><button class="btn primary" id="dispatch">COPY REQUEST + OPEN OGENIC</button></div></div>
+        </div>
+        <div class="panel" id="integrations">
+          <div class="panel-head"><div><h2>Active Work</h2><small>Current control paths</small></div></div>
+          <div class="list">
+            <div class="row"><span class="row-dot hot"></span><div><b>OGE-10 · Candy Codex Control</b><span>In Progress · delegated to Codex</span></div><a href="https://linear.app/ogenic-sio/issue/OGE-10/candy-codex-control-via-linear-dispatch" target="_blank" rel="noopener">OPEN ↗</a></div>
+            <div class="row"><span class="row-dot"></span><div><b>GitHub Issue #8</b><span>Control Center / Codex via Linear dispatch</span></div><a href="https://github.com/Ogenicchocolate21debug/ogenic-chocolate/issues/8" target="_blank" rel="noopener">OPEN ↗</a></div>
+            <div class="row"><span class="row-dot"></span><div><b>OGENIC Bot API</b><span>Chat API + JS Workspace + Usage</span></div><a href="https://ogenic-phase-vi-staging.tawatchaisamornrum11.workers.dev" target="_blank" rel="noopener">OPEN ↗</a></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="workspace" id="publishing">
+        <div class="panel"><div class="panel-head"><div><h2>Publishing Center</h2><small>Content → Candy storefront</small></div><span class="badge">NEXT</span></div><div class="list"><div class="row"><span class="row-dot"></span><div><b>News & Fanclub</b><span>Draft → Preview → Publish</span></div><span></span></div><div class="row"><span class="row-dot"></span><div><b>Promotions</b><span>Campaign copy + CTA + schedule</span></div><span></span></div><div class="row"><span class="row-dot"></span><div><b>Media Library</b><span>Images and publishing assets</span></div><span></span></div></div></div>
+        <div class="panel" id="deploy"><div class="panel-head"><div><h2>Deploy Rail</h2><small>Production release boundary</small></div><span class="badge live">CLOUDFLARE</span></div><div class="list"><div class="row"><span class="row-dot hot"></span><div><b>GitHub</b><span>Source of truth</span></div><a href="https://github.com/Ogenicchocolate21debug/ogenic-chocolate" target="_blank" rel="noopener">REPO ↗</a></div><div class="row"><span class="row-dot"></span><div><b>CI</b><span>Build + deploy checks</span></div><a href="https://github.com/Ogenicchocolate21debug/ogenic-chocolate/actions" target="_blank" rel="noopener">ACTIONS ↗</a></div><div class="row"><span class="row-dot"></span><div><b>Cloudflare Pages</b><span>Production storefront target</span></div><a href="https://ogenic-chocolate.pages.dev" target="_blank" rel="noopener">SITE ↗</a></div></div></div>
+      </section>
+
+      <div class="notice">Security note: หน้านี้เป็น control shell แบบไม่ฝัง secret และไม่มี privileged credential อยู่ใน JavaScript. ปุ่ม Codex จะส่งมึงเข้า OGENIC protected control จนกว่า OGE-10 จะต่อ server-side dispatch endpoint เสร็จ เพื่อไม่เอา LINEAR / GitHub / OpenAI key ไปเสี่ยงบน storefront.</div>
+      <div class="footer">CANDY BAKED FACTORY · OWNER CONTROL CENTER · powered by OGENIC</div>
+    </div>
+  </main>
+</div>
+<div class="drawer" id="drawer"><div class="drawer-box"><button class="drawer-close" id="closeMenu">×</button><a class="brand" href="/"><img src="assets/brand/candy-baked-logo.jpeg" alt="Candy"><span><strong>CANDY CONTROL</strong><small>OWNER CONSOLE</small></span></a><nav class="nav"><a class="active" href="#overview">Overview</a><a href="#codex">Codex Dispatch</a><a href="#integrations">Integrations</a><a href="#publishing">Publishing</a><a href="#deploy">Deploy & CI</a></nav></div></div>
+<script>
+  const drawer=document.getElementById('drawer');
+  document.getElementById('openMenu').onclick=()=>drawer.classList.add('open');
+  document.getElementById('closeMenu').onclick=()=>drawer.classList.remove('open');
+  drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>drawer.classList.remove('open')));
+  document.getElementById('dispatch').addEventListener('click',async()=>{
+    const value=document.getElementById('prompt').value.trim();
+    if(value){try{await navigator.clipboard.writeText(value)}catch{}}
+    window.open('https://ogenic-phase-vi-staging.tawatchaisamornrum11.workers.dev','_blank','noopener');
+  });
+</script>
+</body>
+</html>
