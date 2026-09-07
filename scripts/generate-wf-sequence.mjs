@@ -152,7 +152,7 @@ const manifest = {
     { id: "A3", label: "PhotoStory + Thai/English TextStory", media: [{ order: 1, title: "Story 1 & Text", driveId: "1LV6x1Xg__epdjQBwccq8vddQidtXzQKr", path: "assets/story/baking-story.jpeg" }] },
     { id: "A4", label: "14-category catalog", catalog },
     { id: "A5", label: "PT1–PT18 posters", media: [5,16,3,17,13,7,10,8,11,12,14,15,4,2,18,9,1,6].map((n, i) => ({ order: i + 1, title: `PT${i + 1}`, path: `assets/posters/${String(n).padStart(3, "0")}.png` })) },
-    { id: "A6", label: "Story The End", media: [{ order: 1, title: "Story The End", driveId: "1oOrT73mOEn3r50FS_kB77cELm0EXXjg1", path: "assets/story/cream-story.jpeg", note: "Local optimized fallback; canonical Drive master remains authoritative." }] }
+    { id: "A6", label: "Story The End", media: [{ order: 1, title: "Story The End", driveId: "1oOrT73mOEn3r50FS_kB77cELm0EXXjg1", path: "assets/story/story-the-end.png" }] }
   ],
   menuBuilder: {
     hotPot: [{ size: "S", price: 399 }, { size: "M", price: 499 }, { size: "L", price: 599 }],
