@@ -10,7 +10,10 @@ on:
       - chocolate-products.json
       - chocolate-formulas.json
       - posters.json
+      - wf-sequence.manifest.json
       - assets/**
+      - scripts/generate-wf-sequence.mjs
+      - scripts/validate-wf-sequence.mjs
       - scripts/build-cloudflare-backup.mjs
       - .github/workflows/deploy-cloudflare-pages.yml
   workflow_dispatch:
@@ -40,8 +43,11 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          node scripts/generate-wf-sequence.mjs
+          git diff --exit-code -- wf-sequence.manifest.json
+          node scripts/validate-wf-sequence.mjs
           mkdir -p dist/assets
-          cp index.html control-center.html chocolate-formulas.json dist/
+          cp index.html control-center.html chocolate-formulas.json wf-sequence.manifest.json dist/
           cp -R assets/. dist/assets/
           node scripts/build-cloudflare-backup.mjs
           touch dist/.nojekyll

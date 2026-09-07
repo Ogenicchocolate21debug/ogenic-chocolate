@@ -1,0 +1,1096 @@
+{
+  "schemaVersion": 1,
+  "title": "Candy Baked Factory canonical website sequence",
+  "sourceSnapshot": "2026-09-07",
+  "policy": {
+    "authority": "Google Drive current folder state, reconciled with Product Master and Notion Harness",
+    "deletionRule": "Do not recreate media deleted from the canonical Drive folders.",
+    "publishGate": "Branch preview only until owner approval."
+  },
+  "stages": [
+    {
+      "id": "A1",
+      "label": "Header video",
+      "media": [
+        {
+          "order": 1,
+          "title": "Website header clip (no sound)",
+          "driveId": "1hPb4E77atDaGLCnqVtHKIpvxbz3uYZ9O",
+          "path": "assets/website/hero.mp4"
+        }
+      ]
+    },
+    {
+      "id": "A2",
+      "label": "Second-row figures",
+      "media": [
+        {
+          "order": 1,
+          "title": "Figure 1",
+          "path": "assets/website/row2-1.png"
+        },
+        {
+          "order": 2,
+          "title": "Figure 2",
+          "path": "assets/website/row2-4.png"
+        },
+        {
+          "order": 3,
+          "title": "Figure 3",
+          "path": "assets/website/row2-3.png"
+        },
+        {
+          "order": 4,
+          "title": "Figure 4",
+          "path": "assets/website/row2-2.png"
+        }
+      ]
+    },
+    {
+      "id": "A3",
+      "label": "PhotoStory + Thai/English TextStory",
+      "media": [
+        {
+          "order": 1,
+          "title": "Story 1 & Text",
+          "driveId": "1LV6x1Xg__epdjQBwccq8vddQidtXzQKr",
+          "path": "assets/story/baking-story.jpeg"
+        }
+      ]
+    },
+    {
+      "id": "A4",
+      "label": "14-category catalog",
+      "catalog": [
+        {
+          "id": "01",
+          "th": "ชิโอะปัง",
+          "en": "Shio Pan",
+          "ja": "塩パン",
+          "items": [
+            {
+              "id": "01.1",
+              "th": "ออริจินัล",
+              "en": "Original",
+              "ja": "オリジナル",
+              "price": 39,
+              "image": "assets/catalog/01/004.jpg"
+            },
+            {
+              "id": "01.2",
+              "th": "ออริจินัลช็อกโกแลต",
+              "en": "Original Chocolate",
+              "ja": "オリジナルチョコレート",
+              "price": 49,
+              "image": "assets/catalog/01/001.jpg"
+            },
+            {
+              "id": "01.3",
+              "th": "ออริจินัลชาร์โคล",
+              "en": "Original Charcoal",
+              "ja": "オリジナル・チャコール",
+              "price": 49,
+              "image": "assets/catalog/01/005.jpg"
+            },
+            {
+              "id": "01.4",
+              "th": "บานอฟฟี่",
+              "en": "Banoffee",
+              "ja": "バノフィー",
+              "price": 59,
+              "image": "assets/catalog/01/010.jpg"
+            },
+            {
+              "id": "01.5",
+              "th": "บลูเบอร์รีวิป",
+              "en": "Blueberry Whipped",
+              "ja": "ブルーベリーホイップ",
+              "price": 59,
+              "image": "assets/catalog/01/006.jpg"
+            },
+            {
+              "id": "01.6",
+              "th": "บราวนี่วิป",
+              "en": "Brownie Whipped",
+              "ja": "ブラウニーホイップ",
+              "price": 59,
+              "image": "assets/catalog/01/016.jpg"
+            },
+            {
+              "id": "01.7",
+              "th": "คาราเมลบานานครัมเบิล",
+              "en": "Caramel Banana Crumble",
+              "ja": "キャラメルバナナクランブル",
+              "price": 59,
+              "image": "assets/catalog/01/015.jpg"
+            },
+            {
+              "id": "01.8",
+              "th": "ดาร์กช็อกโกแลตอัลมอนด์",
+              "en": "Dark Chocolate Almond",
+              "ja": "ダークチョコアーモンド",
+              "price": 59,
+              "image": "assets/catalog/01/008.jpg"
+            },
+            {
+              "id": "01.9",
+              "th": "ฝอยทองวิป",
+              "en": "Foi Thong Whipped",
+              "ja": "フォイトーンホイップ",
+              "price": 59,
+              "image": "assets/catalog/01/012.jpg"
+            },
+            {
+              "id": "01.10",
+              "th": "มาร์ชเมลโลว์วิป",
+              "en": "Marshmallow Whipped",
+              "ja": "マシュマロホイップ",
+              "price": 59,
+              "image": "assets/catalog/01/007.jpg"
+            },
+            {
+              "id": "01.11",
+              "th": "นูเทลล่ากล้วย",
+              "en": "Nutella Banana",
+              "ja": "ヌテラバナナ",
+              "price": 59,
+              "image": "assets/catalog/01/017.jpg"
+            },
+            {
+              "id": "01.12",
+              "th": "นูเทลล่ากล้วยครัมเบิล",
+              "en": "Nutella Banana Crumble",
+              "ja": "ヌテラバナナクランブル",
+              "price": 59,
+              "image": "assets/catalog/01/014.jpg"
+            },
+            {
+              "id": "01.13",
+              "th": "นูเทลล่าสตรอว์เบอร์รีครัมเบิล",
+              "en": "Nutella Strawberry Crumble",
+              "ja": "ヌテラいちごクランブル",
+              "price": 59,
+              "image": "assets/catalog/01/002.jpg"
+            },
+            {
+              "id": "01.14",
+              "th": "โอรีโอวิป",
+              "en": "Oreo Whipped",
+              "ja": "オレオホイップ",
+              "price": 59,
+              "image": "assets/catalog/01/003.jpg"
+            },
+            {
+              "id": "01.15",
+              "th": "สตรอว์เบอร์รีวิปครัมเบิล",
+              "en": "Strawberry Whip Crumble",
+              "ja": "いちごホイップクランブル",
+              "price": 59,
+              "image": "assets/catalog/01/011.jpg"
+            },
+            {
+              "id": "01.16",
+              "th": "สตรอว์เบอร์รีวิป",
+              "en": "Strawberry Whipped",
+              "ja": "いちごホイップ",
+              "price": 59,
+              "image": "assets/catalog/01/013.jpg"
+            }
+          ]
+        },
+        {
+          "id": "02",
+          "th": "ชีสเค้กหน้าไหม้",
+          "en": "Burnt Cheesecake",
+          "ja": "バスクチーズケーキ",
+          "items": [
+            {
+              "id": "02.1",
+              "th": "มินิบาสก์ชีสเค้ก",
+              "en": "Mini Basque Cheesecake",
+              "ja": "ミニバスクチーズケーキ",
+              "price": 50,
+              "image": "assets/catalog/02/001.jpg"
+            },
+            {
+              "id": "02.2",
+              "th": "สตรอว์เบอร์รี",
+              "en": "Strawberry",
+              "ja": "ストロベリー",
+              "price": 89,
+              "image": "assets/catalog/02/002.jpg"
+            },
+            {
+              "id": "02.3",
+              "th": "นูเทลล่ากล้วย",
+              "en": "Nutella Banana",
+              "ja": "ヌテラバナナ",
+              "price": 89,
+              "image": "assets/catalog/02/003.jpg"
+            },
+            {
+              "id": "02.4",
+              "th": "ออริจินัล",
+              "en": "Original",
+              "ja": "オリジナル",
+              "price": 89,
+              "image": "assets/catalog/02/004.jpg"
+            },
+            {
+              "id": "02.5",
+              "th": "โอรีโอวิป",
+              "en": "Oreo Whipped Cream",
+              "ja": "オレオホイップ",
+              "price": 89,
+              "image": "assets/catalog/02/005.jpg"
+            },
+            {
+              "id": "02.6",
+              "th": "บลูเบอร์รี",
+              "en": "Blueberry",
+              "ja": "ブルーベリー",
+              "price": 89,
+              "image": "assets/catalog/02/006.jpg"
+            }
+          ]
+        },
+        {
+          "id": "03",
+          "th": "ฟัดจ์เค้ก",
+          "en": "Fudge Cake",
+          "ja": "ファッジケーキ",
+          "items": [
+            {
+              "id": "03.1",
+              "th": "ช็อกโกแลตฟัดจ์",
+              "en": "Chocolate Fudge",
+              "ja": "チョコレートファッジ",
+              "price": 89,
+              "image": "assets/catalog/03/002.jpg"
+            },
+            {
+              "id": "03.2",
+              "th": "สตรอว์เบอร์รีฟัดจ์",
+              "en": "Strawberry Fudge",
+              "ja": "ストロベリーファッジ",
+              "price": 89,
+              "image": "assets/catalog/03/003.jpg"
+            },
+            {
+              "id": "03.3",
+              "th": "บลูเบอร์รีฟัดจ์",
+              "en": "Blueberry Fudge",
+              "ja": "ブルーベリーファッジ",
+              "price": 89,
+              "image": "assets/catalog/03/004.jpg"
+            },
+            {
+              "id": "03.4",
+              "th": "โอรีโอฟัดจ์",
+              "en": "Oreo Fudge",
+              "ja": "オレオファッジ",
+              "price": 89,
+              "image": "assets/catalog/03/005.jpg"
+            },
+            {
+              "id": "03.5",
+              "th": "มิกซ์เบอร์รีฟัดจ์",
+              "en": "Mixed Berry Fudge",
+              "ja": "ミックスベリーファッジ",
+              "price": 89,
+              "image": "assets/catalog/03/006.jpg"
+            }
+          ],
+          "note": "3.1 was deleted from the canonical Drive folder and is intentionally not recreated."
+        },
+        {
+          "id": "04",
+          "th": "บัตเตอร์ครีมเค้ก",
+          "en": "Buttercream Cake",
+          "ja": "バタークリームケーキ",
+          "items": [
+            {
+              "id": "04.1",
+              "th": "สวิสเมอแรงก์บัตเตอร์ครีม",
+              "en": "Swiss Meringue Buttercream",
+              "ja": "スイスメレンゲバタークリーム",
+              "price": 89,
+              "image": "assets/catalog/04/001.jpg"
+            },
+            {
+              "id": "04.2",
+              "th": "มะพร้าวบัตเตอร์ครีม",
+              "en": "Coconut Buttercream",
+              "ja": "ココナッツバタークリーム",
+              "price": 89,
+              "image": "assets/catalog/04/002.jpg"
+            },
+            {
+              "id": "04.3",
+              "th": "ช็อกโกแลตบัตเตอร์ครีม",
+              "en": "Chocolate Buttercream",
+              "ja": "チョコレートバタークリーム",
+              "price": 89,
+              "image": "assets/catalog/04/003.jpg"
+            }
+          ]
+        },
+        {
+          "id": "05",
+          "th": "โรลเค้ก",
+          "en": "Roll Cake",
+          "ja": "ロールケーキ",
+          "items": [
+            {
+              "id": "05.1",
+              "th": "ใบเตย",
+              "en": "Pandan Roll",
+              "ja": "パンダンロール",
+              "price": 30,
+              "image": "assets/catalog/05/001.jpg"
+            },
+            {
+              "id": "05.2",
+              "th": "สตรอว์เบอร์รี",
+              "en": "Strawberry Roll",
+              "ja": "ストロベリーロール",
+              "price": 30,
+              "image": "assets/catalog/05/002.jpg"
+            },
+            {
+              "id": "05.3",
+              "th": "วานิลลา",
+              "en": "Vanilla Roll",
+              "ja": "バニラロール",
+              "price": 30,
+              "image": "assets/catalog/05/003.jpg"
+            },
+            {
+              "id": "05.4",
+              "th": "ช็อกโกแลต",
+              "en": "Chocolate Roll",
+              "ja": "チョコレートロール",
+              "price": 30,
+              "image": "assets/catalog/05/004.jpg"
+            },
+            {
+              "id": "05.5",
+              "th": "เรดเวลเวต",
+              "en": "Red Velvet Roll",
+              "ja": "レッドベルベットロール",
+              "price": 30,
+              "image": "assets/catalog/05/005.jpg"
+            },
+            {
+              "id": "05.6",
+              "th": "ซอฟต์ช็อกโกแลต",
+              "en": "Soft Chocolate Roll",
+              "ja": "ソフトチョコレートロール",
+              "price": 39,
+              "image": "assets/catalog/05/006.jpg"
+            }
+          ]
+        },
+        {
+          "id": "06",
+          "th": "วาฟเฟิล",
+          "en": "Waffle",
+          "ja": "ワッフル",
+          "items": [
+            {
+              "id": "06.1",
+              "th": "กล้วยครัมเบิล",
+              "en": "Banana Crumble",
+              "ja": "バナナクランブル",
+              "price": 69,
+              "image": "assets/catalog/06/001.jpg"
+            },
+            {
+              "id": "06.2",
+              "th": "ออริจินัล",
+              "en": "Original",
+              "ja": "オリジナル",
+              "price": 69,
+              "image": "assets/catalog/06/002.jpg"
+            },
+            {
+              "id": "06.3",
+              "th": "น้ำผึ้ง",
+              "en": "Honey",
+              "ja": "ハニー",
+              "price": 69,
+              "image": "assets/catalog/06/003.jpg"
+            },
+            {
+              "id": "06.4",
+              "th": "สตรอว์เบอร์รี",
+              "en": "Strawberry",
+              "ja": "ストロベリー",
+              "price": 69,
+              "image": "assets/catalog/06/004.jpg"
+            },
+            {
+              "id": "06.5",
+              "th": "บลูเบอร์รี",
+              "en": "Blueberry",
+              "ja": "ブルーベリー",
+              "price": 69,
+              "image": "assets/catalog/06/005.jpg"
+            },
+            {
+              "id": "06.6",
+              "th": "คาราเมล",
+              "en": "Caramel",
+              "ja": "キャラメル",
+              "price": 69,
+              "image": "assets/catalog/06/006.jpg"
+            },
+            {
+              "id": "06.7",
+              "th": "เพลน",
+              "en": "Plain",
+              "ja": "プレーン",
+              "price": 69,
+              "image": "assets/catalog/06/007.jpg"
+            },
+            {
+              "id": "06.8",
+              "th": "ผลไม้รวม",
+              "en": "Mixed Fruit",
+              "ja": "ミックスフルーツ",
+              "price": 69,
+              "image": "assets/catalog/06/008.jpg"
+            }
+          ]
+        },
+        {
+          "id": "07",
+          "th": "ชิฟฟอนเค้ก",
+          "en": "Chiffon Cake",
+          "ja": "シフォンケーキ",
+          "items": [
+            {
+              "id": "07.1",
+              "th": "วานิลลาชิฟฟอน",
+              "en": "Vanilla Chiffon",
+              "ja": "バニラシフォン",
+              "price": 75,
+              "image": "assets/catalog/07/001.jpg"
+            },
+            {
+              "id": "07.2",
+              "th": "ช็อกโกแลตชิฟฟอน",
+              "en": "Chocolate Chiffon",
+              "ja": "チョコレートシフォン",
+              "price": 75,
+              "image": "assets/catalog/07/002.jpg"
+            }
+          ]
+        },
+        {
+          "id": "08",
+          "th": "บานอฟฟี่",
+          "en": "Banoffee",
+          "ja": "バノフィー",
+          "items": [
+            {
+              "id": "08.1",
+              "th": "บานอฟฟี่บลูเบอร์รี",
+              "en": "Blueberry Banoffee",
+              "ja": "ブルーベリーバノフィー",
+              "price": 120,
+              "image": "assets/catalog/08/003.jpg"
+            },
+            {
+              "id": "08.2",
+              "th": "บานอฟฟี่สตรอว์เบอร์รี",
+              "en": "Strawberry Banoffee",
+              "ja": "ストロベリーバノフィー",
+              "price": 120,
+              "image": "assets/catalog/08/004.jpg"
+            }
+          ]
+        },
+        {
+          "id": "09",
+          "th": "มัฟฟิน & คัพเค้ก",
+          "en": "Muffin & Cupcake",
+          "ja": "マフィン＆カップケーキ",
+          "items": [
+            {
+              "id": "09.1",
+              "th": "มัฟฟินคลาสสิก",
+              "en": "Classic Muffin",
+              "ja": "プレーンマフィン",
+              "price": 45,
+              "image": "assets/catalog/09/001.jpg"
+            },
+            {
+              "id": "09.2",
+              "th": "มัฟฟินช็อกโกแลตอัลมอนด์",
+              "en": "Chocolate Almond Muffin",
+              "ja": "チョコアーモンドマフィン",
+              "price": 55,
+              "image": "assets/catalog/09/002.jpg"
+            },
+            {
+              "id": "09.3",
+              "th": "คัพเค้กมะม่วงครีม",
+              "en": "Mango Cream Cupcake",
+              "ja": "マンゴークリームカップケーキ",
+              "price": 55,
+              "image": "assets/catalog/09/003.jpg"
+            },
+            {
+              "id": "09.4",
+              "th": "คัพเค้กเบอร์รีครีม",
+              "en": "Mixed Berry Cream Cupcake",
+              "ja": "ベリークリームカップケーキ",
+              "price": 55,
+              "image": "assets/catalog/09/004.jpg"
+            },
+            {
+              "id": "09.5",
+              "th": "คัพเค้กสตรอว์เบอร์รีครีม",
+              "en": "Strawberry Cream Cupcake",
+              "ja": "いちごクリームカップケーキ",
+              "price": 55,
+              "image": "assets/catalog/09/005.jpg"
+            },
+            {
+              "id": "09.6",
+              "th": "มัฟฟินอัลมอนด์",
+              "en": "Almond Muffin",
+              "ja": "アーモンドマフィン",
+              "price": 55,
+              "image": "assets/catalog/09/008.jpg"
+            }
+          ],
+          "note": "9.6 is absent from the canonical Drive folder; the next live item remains 9.7."
+        },
+        {
+          "id": "10",
+          "th": "เค้กปอนด์สั่งทำ",
+          "en": "Custom Pound Cake",
+          "ja": "カスタムホールケーキ",
+          "items": [
+            {
+              "id": "10.1",
+              "th": "เค้กส้มแมนดาริน",
+              "en": "Mandarin Orange Whole Cake",
+              "ja": "みかんホールケーキ",
+              "price": "500–2,200",
+              "image": "assets/catalog/11/018.jpg"
+            },
+            {
+              "id": "10.2",
+              "th": "เค้กวันเกิดธีมวิสกี้",
+              "en": "Whisky Birthday Cake",
+              "ja": "ウイスキーバースデーケーキ",
+              "price": "500–2,200",
+              "image": "assets/catalog/11/017.jpg"
+            },
+            {
+              "id": "10.3",
+              "th": "เค้กวันเกิดผลไม้รวม",
+              "en": "Mixed Fruit Birthday Cake",
+              "ja": "フルーツバースデーケーキ",
+              "price": "500–2,200",
+              "image": "assets/catalog/11/016.jpg"
+            },
+            {
+              "id": "10.4",
+              "th": "เค้กวันเกิดเบอร์รีธีมเงิน",
+              "en": "Berry Money Birthday Cake",
+              "ja": "ベリー＆マネーバースデーケーキ",
+              "price": "500–2,200",
+              "image": "assets/catalog/11/015.jpg"
+            },
+            {
+              "id": "10.5",
+              "th": "เค้กธีมทองและเงิน",
+              "en": "Gold Money Cake",
+              "ja": "ゴールド＆マネーケーキ",
+              "price": "500–2,200",
+              "image": "assets/catalog/11/014.jpg"
+            },
+            {
+              "id": "10.6",
+              "th": "เค้กหัวใจสตรอว์เบอร์รี",
+              "en": "Strawberry Heart Cake",
+              "ja": "いちごハートケーキ",
+              "price": "500–2,200",
+              "image": "assets/catalog/11/013.jpg"
+            },
+            {
+              "id": "10.7",
+              "th": "เค้กวันเกิดธีมเบียร์",
+              "en": "Beer Birthday Cake",
+              "ja": "ビールバースデーケーキ",
+              "price": "500–2,200",
+              "image": "assets/catalog/11/012.jpg"
+            },
+            {
+              "id": "10.8",
+              "th": "เค้กช็อกโกแลตบ็อกซ์สีน้ำเงิน",
+              "en": "Blue Chocolate Box Cake",
+              "ja": "ブルーチョコボックスケーキ",
+              "price": "500–2,200",
+              "image": "assets/catalog/11/011.jpg"
+            },
+            {
+              "id": "10.9",
+              "th": "เค้กวันเกิดโอรีโอ",
+              "en": "Oreo Birthday Cake",
+              "ja": "オレオバースデーケーキ",
+              "price": "500–2,200",
+              "image": "assets/catalog/11/010.jpg"
+            },
+            {
+              "id": "10.10",
+              "th": "เค้กผลไม้รวม",
+              "en": "Assorted Fruit Whole Cake",
+              "ja": "フルーツアソートホールケーキ",
+              "price": "500–2,200",
+              "image": "assets/catalog/11/019.jpg"
+            }
+          ],
+          "note": "Custom design range depends on size and complexity."
+        },
+        {
+          "id": "11",
+          "th": "ขนมปังคีโต & บัน",
+          "en": "Keto Bread & Bun",
+          "ja": "ケトパン＆バン",
+          "items": [
+            {
+              "id": "11.1",
+              "th": "ขนมปังคีโตช็อกโกแลต",
+              "en": "Keto Chocolate Bread",
+              "ja": "ケトチョコレートパン",
+              "price": 99,
+              "image": "assets/catalog/12/001.jpg"
+            },
+            {
+              "id": "11.2",
+              "th": "ขนมปังคีโตนม",
+              "en": "Keto Milk Bread",
+              "ja": "ケトミルクパン",
+              "price": 99,
+              "image": "assets/catalog/12/005.jpg"
+            },
+            {
+              "id": "11.3",
+              "th": "บันคีโตช็อกโกแลต",
+              "en": "Keto Chocolate Bun",
+              "ja": "ケトチョコバン",
+              "price": 99,
+              "image": "assets/catalog/12/006.jpg"
+            },
+            {
+              "id": "11.4",
+              "th": "บันคีโตงา",
+              "en": "Keto Sesame Bun",
+              "ja": "ケトごまバン",
+              "price": 99,
+              "image": "assets/catalog/12/007.jpg"
+            },
+            {
+              "id": "11.5",
+              "th": "บันคีโตมัทฉะ",
+              "en": "Keto Matcha Bun",
+              "ja": "ケト抹茶バン",
+              "price": 110,
+              "image": "assets/catalog/12/008.jpg"
+            },
+            {
+              "id": "11.6",
+              "th": "บันช็อกโกแลตพร้อมดิป",
+              "en": "Chocolate Bun with Dip",
+              "ja": "チョコバン・ディップ",
+              "price": 150,
+              "image": "assets/catalog/12/003.jpg"
+            },
+            {
+              "id": "11.7",
+              "th": "บันนมพร้อมดิป",
+              "en": "Milk Bun with Dip",
+              "ja": "ミルクバン・ディップ",
+              "price": 150,
+              "image": "assets/catalog/12/004.jpg"
+            },
+            {
+              "id": "11.8",
+              "th": "บันหวานรูปดอกไม้",
+              "en": "Sweet Flower Bun",
+              "ja": "フラワー菓子パン",
+              "price": 150,
+              "image": "assets/catalog/12/002.jpg"
+            }
+          ]
+        },
+        {
+          "id": "12",
+          "th": "ครัวซองต์ & เดนิช",
+          "en": "Croissant & Danish",
+          "ja": "クロワッサン＆デニッシュ",
+          "items": [
+            {
+              "id": "12.1",
+              "th": "ครัวซองต์ออริจินัล 1",
+              "en": "Original Croissant 1",
+              "ja": "クロワッサン 1",
+              "price": 45,
+              "image": "assets/catalog/13/005.jpg"
+            },
+            {
+              "id": "12.2",
+              "th": "มินิครัวซองต์และเดนิช",
+              "en": "Mini Croissant & Danish",
+              "ja": "ミニクロワッサン・デニッシュ",
+              "price": 45,
+              "image": "assets/catalog/13/004.jpg"
+            },
+            {
+              "id": "12.3",
+              "th": "ครัวซองต์ช็อกโกแลต",
+              "en": "Chocolate Croissant",
+              "ja": "チョコクロワッサン",
+              "price": 45,
+              "image": "assets/catalog/13/003.jpg"
+            },
+            {
+              "id": "12.4",
+              "th": "ครัวซองต์ออริจินัล 2",
+              "en": "Original Croissant 2",
+              "ja": "クロワッサン 2",
+              "price": 45,
+              "image": "assets/catalog/13/002.jpg"
+            },
+            {
+              "id": "12.5",
+              "th": "ครัวซองต์ออริจินัล 3",
+              "en": "Original Croissant 3",
+              "ja": "クロワッサン 3",
+              "price": 45,
+              "image": "assets/catalog/13/001.jpg"
+            }
+          ]
+        },
+        {
+          "id": "13",
+          "th": "หม่าล่า & ราเม็ง",
+          "en": "Mala & Ramen",
+          "ja": "マーラー＆ラーメン",
+          "items": [
+            {
+              "id": "13.1",
+              "th": "MAMA เย็นตาโฟต้มยำ",
+              "en": "Yentafo Tom Yum Noodles",
+              "ja": "ママー イェンタフォー・トムヤム",
+              "price": 79,
+              "image": "assets/catalog/14/008.jpg"
+            },
+            {
+              "id": "13.2",
+              "th": "MAMA ต้มยำกุ้ง",
+              "en": "Tom Yum Goong Noodles",
+              "ja": "ママー トムヤムクン",
+              "price": 79,
+              "image": "assets/catalog/14/001.jpg"
+            },
+            {
+              "id": "13.3",
+              "th": "MAMA ต้มยำกุ้งน้ำข้น",
+              "en": "Creamy Tom Yum Goong Noodles",
+              "ja": "ママー クリーミートムヤムクン",
+              "price": 79,
+              "image": "assets/catalog/14/002.jpg"
+            },
+            {
+              "id": "13.4",
+              "th": "MAMA หมูสับ",
+              "en": "Minced Pork Noodles",
+              "ja": "ママー 豚ひき肉",
+              "price": 79,
+              "image": "assets/catalog/14/005.jpg"
+            },
+            {
+              "id": "13.5",
+              "th": "MAMA หมูน้ำตก",
+              "en": "Pork Nam Tok Noodles",
+              "ja": "ママー ムーナムトック",
+              "price": 79,
+              "image": "assets/catalog/14/010.jpg"
+            },
+            {
+              "id": "13.6",
+              "th": "MAMA เส้นหมี่น้ำใส",
+              "en": "Clear Rice Noodle Soup",
+              "ja": "ママー センミー・クリアスープ",
+              "price": 79,
+              "image": "assets/catalog/14/012.jpg"
+            },
+            {
+              "id": "13.7",
+              "th": "Samyang ฮอตชิคเก้นชีส",
+              "en": "Samyang Hot Chicken Cheese",
+              "ja": "サムヤン ホットチキンチーズ",
+              "price": 149,
+              "image": "assets/catalog/14/004.jpg"
+            },
+            {
+              "id": "13.8",
+              "th": "Samyang ชิคเก้นสตูว์",
+              "en": "Samyang Chicken Stew",
+              "ja": "サムヤン チキンスチュー",
+              "price": 149,
+              "image": "assets/catalog/14/006.jpg"
+            },
+            {
+              "id": "13.9",
+              "th": "Samyang ชิคเก้นคาโบนารา",
+              "en": "Samyang Chicken Carbonara",
+              "ja": "サムヤン チキンカルボナーラ",
+              "price": 149,
+              "image": "assets/catalog/14/011.jpg"
+            },
+            {
+              "id": "13.10",
+              "th": "Samyang Buldak Mala",
+              "en": "Samyang Buldak Mala",
+              "ja": "サムヤン ブルダックマーラー",
+              "price": 149,
+              "image": "assets/catalog/14/013.jpg"
+            },
+            {
+              "id": "13.11",
+              "th": "Samyang โรเซ่ราเม็ง",
+              "en": "Samyang Rose Ramen",
+              "ja": "サムヤン ロゼラーメン",
+              "price": 149,
+              "image": "assets/catalog/14/007.jpg"
+            },
+            {
+              "id": "13.12",
+              "th": "Nongshim ZHA WANG จาจัง",
+              "en": "Nongshim ZHA WANG Jajang",
+              "ja": "ノンシム チャーワン",
+              "price": 149,
+              "image": "assets/catalog/14/009.jpg"
+            },
+            {
+              "id": "13.13",
+              "th": "Nongshim Shin Spicy Kimchi",
+              "en": "Nongshim Shin Spicy Kimchi",
+              "ja": "ノンシム 辛キムチ",
+              "price": 149,
+              "image": "assets/catalog/14/003.jpg"
+            }
+          ],
+          "note": "Drive contains 13 noodle images. Mala hot pot and builder choices are data-only, so no media is fabricated."
+        },
+        {
+          "id": "14",
+          "th": "เครื่องดื่ม",
+          "en": "Drinks",
+          "ja": "ドリンク",
+          "items": [
+            {
+              "id": "14.1",
+              "th": "เอสเปรสโซ",
+              "en": "Espresso",
+              "ja": "エスプレッソ",
+              "price": 65,
+              "image": "assets/catalog/15/001.jpg"
+            },
+            {
+              "id": "14.2",
+              "th": "อเมริกาโน",
+              "en": "Americano",
+              "ja": "アメリカーノ",
+              "price": 65,
+              "image": "assets/catalog/15/002.jpg"
+            },
+            {
+              "id": "14.3",
+              "th": "คาปูชิโน",
+              "en": "Cappuccino",
+              "ja": "カプチーノ",
+              "price": 65,
+              "image": "assets/catalog/15/003.jpg"
+            },
+            {
+              "id": "14.4",
+              "th": "ชาไทย",
+              "en": "Thai Tea",
+              "ja": "タイティー",
+              "price": 50,
+              "image": "assets/catalog/15/004.jpg"
+            },
+            {
+              "id": "14.5",
+              "th": "ช็อกโกแลตเชค",
+              "en": "Chocolate Shake",
+              "ja": "チョコレートシェイク",
+              "price": 50,
+              "image": "assets/catalog/15/005.jpg"
+            },
+            {
+              "id": "14.6",
+              "th": "มิลค์เชค",
+              "en": "Milk Shake",
+              "ja": "ミルクシェイク",
+              "price": 50,
+              "image": "assets/catalog/15/006.jpg"
+            },
+            {
+              "id": "14.7",
+              "th": "โอรีโอเชค",
+              "en": "Oreo Shake",
+              "ja": "オレオシェイク",
+              "price": 50,
+              "image": "assets/catalog/15/007.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A5",
+      "label": "PT1–PT18 posters",
+      "media": [
+        {
+          "order": 1,
+          "title": "PT1",
+          "path": "assets/posters/005.png"
+        },
+        {
+          "order": 2,
+          "title": "PT2",
+          "path": "assets/posters/016.png"
+        },
+        {
+          "order": 3,
+          "title": "PT3",
+          "path": "assets/posters/003.png"
+        },
+        {
+          "order": 4,
+          "title": "PT4",
+          "path": "assets/posters/017.png"
+        },
+        {
+          "order": 5,
+          "title": "PT5",
+          "path": "assets/posters/013.png"
+        },
+        {
+          "order": 6,
+          "title": "PT6",
+          "path": "assets/posters/007.png"
+        },
+        {
+          "order": 7,
+          "title": "PT7",
+          "path": "assets/posters/010.png"
+        },
+        {
+          "order": 8,
+          "title": "PT8",
+          "path": "assets/posters/008.png"
+        },
+        {
+          "order": 9,
+          "title": "PT9",
+          "path": "assets/posters/011.png"
+        },
+        {
+          "order": 10,
+          "title": "PT10",
+          "path": "assets/posters/012.png"
+        },
+        {
+          "order": 11,
+          "title": "PT11",
+          "path": "assets/posters/014.png"
+        },
+        {
+          "order": 12,
+          "title": "PT12",
+          "path": "assets/posters/015.png"
+        },
+        {
+          "order": 13,
+          "title": "PT13",
+          "path": "assets/posters/004.png"
+        },
+        {
+          "order": 14,
+          "title": "PT14",
+          "path": "assets/posters/002.png"
+        },
+        {
+          "order": 15,
+          "title": "PT15",
+          "path": "assets/posters/018.png"
+        },
+        {
+          "order": 16,
+          "title": "PT16",
+          "path": "assets/posters/009.png"
+        },
+        {
+          "order": 17,
+          "title": "PT17",
+          "path": "assets/posters/001.png"
+        },
+        {
+          "order": 18,
+          "title": "PT18",
+          "path": "assets/posters/006.png"
+        }
+      ]
+    },
+    {
+      "id": "A6",
+      "label": "Story The End",
+      "media": [
+        {
+          "order": 1,
+          "title": "Story The End",
+          "driveId": "1oOrT73mOEn3r50FS_kB77cELm0EXXjg1",
+          "path": "assets/story/cream-story.jpeg",
+          "note": "Local optimized fallback; canonical Drive master remains authoritative."
+        }
+      ]
+    }
+  ],
+  "menuBuilder": {
+    "hotPot": [
+      {
+        "size": "S",
+        "price": 399
+      },
+      {
+        "size": "M",
+        "price": 499
+      },
+      {
+        "size": "L",
+        "price": 599
+      }
+    ],
+    "noodleSets": [
+      79,
+      99,
+      149,
+      199
+    ],
+    "toppings": {
+      "standard": 10,
+      "cheese": 15,
+      "count": 29
+    }
+  }
+}
