@@ -51,8 +51,8 @@ jobs:
       - name: Deploy Cloudflare Preview only
         uses: cloudflare/wrangler-action@v4
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN || secrets.CLOUDFLARE_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID || secrets.CLOUDFLARE_ACCOUNT }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           wranglerVersion: "4.129.1"
           command: pages deploy dist --project-name=ogenic-chocolate --branch=cf-preview-drive-a1-a6-20260908 --commit-dirty=true
