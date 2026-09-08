@@ -15,7 +15,6 @@ on:
   workflow_dispatch:
 
 permissions:
-  actions: read
   contents: read
   deployments: write
 
@@ -38,11 +37,6 @@ jobs:
 
       - name: Validate canonical A1-A6 workflow
         run: node scripts/validate-wf-sequence.mjs
-
-      - name: Diagnose available repository secret names
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh api repos/${GITHUB_REPOSITORY}/actions/secrets --jq '.secrets[].name'
 
       - name: Prepare static site
         shell: bash
