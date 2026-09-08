@@ -1,0 +1,58 @@
+name: Deploy Candy Drive A1-A6 Preview
+
+on:
+  push:
+    branches: [cf-preview-drive-a1-a6-20260908]
+    paths:
+      - index.html
+      - control-center.html
+      - chocolate-formulas.json
+      - assets/**
+      - wf-sequence.manifest.json
+      - scripts/validate-wf-sequence.mjs
+      - scripts/build-cloudflare-backup.mjs
+      - .github/workflows/deploy-cloudflare-preview.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  deployments: write
+
+concurrency:
+  group: cloudflare-pages-preview-drive-a1-a6
+  cancel-in-progress: true
+
+jobs:
+  validate-and-preview:
+    runs-on: ubuntu-latest
+    name: Validate A1-A6 and deploy Preview
+    steps:
+      - name: Checkout preview branch
+        uses: actions/checkout@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+
+      - name: Validate canonical A1-A6 workflow
+        run: node scripts/validate-wf-sequence.mjs
+
+      - name: Prepare static site
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist/assets
+          cp index.html control-center.html chocolate-formulas.json dist/
+          cp -R assets/. dist/assets/
+          node scripts/build-cloudflare-backup.mjs
+          touch dist/.nojekyll
+
+      - name: Deploy Cloudflare Preview only
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          wranglerVersion: "4.129.1"
+          command: pages deploy dist --project-name=ogenic-chocolate --branch=cf-preview-drive-a1-a6-20260908 --commit-dirty=true
