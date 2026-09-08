@@ -9,7 +9,7 @@ for(const step of required){
   for(const path of files||[]) if(!existsSync(path)) fail.push(`${step}: missing ${path}`);
 }
 const html=readFileSync("index.html","utf8");
-for(const token of ["assets/sequence/A3-story.png","assets/sequence/A6-story-end.png","PT18.jpg"]){if(!html.includes(token))fail.push(`index missing ${token}`)}
+for(const token of ["assets/sequence/A3-story.png","assets/sequence/A6-story-end.png","Array.from({length:18}"]){if(!html.includes(token))fail.push(`index missing ${token}`)}
 if(html.includes('"15"')) fail.push("legacy category 15 remains in index");
 if(fail.length){console.error(fail.join("\n"));process.exit(1)}
 console.log("Candy workflow A1-A6 verified");
