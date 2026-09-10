@@ -1,0 +1,51 @@
+name: Deploy 100-item Candy catalog to Worker
+
+on:
+  push:
+    branches:
+      - cf-preview-drive-a1-a6-20260908
+    paths:
+      - index.html
+      - wf-sequence.manifest.json
+      - wrangler.worker.toml
+      - assets/**
+      - scripts/validate-wf-sequence.mjs
+      - .github/workflows/deploy-bitter-shadow-worker.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bitter-shadow-464a-production
+  cancel-in-progress: true
+
+jobs:
+  validate-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Drive-canonical branch
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Validate A1-A6 and exact 100-item catalog
+        run: node scripts/validate-wf-sequence.mjs
+
+      - name: Prepare Worker static assets
+        shell: bash
+        run: |
+          mkdir -p dist
+          cp index.html dist/index.html
+          cp -R assets dist/assets
+
+      - name: Deploy existing bitter-shadow-464a Worker
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4.129.1"
+          command: deploy --config wrangler.worker.toml
