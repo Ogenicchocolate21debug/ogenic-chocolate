@@ -50,8 +50,26 @@
   const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
   const totalItems=CATALOG.reduce((sum,[,,items])=>sum+items.length,0);
   document.getElementById("catalog-total").textContent=totalItems;
+  const shioImages=[
+    "assets/bakery/01-shio-pan.jpg",
+    "assets/bakery/14-dark-chocolate.jpg",
+    "assets/bakery/16-charcoal-shio-pan.jpg",
+    "assets/bakery/05-banoffee.jpg",
+    "assets/bakery/13-blueberry-whipped-cream.jpg",
+    "assets/bakery/09-brownie-whipped-cream.jpg",
+    "assets/bakery/06-caramel-banana-crumble.jpg",
+    "assets/bakery/15-dark-chocolate-almond.jpg",
+    "assets/bakery/11-foi-thong-whipped-cream.jpg",
+    "assets/bakery/10-marshmallow-whipped-cream.jpg",
+    "assets/bakery/12-nutella-banana.jpg",
+    "assets/bakery/07-nutella-banana-crumble.jpg",
+    "assets/bakery/04-nutella-strawberry-crumble.jpg",
+    "assets/bakery/02-oreo-whipped-cream.jpg",
+    "assets/bakery/08-strawberry-whip-crumble.jpg",
+    "assets/bakery/03-strawberry-whipped-cream.jpg"
+  ];
   const hotPotImages=["assets/catalog/13/hotpot-small.jpg","assets/catalog/13/hotpot-medium.jpg","assets/catalog/13/hotpot-large.jpg"];
-  const mediaFor=(id,i)=>id==="13"?(i<3?hotPotImages[i]:`assets/catalog/13/${String(i-2).padStart(3,"0")}.jpg`):`assets/catalog/${id}/${String(i+1).padStart(3,"0")}.jpg`;
+  const mediaFor=(id,i)=>id==="01"?shioImages[i]:id==="13"?(i<3?hotPotImages[i]:`assets/catalog/13/${String(i-2).padStart(3,"0")}.jpg`):`assets/catalog/${id}/${String(i+1).padStart(3,"0")}.jpg`;
   const menu=document.getElementById("menu");
   menu.innerHTML=CATALOG.map(([id,meta,items])=>`<section class="category" id="c${id}"><div class="category-head"><div><p class="category-num">${id} · ${esc(meta[1].toUpperCase())}</p><h3>${esc(meta[0])}</h3><p class="category-ja">${esc(meta[2])}</p>${id==="10"?'<span class="price">Custom Cake 500–2,200 บาท</span>':''}</div><span class="count">${items.length} รายการ</span></div><div class="rail">${items.map((p,i)=>{const image=mediaFor(id,i),productId=`${id}.${i+1}`;return `<article class="card" data-product-id="${productId}" data-product-name="${esc(p[0])}" data-product-price="${esc(p[3])}" data-product-image="${image||''}">${image?`<img loading="lazy" src="${image}" alt="${esc(p[0])}">`:'<div class="card-placeholder">MALA HOT POT<br>DRIVE DATA</div>'}<div class="card-body"><h4 class="product-th">${esc(p[0])}</h4><p class="product-en">${esc(p[1])}</p><p class="product-ja">${esc(p[2])}</p><div class="card-foot"><span class="price">${p[3]==="สอบถาม"?p[3]:p[3]+" บาท"}</span>${p[3]==="สอบถาม"?`<a class="ask" href="${line}" target="_blank" rel="noopener">ทักสอบถาม ↗</a>`:'<button class="add-cart" type="button">+ ตะกร้า</button>'}</div></div></article>`}).join("")}</div></section>`).join("");
   document.getElementById("posters").innerHTML=POSTERS.map((p,i)=>`<img loading="lazy" src="${p}" alt="Candy Baked poster PT${i+1}">`).join("");
