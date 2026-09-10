@@ -1,6 +1,9 @@
 {
   "schema_version": 1,
   "workflow": "Candy Baked Factory website",
+  "display_product_count": 100,
+  "media_product_count": 97,
+  "text_only_product_count": 3,
   "canonical_sequence": ["A1", "A2", "A3", "A4", "A5", "A6"],
   "steps": {
     "A1": ["assets/website/hero.mp4"],
