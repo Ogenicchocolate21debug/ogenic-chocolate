@@ -9,7 +9,8 @@ for(const step of required){
   for(const path of files||[]) if(!existsSync(path)) fail.push(`${step}: missing ${path}`);
 }
 const html=readFileSync("index.html","utf8");
-for(const token of ["assets/sequence/A3-story.png","assets/sequence/A6-story-end.png","Array.from({length:18}"]){if(!html.includes(token))fail.push(`index missing ${token}`)}
+for(const token of ["assets/sequence/A3-story.png","assets/sequence/A6-story-end.png","Array.from({length:18}",".filter((_,i)=>i!==10)","hotpot-small.jpg","hotpot-medium.jpg","hotpot-large.jpg","line-logo"]){if(!html.includes(token))fail.push(`index missing ${token}`)}
+if(html.includes('POSTERS=Array.from({length:18}')&&!html.includes('.filter((_,i)=>i!==10)')) fail.push("PT11 poster must remain excluded");
 if(html.includes('"15"')) fail.push("legacy category 15 remains in index");
 const catalogMatch=html.match(/const CATALOG=(\[[\s\S]*?\n  \]);/);
 if(!catalogMatch) fail.push("index missing CATALOG data");

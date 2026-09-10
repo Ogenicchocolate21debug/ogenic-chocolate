@@ -2,15 +2,15 @@
   "schema_version": 1,
   "workflow": "Candy Baked Factory website",
   "display_product_count": 100,
-  "media_product_count": 97,
-  "text_only_product_count": 3,
+  "media_product_count": 100,
+  "text_only_product_count": 0,
   "canonical_sequence": ["A1", "A2", "A3", "A4", "A5", "A6"],
   "steps": {
     "A1": ["assets/website/hero.mp4"],
     "A2": ["assets/website/row2-1.png", "assets/website/row2-4.png", "assets/website/row2-3.png", "assets/website/row2-2.png"],
     "A3": ["assets/sequence/A3-story.png"],
     "A4": ["assets/catalog/01", "assets/catalog/02", "assets/catalog/03", "assets/catalog/04", "assets/catalog/05", "assets/catalog/06", "assets/catalog/07", "assets/catalog/08", "assets/catalog/09", "assets/catalog/10", "assets/catalog/11", "assets/catalog/12", "assets/catalog/13", "assets/catalog/14"],
-    "A5": ["assets/posters/PT01.jpg", "assets/posters/PT02.jpg", "assets/posters/PT03.jpg", "assets/posters/PT04.jpg", "assets/posters/PT05.jpg", "assets/posters/PT06.jpg", "assets/posters/PT07.jpg", "assets/posters/PT08.jpg", "assets/posters/PT09.jpg", "assets/posters/PT10.jpg", "assets/posters/PT11.png", "assets/posters/PT12.jpg", "assets/posters/PT13.jpg", "assets/posters/PT14.jpg", "assets/posters/PT15.jpg", "assets/posters/PT16.jpg", "assets/posters/PT17.jpg", "assets/posters/PT18.jpg"],
+    "A5": ["assets/posters/PT01.jpg", "assets/posters/PT02.jpg", "assets/posters/PT03.jpg", "assets/posters/PT04.jpg", "assets/posters/PT05.jpg", "assets/posters/PT06.jpg", "assets/posters/PT07.jpg", "assets/posters/PT08.jpg", "assets/posters/PT09.jpg", "assets/posters/PT10.jpg", "assets/posters/PT12.jpg", "assets/posters/PT13.jpg", "assets/posters/PT14.jpg", "assets/posters/PT15.jpg", "assets/posters/PT16.jpg", "assets/posters/PT17.jpg", "assets/posters/PT18.jpg"],
     "A6": ["assets/sequence/A6-story-end.png"]
   },
   "forbidden_legacy": ["A1-A5", "assets/catalog/15", "assets/story/baking-story.jpeg", "assets/story/cream-story.jpeg"]
